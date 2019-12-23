@@ -36,17 +36,109 @@
 # SPDX-License-Identifier: Apache-2.0
 # ============================================================================
 #
+from enum import Enum, unique
+
+
 __api__ = [
 	'Terminal',
+	'Severity',
+	'Line',
+	'ILineTerminal',
+	'LineTerminal',
 ]
 __all__ = __api__
 
 from platform       import system as platform_system
 
+
 class Terminal:
+	try:
+		from colorama import Fore as Foreground
+		Foreground = {
+			"RED":          Foreground.LIGHTRED_EX,
+			"DARK_RED":		  Foreground.RED,
+			"GREEN":        Foreground.LIGHTGREEN_EX,
+			"DARK_GREEN":   Foreground.GREEN,
+			"YELLOW":       Foreground.LIGHTYELLOW_EX,
+			"DARK_YELLOW":  Foreground.YELLOW,
+			"MAGENTA":      Foreground.LIGHTMAGENTA_EX,
+			"BLUE":         Foreground.LIGHTBLUE_EX,
+			"CYAN":         Foreground.LIGHTCYAN_EX,
+			"DARK_CYAN":    Foreground.CYAN,
+			"GRAY":         Foreground.WHITE,
+			"DARK_GRAY":    Foreground.LIGHTBLACK_EX,
+			"WHITE":        Foreground.LIGHTWHITE_EX,
+			"NOCOLOR":      Foreground.RESET,
+
+			"HEADLINE":     Foreground.LIGHTMAGENTA_EX,
+			"ERROR":        Foreground.LIGHTRED_EX,
+			"WARNING":      Foreground.LIGHTYELLOW_EX
+		}
+	except:
+		Foreground = {
+			"RED":         "",
+			"DARK_RED":    "",
+			"GREEN":       "",
+			"DARK_GREEN":  "",
+			"YELLOW":      "",
+			"DARK_YELLOW": "",
+			"MAGENTA":     "",
+			"BLUE":        "",
+			"CYAN":        "",
+			"DARK_CYAN":   "",
+			"GRAY":        "",
+			"DARK_GRAY":   "",
+			"WHITE":       "",
+			"NOCOLOR":     "",
+
+			"HEADLINE":    "",
+			"ERROR":       "",
+			"WARNING":     ""
+		}
+
+	_width  : int = None
+	_height : int = None
+
+	def __init__(self):
+		self.initColors()
+		(self._width, self._height) = self.GetTerminalSize()
+
+	@classmethod
+	def initColors(cls):
+		try:
+			from colorama import init
+
+			init()#strip=False)
+		except:
+			pass
+
+	@classmethod
+	def deinitColors(cls):
+		try:
+			from colorama import deinit
+
+			deinit()
+		except:
+			pass
+
+	@classmethod
+	def exit(cls, returnCode=0):
+		cls.deinitColors()
+		exit(returnCode)
+
+	@property
+	def Width(self):
+		return self._width
+
+	@property
+	def Height(self):
+		return self._height
+
 	@staticmethod
 	def GetTerminalSize():
 		"""Returns the terminal size as tuple (width, height) for Windows, Mac OS (Darwin), Linux, cygwin (Windows), MinGW32/64 (Windows)."""
+		size = None
+
 		platform = platform_system()
 		if (platform == "Windows"):
 			size = Terminal.__GetTerminalSizeOnWindows()
@@ -55,6 +147,7 @@ class Terminal:
 		      platform.startswith("MINGW32") or
 		      platform.startswith("MINGW64")):
 			size = Terminal.__GetTerminalSizeOnLinux()
+
 		if (size is None):
 			size = (80, 25) # default size
 		return size
@@ -122,5 +215,223 @@ class Terminal:
 		except:
 			pass
 
-class LineTerminal(Terminal):
-	pass
+
+@unique
+class Severity(Enum):
+	"""Logging message severity levels."""
+	Fatal =     30
+	Error =     25
+	Quiet =     20
+	Warning =   15
+	Info =      10
+	DryRun =     5
+	Normal =     4
+	Verbose =    2
+	Debug =      1
+	All =        0
+
+	def __hash__(self):
+		return hash(self.name)
+
+	def __eq__(self, other):    return self.value ==  other.value
+	def __ne__(self, other):    return self.value !=  other.value
+	def __lt__(self, other):    return self.value <		other.value
+	def __le__(self, other):    return self.value <=  other.value
+	def __gt__(self, other):    return self.value >		other.value
+	def __ge__(self, other):    return self.value >=  other.value
+
+
+class Line:
+	"""Represents a single line message with a severity and indentation level."""
+	def __init__(self, message, severity=Severity.Normal, indent=0, appendLinebreak=True):
+		self._severity =        severity
+		self._message =         message
+		self._indent =          indent
+		self.AppendLinebreak =  appendLinebreak
+
+	_LOG_MESSAGE_FORMAT__ = {
+		Severity.Fatal:     "FATAL: {message}",
+		Severity.Error:     "ERROR: {message}",
+		Severity.Warning:   "WARNING: {message}",
+		Severity.Info:      "INFO: {message}",
+		Severity.Quiet:     "{message}",
+		Severity.Normal:    "{message}",
+		Severity.Verbose:   "VERBOSE: {message}",
+		Severity.Debug:     "DEBUG: {message}",
+		Severity.DryRun:    "DRYRUN: {message}"
+	}
+
+	@property
+	def Severity(self):
+		"""Return the line's severity level."""
+		return self._severity
+
+	@property
+	def Indent(self):
+		"""Return the line's indentation level."""
+		return self._indent
+
+	@property
+	def Message(self):
+		"""Return the indented line."""
+		return ("  " * self._indent) + self._message
+
+	def IndentBy(self, indent):
+		"""Increase a line's indentation level."""
+		self._indent += indent
+
+	def __str__(self):
+		return self._LOG_MESSAGE_FORMAT__[self._severity].format(message=self._message)
+
+
+class ILineTerminal:
+	"""A mixin class to provide local terminal writing methods."""
+	_terminal = None
+
+	def __init__(self, terminal=None):
+		"""MixIn initializer."""
+		self._terminal = terminal
+
+		# FIXME: Alter methods if a terminal is present or set dummy methods
+
+	@property
+	def Terminal(self):
+		"""Return the local terminal instance."""
+		return self._terminal
+
+	def WriteLine(self, line : Line, condition=True):
+		"""Write an entry to the local terminal."""
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteLine(line)
+		return False
+
+	# def _TryWriteLine(self, *args, condition=True, **kwargs):
+	# 	if ((self._terminal is not None) and condition):
+	# 		return self._terminal.TryWrite(*args, **kwargs)
+	# 	return False
+
+	def WriteFatal(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteFatal(*args, **kwargs)
+		return False
+
+	def WriteError(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteError(*args, **kwargs)
+		return False
+
+	def WriteWarning(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteWarning(*args, **kwargs)
+		return False
+
+	def WriteInfo(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteInfo(*args, **kwargs)
+		return False
+
+	def WriteQuiet(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteQuiet(*args, **kwargs)
+		return False
+
+	def WriteNormal(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteNormal(*args, **kwargs)
+		return False
+
+	def WriteVerbose(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteVerbose(*args, **kwargs)
+		return False
+
+	def WriteDebug(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteDebug(*args, **kwargs)
+		return False
+
+	def WriteDryRun(self, *args, condition=True, **kwargs):
+		if ((self._terminal is not None) and condition):
+			return self._terminal.WriteDryRun(*args, **kwargs)
+		return False
+
+
+class LineTerminal(Terminal, ILineTerminal):
+	def __init__(self, writeLevel, writeToStdOut=True):
+		"""Initializer of a line based terminal interface."""
+
+		Terminal.__init__(self)
+		ILineTerminal.__init__(self, self)
+
+		self._WriteLevel =      writeLevel
+		self._writeToStdOut =   writeToStdOut
+		self._lines =           []
+		self._baseIndent =      0
+
+
+	@property
+	def LogLevel(self):
+		"""Return the current minimal severity level for writing."""
+		return self._WriteLevel
+	@LogLevel.setter
+	def LogLevel(self, value):
+		"""Set the minimal severity level for writing."""
+		self._WriteLevel = value
+
+	@property
+	def BaseIndent(self):
+		return self._baseIndent
+	@BaseIndent.setter
+	def BaseIndent(self, value):
+		self._baseIndent = value
+
+	_LOG_MESSAGE_FORMAT__ = {
+		Severity.Fatal:   "{DARK_RED}{message}{NOCOLOR}",
+		Severity.Error:   "{RED}{message}{NOCOLOR}",
+		Severity.Quiet:   "{WHITE}{message}{NOCOLOR}",
+		Severity.Warning: "{YELLOW}{message}{NOCOLOR}",
+		Severity.Info:    "{WHITE}{message}{NOCOLOR}",
+		Severity.DryRun:  "{DARK_CYAN}{message}{NOCOLOR}",
+		Severity.Normal:  "{WHITE}{message}{NOCOLOR}",
+		Severity.Verbose: "{GRAY}{message}{NOCOLOR}",
+		Severity.Debug:   "{DARK_GRAY}{message}{NOCOLOR}"
+	}
+
+	def WriteLine(self, line : Line):
+		if (line.Severity >= self._WriteLevel):
+			self._lines.append(line)
+			if self._writeToStdOut:
+				print(self._LOG_MESSAGE_FORMAT__[line.Severity].format(message=line.Message, **self.Foreground), end="\n" if line.AppendLinebreak else "")
+			return True
+		else:
+			return False
+
+	def TryWriteLine(self, line):
+		return (line.Severity >= self._WriteLevel)
+
+	def WriteFatal(self, message, indent=0, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.Fatal, self._baseIndent + indent, appendLinebreak))
+
+	def WriteError(self, message, indent=0, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.Error, self._baseIndent + indent, appendLinebreak))
+
+	def WriteWarning(self, message, indent=0, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.Warning, self._baseIndent + indent, appendLinebreak))
+
+	def WriteInfo(self, message, indent=0, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.Info, self._baseIndent + indent, appendLinebreak))
+
+	def WriteQuiet(self, message, indent=0, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.Quiet, self._baseIndent + indent, appendLinebreak))
+
+	def WriteNormal(self, message, indent=0, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.Normal, self._baseIndent + indent, appendLinebreak))
+
+	def WriteVerbose(self, message, indent=1, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.Verbose, self._baseIndent + indent, appendLinebreak))
+
+	def WriteDebug(self, message, indent=2, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.Debug, self._baseIndent + indent, appendLinebreak))
+
+	def WriteDryRun(self, message, indent=2, appendLinebreak=True):
+		return self.WriteLine(Line(message, Severity.DryRun, self._baseIndent + indent, appendLinebreak))
