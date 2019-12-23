@@ -1,7 +1,7 @@
 ![PyPI - License](https://img.shields.io/pypi/l/pyTerminalUI)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Paebbels/pyTerminalUI) 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Paebbels/pyTerminalUI)
-[![Documentation Status](https://readthedocs.org/projects/pyTerminalUI/badge/?version=latest)](https://pyTerminalUI.readthedocs.io/en/latest/?badge=latest)  
+[![Documentation Status](https://readthedocs.org/projects/pyterminalui/badge/?version=latest)](https://pyterminalui.readthedocs.io/en/latest/?badge=latest)
 [![PyPI](https://img.shields.io/pypi/v/pyTerminalUI)](https://pypi.org/project/pyTerminalUI/)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyTerminalUI)
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/pyTerminalUI)
