@@ -59,6 +59,7 @@ class Application(LineTerminal):
 
 # entry point
 if __name__ == "__main__":
+	Application.versionCheck((3,6,0))
 	app = Application()
 	app.run()
 	app.exit()

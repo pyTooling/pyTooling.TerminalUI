@@ -126,6 +126,90 @@ class Terminal:
 		cls.deinitColors()
 		exit(returnCode)
 
+	@classmethod
+	def versionCheck(cls, version):
+		from sys import version_info
+
+		if (version_info < version):
+			cls.initColors()
+
+			print("{RED}ERROR:{NOCOLOR} Used Python interpreter ({major}.{minor}.{micro}-{level}) is to old.".format(
+				major=version_info.major,
+				minor=version_info.minor,
+				micro=version_info.micro,
+				level=version_info.releaselevel,
+				**cls.Foreground
+			))
+			print("  Minimal required Python version is {major}.{minor}.{micro}".format(
+				major=version[0],
+				minor=version[1],
+				micro=version[2]
+			))
+
+			cls.exit(1)
+
+	@classmethod
+	def printException(cls, ex):
+		from traceback import print_tb, walk_tb
+
+		cls.initColors()
+
+		print("{RED}FATAL: An unknown or unhandled exception reached the topmost exception handler!{NOCOLOR}".format(**cls.Foreground))
+		print("{YELLOW}  Exception type:{NOCOLOR}      {typename}".format(typename=ex.__class__.__name__, **cls.Foreground))
+		print("{YELLOW}  Exception message:{NOCOLOR}   {message!s}".format(message=ex, **cls.Foreground))
+		frame, sourceLine = [x for x in walk_tb(ex.__traceback__)][-1]
+		filename = frame.f_code.co_filename
+		funcName = frame.f_code.co_name
+		print("{YELLOW}  Caused in:{NOCOLOR}           {function} in file '{filename}' at line {line}".format(
+			function=funcName,
+			filename=filename,
+			line=sourceLine,
+			**cls.Foreground
+		))
+		if (ex.__cause__ is not None):
+			print("{DARK_YELLOW}    Caused by type:{NOCOLOR}    {typename}".format(typename=ex.__cause__.__class__.__name__, **cls.Foreground))
+			print("{DARK_YELLOW}    Caused by message:{NOCOLOR} {message!s}".format(message=ex.__cause__, **cls.Foreground))
+		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
+		print_tb(ex.__traceback__)
+		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://github.com/VLSI-EDA/pyIPCMI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
+
+		cls.exit(1)
+
+	@classmethod
+	def printNotImplementedError(cls, ex):
+		from traceback import walk_tb
+
+		cls.initColors()
+
+		frame, _ = [x for x in walk_tb(ex.__traceback__)][-1]
+		filename = frame.f_code.co_filename
+		funcName = frame.f_code.co_name
+		print("{RED}NOT IMPLEMENTED:{NOCOLOR} {function} in file '{filename}': {message!s}".format(
+			function=funcName,
+		  filename=filename,
+		  message=ex,
+		  **cls.Foreground
+		))
+		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://github.com/Paebbels/pyTerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
+
+		cls.exit(1)
+
+	@classmethod
+	def printExceptionBase(cls, ex):
+		cls.initColors()
+
+		print("{RED}FATAL: A known but unhandled exception reached the topmost exception handler!{NOCOLOR}".format(**cls.Foreground))
+		print("{RED}ERROR:{NOCOLOR} {message}".format(message=ex.message, **cls.Foreground))
+		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://github.com/Paebbels/pyTerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
+
+		cls.exit(1)
+
 	@property
 	def Width(self):
 		return self._width
