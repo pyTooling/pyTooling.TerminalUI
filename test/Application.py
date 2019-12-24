@@ -46,7 +46,7 @@ from pyTerminalUI import LineTerminal, Severity
 
 class Application(LineTerminal):
 	def __init__(self):
-		super().__init__(Severity.All)
+		super().__init__(verbose=True, debug=True, quiet=False)
 
 	def run(self):
 		self.WriteQuiet("This is a quiet message.")

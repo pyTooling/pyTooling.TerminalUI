@@ -22,6 +22,11 @@ Updating using PIP
 
    pip3 install -U pyTerminalUI
 
+Dependencies
+************
+
+* pyMetaClasses
+
 ------------------------------------
 
 .. |docdate| date:: %b %d, %Y - %H:%M
@@ -37,10 +42,10 @@ Updating using PIP
 
 
 .. toctree::
-   :caption: CallBy Classes
+   :caption: pyTerminalUI Classes
    :hidden:
 
-   pyCallBy
+   pyTerminalUI
 
 
 .. toctree::

@@ -38,6 +38,8 @@
 #
 from enum import Enum, unique
 
+from pyMetaClasses import Singleton
+
 
 __api__ = [
 	'Terminal',
@@ -442,7 +444,7 @@ class ILineTerminal:
 		return False
 
 
-class LineTerminal(Terminal, ILineTerminal):
+class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 	def __init__(self, verbose=False, debug=False, quiet=False, writeToStdOut=True):
 		"""Initializer of a line based terminal interface."""
 
