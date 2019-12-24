@@ -1,6 +1,7 @@
 language: python
 
-install: skip
+install:
+  - pip3 install -U -r requirements.txt
 
 # if: tag IS present
 
