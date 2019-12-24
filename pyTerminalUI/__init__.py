@@ -455,7 +455,7 @@ class LineTerminal(Terminal, ILineTerminal):
 
 		if quiet:
 			self._WriteLevel = Severity.Quiet
-		elif debug
+		elif debug:
 			self._WriteLevel = Severity.Debug
 		elif verbose:
 			self._WriteLevel = Severity.Verbose
