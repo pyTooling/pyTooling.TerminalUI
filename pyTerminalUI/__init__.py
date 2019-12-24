@@ -451,22 +451,22 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 		Terminal.__init__(self)
 		ILineTerminal.__init__(self, self)
 
-		self._verbose =         verbose
-		self._debug =           debug
-		self._quiet =           quiet
+		self._verbose =       True if debug else verbose
+		self._debug =         debug
+		self._quiet =         quiet
 
 		if quiet:
-			self._WriteLevel = Severity.Quiet
+			self._WriteLevel =  Severity.Quiet
 		elif debug:
-			self._WriteLevel = Severity.Debug
+			self._WriteLevel =  Severity.Debug
 		elif verbose:
-			self._WriteLevel = Severity.Verbose
+			self._WriteLevel =  Severity.Verbose
 		else:
-			self._WriteLevel = Severity.Normal
+			self._WriteLevel =  Severity.Normal
 
-		self._writeToStdOut =   writeToStdOut
-		self._lines =           []
-		self._baseIndent =      0
+		self._writeToStdOut = writeToStdOut
+		self._lines =         []
+		self._baseIndent =    0
 
 	@property
 	def Verbose(self):
