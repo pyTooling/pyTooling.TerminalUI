@@ -26,7 +26,7 @@ copyright = '2007-2019, Patrick Lehmann'
 author = 'Patrick Lehmann'
 
 # The full version, including alpha/beta/rc tags
-release = 'v1.1'
+release = 'v1.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -86,8 +86,17 @@ html_static_path = ['_static']
 # Sphinx.Ext.InterSphinx
 # ==============================================================================
 intersphinx_mapping = {
-	'python':   ('https://docs.python.org/3', None),
+	'python':         ('https://docs.python.org/3', None),
+	'pyExceptions':   ('http://pyExceptions.readthedocs.io/en/latest', None),
+	'pyMetaClasses':  ('http://pyMetaClasses.readthedocs.io/en/latest', None),
 }
+
+
+# ==============================================================================
+# Sphinx.Ext.AutoDoc
+# ==============================================================================
+# see: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration
+autodoc_member_order = "bysource"       # alphabetical, groupwise, bysource
 
 
 # ==============================================================================

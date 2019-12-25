@@ -76,7 +76,7 @@ class Terminal:
 			"HEADLINE":     Foreground.LIGHTMAGENTA_EX,
 			"ERROR":        Foreground.LIGHTRED_EX,
 			"WARNING":      Foreground.LIGHTYELLOW_EX
-		}
+		}                 #: Terminal colors
 	except:
 		Foreground = {
 			"RED":         "",
@@ -98,17 +98,26 @@ class Terminal:
 			"HEADLINE":    "",
 			"ERROR":       "",
 			"WARNING":     ""
-		}
+		}                 #: Terminal colors
 
-	_width  : int = None
-	_height : int = None
+	_width  : int = None      #: Terminal width in characters
+	_height : int = None      #: Terminal height in characters
 
 	def __init__(self):
+		"""
+		Initialize a terminal.
+
+		If the Python package `colorama <https://pypi.org/project/colorama/>`_ [#f_colorama]_ is available, then initialize it for colored outputs.
+
+		.. [#f_colorama] Colorama on Github: https://github.com/tartley/colorama
+		"""
+
 		self.initColors()
 		(self._width, self._height) = self.GetTerminalSize()
 
 	@classmethod
 	def initColors(cls):
+		"""Initialize the terminal for color support by colorama."""
 		try:
 			from colorama import init
 
@@ -118,6 +127,7 @@ class Terminal:
 
 	@classmethod
 	def deinitColors(cls):
+		"""Uninitialize the terminal for color support by colorama."""
 		try:
 			from colorama import deinit
 
@@ -127,11 +137,14 @@ class Terminal:
 
 	@classmethod
 	def exit(cls, returnCode=0):
+		"""Exit the terminal application by uninitializing color support and returning an exit code."""
 		cls.deinitColors()
 		exit(returnCode)
 
 	@classmethod
 	def versionCheck(cls, version):
+		"""Check if the used Python interpreter fulfills the minimum version requirements."""
+
 		from sys import version_info
 
 		if (version_info < version):
@@ -154,6 +167,8 @@ class Terminal:
 
 	@classmethod
 	def printException(cls, ex):
+		"""Prints an exception of type :exc:`Exception`."""
+
 		from traceback import print_tb, walk_tb
 
 		cls.initColors()
@@ -183,6 +198,8 @@ class Terminal:
 
 	@classmethod
 	def printNotImplementedError(cls, ex):
+		"""Prints a not-implemented exception of type :exc:`NotImplementedError`."""
+
 		from traceback import walk_tb
 
 		cls.initColors()
@@ -216,15 +233,21 @@ class Terminal:
 
 	@property
 	def Width(self):
+		"""Returns the current terminal window's width."""
 		return self._width
 
 	@property
 	def Height(self):
+		"""Returns the current terminal window's height."""
 		return self._height
 
 	@staticmethod
 	def GetTerminalSize():
-		"""Returns the terminal size as tuple (width, height) for Windows, Mac OS (Darwin), Linux, cygwin (Windows), MinGW32/64 (Windows)."""
+		"""
+		Returns the terminal size as tuple (width, height) for Windows, Mac OS
+		(Darwin), Linux, cygwin (Windows), MinGW32/64 (Windows).
+		"""
+
 		size = None
 
 		platform = platform_system()
@@ -242,6 +265,8 @@ class Terminal:
 
 	@staticmethod
 	def __GetTerminalSizeOnWindows():
+		"""Returns the current terminal window's size for Windows."""
+
 		try:
 			from ctypes import windll, create_string_buffer
 			from struct import unpack as struct_unpack
@@ -260,7 +285,21 @@ class Terminal:
 		return Terminal.__GetTerminalSizeWithTPut()
 
 	@staticmethod
+	def __GetTerminalSizeWithTPut():
+		from shlex      import split as shlex_split
+		from subprocess import check_output
+
+		try:
+			width =   int(check_output(shlex_split('tput cols')))
+			height =  int(check_output(shlex_split('tput lines')))
+			return (width, height)
+		except:
+			pass
+
+	@staticmethod
 	def __GetTerminalSizeOnLinux():
+		"""Returns the current terminal window's size for Linux."""
+
 		import os
 
 		def ioctl_GWINSZ(fd):
@@ -291,32 +330,21 @@ class Terminal:
 				return None
 		return (int(cr[1]), int(cr[0]))
 
-	@staticmethod
-	def __GetTerminalSizeWithTPut():
-		from shlex      import split as shlex_split
-		from subprocess import check_output
-
-		try:
-			width =   int(check_output(shlex_split('tput cols')))
-			height =  int(check_output(shlex_split('tput lines')))
-			return (width, height)
-		except:
-			pass
-
 
 @unique
 class Severity(Enum):
 	"""Logging message severity levels."""
-	Fatal =     30
-	Error =     25
-	Quiet =     20
-	Warning =   15
-	Info =      10
-	DryRun =     5
-	Normal =     4
-	Verbose =    2
-	Debug =      1
-	All =        0
+
+	Fatal =     30    #: Fatal messages
+	Error =     25    #: Error messages
+	Quiet =     20    #: Always visible messages, even in quiet mode.
+	Warning =   15    #: Warning messages
+	Info =      10    #: Informative messages
+	DryRun =     5    #: Messages visible in a dry-run
+	Normal =     4    #: Normal messages
+	Verbose =    2    #: Verbose messages
+	Debug =      1    #: Debug messages
+	All =        0    #: All messages
 
 	def __hash__(self):
 		return hash(self.name)
@@ -331,11 +359,6 @@ class Severity(Enum):
 
 class Line:
 	"""Represents a single line message with a severity and indentation level."""
-	def __init__(self, message, severity=Severity.Normal, indent=0, appendLinebreak=True):
-		self._severity =        severity
-		self._message =         message
-		self._indent =          indent
-		self.AppendLinebreak =  appendLinebreak
 
 	_LOG_MESSAGE_FORMAT__ = {
 		Severity.Fatal:     "FATAL: {message}",
@@ -347,7 +370,16 @@ class Line:
 		Severity.Verbose:   "VERBOSE: {message}",
 		Severity.Debug:     "DEBUG: {message}",
 		Severity.DryRun:    "DRYRUN: {message}"
-	}
+	}                     #: Terminal messages formatting rules
+
+	def __init__(self, message, severity=Severity.Normal, indent=0, appendLinebreak=True):
+		"""Constructor for a new ``Line`` object."""
+
+		self._severity =        severity
+		self._message =         message
+		self._indent =          indent
+		self.AppendLinebreak =  appendLinebreak
+
 
 	@property
 	def Severity(self):
@@ -369,15 +401,18 @@ class Line:
 		self._indent += indent
 
 	def __str__(self):
+		"""Returns a formatted version of a ``Line`` objects as a string."""
 		return self._LOG_MESSAGE_FORMAT__[self._severity].format(message=self._message)
 
 
 class ILineTerminal:
-	"""A mixin class to provide local terminal writing methods."""
+	"""A mixin class (interface) to provide class-local terminal writing methods."""
+
 	_terminal = None
 
 	def __init__(self, terminal=None):
 		"""MixIn initializer."""
+
 		self._terminal = terminal
 
 		# FIXME: Alter methods if a terminal is present or set dummy methods
@@ -389,6 +424,7 @@ class ILineTerminal:
 
 	def WriteLine(self, line : Line, condition=True):
 		"""Write an entry to the local terminal."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteLine(line)
 		return False
@@ -399,46 +435,64 @@ class ILineTerminal:
 	# 	return False
 
 	def WriteFatal(self, *args, condition=True, **kwargs):
+		"""Write a fatal message if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteFatal(*args, **kwargs)
 		return False
 
 	def WriteError(self, *args, condition=True, **kwargs):
+		"""Write an error message if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteError(*args, **kwargs)
 		return False
 
 	def WriteWarning(self, *args, condition=True, **kwargs):
+		"""Write a warning message if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteWarning(*args, **kwargs)
 		return False
 
 	def WriteInfo(self, *args, condition=True, **kwargs):
+		"""Write a info message if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteInfo(*args, **kwargs)
 		return False
 
 	def WriteQuiet(self, *args, condition=True, **kwargs):
+		"""Write a message even in quiet mode if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteQuiet(*args, **kwargs)
 		return False
 
 	def WriteNormal(self, *args, condition=True, **kwargs):
+		"""Write a *normal* message if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteNormal(*args, **kwargs)
 		return False
 
 	def WriteVerbose(self, *args, condition=True, **kwargs):
+		"""Write a verbose message if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteVerbose(*args, **kwargs)
 		return False
 
 	def WriteDebug(self, *args, condition=True, **kwargs):
+		"""Write a debug message if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteDebug(*args, **kwargs)
 		return False
 
 	def WriteDryRun(self, *args, condition=True, **kwargs):
+		"""Write a dry-run message if ``condition`` is true."""
+
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteDryRun(*args, **kwargs)
 		return False
@@ -470,12 +524,17 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 
 	@property
 	def Verbose(self):
+		"""Returns true, if verbose messages are enabled."""
 		return self._verbose
+
 	@property
 	def Debug(self):
+		"""Returns true, if debug messages are enabled."""
 		return self._debug
+
 	@property
 	def Quiet(self):
+		"""Returns true, if quiet mode is enabled."""
 		return self._quiet
 
 	@property
@@ -504,9 +563,11 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 		Severity.Normal:  "{WHITE}{message}{NOCOLOR}",
 		Severity.Verbose: "{GRAY}{message}{NOCOLOR}",
 		Severity.Debug:   "{DARK_GRAY}{message}{NOCOLOR}"
-	}
+	}                   #: Message formatting rules.
 
 	def WriteLine(self, line : Line):
+		"""Print a formatted line to the underlying terminal/console offered by the operating system."""
+
 		if (line.Severity >= self._WriteLevel):
 			self._lines.append(line)
 			if self._writeToStdOut:

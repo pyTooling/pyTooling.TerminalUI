@@ -1,1 +1,2 @@
+pyExceptions>=0.1.11
 pyMetaClasses>=1.0.0
