@@ -6,5 +6,6 @@ line is visible, depends on the :class:`~pyTerminalUI.Severity`-level of a
 ``Line`` object.
 
 .. autoclass:: pyTerminalUI.Line
+   :show-inheritance:
    :members:
    :private-members:
