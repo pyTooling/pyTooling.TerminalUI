@@ -1,4 +1,4 @@
-[![PyPI - License](https://img.shields.io/pypi/l/pyTerminalUI?logo=PyPI)](LICENSE.md)
+[![License](https://img.shields.io/badge/Apache%20License,%202.0-bd0000.svg?longCache=true&label=code%20license&logo=Apache&logoColor=D22128)](LICENSE.md)
 [![GitHub tag (latest SemVer incl. pre-release)](https://img.shields.io/github/v/tag/Paebbels/pyTerminalUI?logo=GitHub&include_prereleases)](https://github.com/Paebbels/pyTerminalUI/tags)
 [![GitHub release (latest SemVer incl. including pre-releases)](https://img.shields.io/github/v/release/Paebbels/pyTerminalUI?logo=GitHub&include_prereleases)](https://github.com/Paebbels/pyTerminalUI/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/Paebbels/pyTerminalUI?logo=GitHub&)](https://github.com/Paebbels/pyTerminalUI/releases)
@@ -12,6 +12,8 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8a1b6e33d564f82927235e17fb26e93)](https://www.codacy.com/manual/Paebbels/pyTerminalUI)
 [![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/pypi/pyTerminalUI)](https://libraries.io/github/Paebbels/pyTerminalUI/sourcerank)
 [![Read the Docs](https://img.shields.io/readthedocs/pyterminalui)](https://pyTerminalUI.readthedocs.io/en/latest/)
+
+<!-- [![Documentation License](https://img.shields.io/badge/Attribution--4.0-66b0d3.svg?longCache=true&label=Creative%20Commons&logo=creative%20commons&logoColor=fff)] (https://pyTerminalUI.readthedocs.io/en/latest/) -->
 
 # pyTerminalUI
 
