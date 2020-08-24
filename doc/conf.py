@@ -22,11 +22,11 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'pyTerminalUI'
-copyright = '2007-2019, Patrick Lehmann'
+copyright = '2007-2020, Patrick Lehmann'
 author = 'Patrick Lehmann'
 
 # The full version, including alpha/beta/rc tags
-release = 'v1.2'
+release = 'v1.3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,17 +41,27 @@ extensions = [
 	"sphinx.ext.autodoc",
 	'sphinx.ext.extlinks',
 	'sphinx.ext.intersphinx',
-	'sphinx.ext.inheritance_diagram',
+	#	'sphinx.ext.inheritance_diagram',
 	'sphinx.ext.todo',
-	'sphinx.ext.graphviz',
+	#	'sphinx.ext.graphviz',
 	'sphinx.ext.mathjax',
 	'sphinx.ext.ifconfig',
 	'sphinx.ext.viewcode',
-# SphinxContrib extensions
+	#	'sphinx.ext.duration',
 
-# Other extensions
-#	'DocumentMember',
-# local extensions (patched)
+	# SphinxContrib extensions
+
+	# BuildTheDocs extensions
+	'btd.sphinx.autoprogram',
+	'btd.sphinx.graphviz',
+	'btd.sphinx.inheritance_diagram',
+
+	# Other extensions
+	#	'DocumentMember',
+	'sphinx_fontawesome',
+	'sphinx_autodoc_typehints',
+
+	# local extensions (patched)
 
 # local extensions
 ]
@@ -114,3 +124,12 @@ extlinks = {
 # Sphinx.Ext.Graphviz
 # ==============================================================================
 graphviz_output_format = "svg"
+
+
+
+# ==============================================================================
+# Sphinx.Ext.ToDo
+# ==============================================================================
+# If true, `todo` and `todoList` produce output, else they produce nothing.
+todo_include_todos = True
+todo_link_only = True

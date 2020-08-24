@@ -136,7 +136,7 @@ class Terminal:
 			pass
 
 	@classmethod
-	def exit(cls, returnCode=0):
+	def exit(cls, returnCode:int =0):
 		"""Exit the terminal application by uninitializing color support and returning an exit code."""
 		cls.deinitColors()
 		exit(returnCode)
@@ -174,24 +174,24 @@ class Terminal:
 		cls.initColors()
 
 		print("{RED}FATAL: An unknown or unhandled exception reached the topmost exception handler!{NOCOLOR}".format(**cls.Foreground))
-		print("{YELLOW}  Exception type:{NOCOLOR}      {typename}".format(typename=ex.__class__.__name__, **cls.Foreground))
-		print("{YELLOW}  Exception message:{NOCOLOR}   {message!s}".format(message=ex, **cls.Foreground))
+		print("  {YELLOW}Exception type:{NOCOLOR}      {typename}".format(typename=ex.__class__.__name__, **cls.Foreground))
+		print("  {YELLOW}Exception message:{NOCOLOR}   {message!s}".format(message=ex, **cls.Foreground))
 		frame, sourceLine = [x for x in walk_tb(ex.__traceback__)][-1]
 		filename = frame.f_code.co_filename
 		funcName = frame.f_code.co_name
-		print("{YELLOW}  Caused in:{NOCOLOR}           {function} in file '{filename}' at line {line}".format(
+		print("  {YELLOW}Caused in:{NOCOLOR}           {function} in file '{filename}' at line {line}".format(
 			function=funcName,
 			filename=filename,
 			line=sourceLine,
 			**cls.Foreground
 		))
 		if (ex.__cause__ is not None):
-			print("{DARK_YELLOW}    Caused by type:{NOCOLOR}    {typename}".format(typename=ex.__cause__.__class__.__name__, **cls.Foreground))
-			print("{DARK_YELLOW}    Caused by message:{NOCOLOR} {message!s}".format(message=ex.__cause__, **cls.Foreground))
+			print("    {DARK_YELLOW}Caused by type:{NOCOLOR}    {typename}".format(typename=ex.__cause__.__class__.__name__, **cls.Foreground))
+			print("    {DARK_YELLOW}Caused by message:{NOCOLOR} {message!s}".format(message=ex.__cause__, **cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 		print_tb(ex.__traceback__)
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/VLSI-EDA/pyIPCMI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://github.com/Paebbels/pyTerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)
@@ -522,6 +522,9 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 		self._lines =         []
 		self._baseIndent =    0
 
+		self._errorCounter =   0
+		self._warningCounter = 0
+
 	@property
 	def Verbose(self):
 		"""Returns true, if verbose messages are enabled."""
@@ -565,6 +568,16 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 		Severity.Debug:   "{DARK_GRAY}{message}{NOCOLOR}"
 	}                   #: Message formatting rules.
 
+	def ExitOnPreviousErrors(self):
+		if self._errorCounter > 0:
+			self.WriteFatal("Too many errors in previous steps.")
+			self.exit()
+
+	def ExitOnPreviousWarnings(self):
+		if self._warningCounter > 0:
+			self.WriteError("Too many warnings in previous steps.")
+			self.exit()
+
 	def WriteLine(self, line : Line):
 		"""Print a formatted line to the underlying terminal/console offered by the operating system."""
 
@@ -579,13 +592,18 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 	def TryWriteLine(self, line):
 		return (line.Severity >= self._WriteLevel)
 
-	def WriteFatal(self, message, indent=0, appendLinebreak=True):
-		return self.WriteLine(Line(message, Severity.Fatal, self._baseIndent + indent, appendLinebreak))
+	def WriteFatal(self, message, indent=0, appendLinebreak=True, immediateExit=True):
+		ret = self.WriteLine(Line(message, Severity.Fatal, self._baseIndent + indent, appendLinebreak))
+		if immediateExit:
+			self.exit()
+		return ret
 
 	def WriteError(self, message, indent=0, appendLinebreak=True):
+		self._errorCounter += 1
 		return self.WriteLine(Line(message, Severity.Error, self._baseIndent + indent, appendLinebreak))
 
 	def WriteWarning(self, message, indent=0, appendLinebreak=True):
+		self._warningCounter += 1
 		return self.WriteLine(Line(message, Severity.Warning, self._baseIndent + indent, appendLinebreak))
 
 	def WriteInfo(self, message, indent=0, appendLinebreak=True):
