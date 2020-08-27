@@ -48,6 +48,8 @@ class Application(LineTerminal):
 	def __init__(self):
 		super().__init__(verbose=True, debug=True, quiet=False)
 
+		LineTerminal.FATAL_EXIT_CODE = 0
+
 	def run(self):
 		self.WriteQuiet("This is a quiet message.")
 		self.WriteNormal("This is a normal message.")
