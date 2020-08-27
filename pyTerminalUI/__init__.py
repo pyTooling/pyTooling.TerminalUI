@@ -54,6 +54,8 @@ from platform       import system as platform_system
 
 
 class Terminal:
+	FATAL_EXIT_CODE = 255
+
 	try:
 		from colorama import Fore as Foreground
 		Foreground = {
@@ -134,6 +136,11 @@ class Terminal:
 			deinit()
 		except:
 			pass
+
+	@classmethod
+	def fatalExit(cls, returnCode:int =0):
+		"""Exit the terminal application by uninitializing color support and returning a fatal exit code."""
+		cls.exit(cls.FATAL_EXIT_CODE if returnCode == 0 else returnCode)
 
 	@classmethod
 	def exit(cls, returnCode:int =0):
