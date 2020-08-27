@@ -578,7 +578,7 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 	def ExitOnPreviousErrors(self):
 		if self._errorCounter > 0:
 			self.WriteFatal("Too many errors in previous steps.")
-			self.exit()
+			self.fatalExit()
 
 	def ExitOnPreviousWarnings(self):
 		if self._warningCounter > 0:
@@ -602,7 +602,7 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 	def WriteFatal(self, message, indent=0, appendLinebreak=True, immediateExit=True):
 		ret = self.WriteLine(Line(message, Severity.Fatal, self._baseIndent + indent, appendLinebreak))
 		if immediateExit:
-			self.exit()
+			self.fatalExit()
 		return ret
 
 	def WriteError(self, message, indent=0, appendLinebreak=True):
