@@ -564,23 +564,27 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 		self._baseIndent = value
 
 	_LOG_MESSAGE_FORMAT__ = {
-		Severity.Fatal:   "{DARK_RED}{message}{NOCOLOR}",
-		Severity.Error:   "{RED}{message}{NOCOLOR}",
+		Severity.Fatal:   "{DARK_RED}[FATAL] {message}{NOCOLOR}",
+		Severity.Error:   "{RED}[ERROR] {message}{NOCOLOR}",
 		Severity.Quiet:   "{WHITE}{message}{NOCOLOR}",
-		Severity.Warning: "{YELLOW}{message}{NOCOLOR}",
+		Severity.Warning: "{YELLOW}[WARNING]{message}{NOCOLOR}",
 		Severity.Info:    "{WHITE}{message}{NOCOLOR}",
-		Severity.DryRun:  "{DARK_CYAN}{message}{NOCOLOR}",
+		Severity.DryRun:  "{DARK_CYAN}[DRY] {message}{NOCOLOR}",
 		Severity.Normal:  "{WHITE}{message}{NOCOLOR}",
 		Severity.Verbose: "{GRAY}{message}{NOCOLOR}",
 		Severity.Debug:   "{DARK_GRAY}{message}{NOCOLOR}"
 	}                   #: Message formatting rules.
 
 	def ExitOnPreviousErrors(self):
+		"""Exit application if errors have been printed."""
+
 		if self._errorCounter > 0:
 			self.WriteFatal("Too many errors in previous steps.")
 			self.fatalExit()
 
 	def ExitOnPreviousWarnings(self):
+		"""Exit application if warnings have been printed."""
+
 		if self._warningCounter > 0:
 			self.WriteError("Too many warnings in previous steps.")
 			self.exit()

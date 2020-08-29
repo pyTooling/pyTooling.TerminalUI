@@ -19,6 +19,68 @@
 
 A set of helpers to implement a text user interface (TUI) in a terminal.
 
+## Features
+* Colored command line outputs based on colorama
+* Message classification in fatal, error, warning, normal, quiet, ...
+* Get information like terminal dimensions from underlying terminal window
+
+
+## Simple Terminal Application
+
+This is a minimal terminal application example which inherits from `LineTerminal`.
+
+```python
+from pyTerminalUI import LineTerminal
+
+class Application(LineTerminal):
+  def __init__(self):
+    super().__init__(verbose=True, debug=True, quiet=False)
+
+  def run(self):
+    self.WriteNormal("This is a simple application.")
+    self.WriteWarning("This is a warning message.")
+    self.WriteError("This is an error message.")
+
+# entry point
+if __name__ == "__main__":
+  Application.versionCheck((3,6,0))
+  app = Application()
+  app.run()
+  app.exit()
+```
+
+## Complex Terminal Application
+
+This example hands over the terminal instance to a submodule, which implements
+`ILineTerminal`, so the submodule can also use the terminal's writing methods.
+
+```python
+from pathlib      import Path
+from pyTerminalUI import LineTerminal, ILineTerminal
+
+class SubModule(ILineTerminal):
+  def __init__(self, configFile, terminal):
+    super().__init__(terminal)
+
+    if not configFile.exists():
+      self.WriteError("Config file '{0!s}' not found.".format(configFile))
+
+
+class Application(LineTerminal):
+  def __init__(self):
+    super().__init__(verbose=True, debug=True, quiet=False)
+
+    mod = SubModule(Path("config.yml"), self)
+
+  def run(self):
+    pass
+
+# entry point
+if __name__ == "__main__":
+  app = Application()
+  app.run()
+```
+
 
 ## Contributors
 
