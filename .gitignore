@@ -2,6 +2,11 @@
 __pycache__/
 *.py[cod]
 
+# Coverage.py
+.coverage
+coverage.xml
+/.cov
+
 # Sphinx documentation
 doc/_build
 
