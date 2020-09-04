@@ -1,12 +1,18 @@
 language: python
+python:
+  - 3.8
 
 install:
-  - pip3 install -U -r requirements.txt
-
-# if: tag IS present
+  - pip3 install -U -r tests/requirements.txt
 
 script:
-  - python3 ./test/Application.py
+  - echo "Python Code Coverage\n================================================================================"
+  - coverage run --append -m unittest tests.unit.TerminalUI
+  - coverage report && coverage xml
+  - echo "Upload coverage results to Codacy..."  && python-codacy-coverage -r coverage.xml
+  - echo "Upload coverage results to CodeCov..." && codecov
+  - echo "Python Unit Tests\n================================================================================"
+  - python -m unittest tests.unit.TerminalUI
 
 deploy:
   provider: pypi

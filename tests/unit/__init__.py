@@ -11,7 +11,7 @@
 # =============================================================================
 # Authors:            Patrick Lehmann
 #
-# Python module:      A test application for pyTerminalUI.
+# Python unittest:    Helper functions for unittests
 #
 # Description:
 # ------------------------------------
@@ -19,13 +19,14 @@
 #
 # License:
 # ============================================================================
-# Copyright 2017-2019 Patrick Lehmann - Bötzingen, Germany
+# Copyright 2017-2020 Patrick Lehmann - Bötzingen, Germany
+# Copyright 2007-2016 Patrick Lehmann - Dresden, Germany
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#		http://www.apache.org/licenses/LICENSE-2.0
+#   http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,32 +37,10 @@
 # SPDX-License-Identifier: Apache-2.0
 # ============================================================================
 #
-import os
-import sys
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
+"""
+pyAttributes
+############
 
-from pyTerminalUI import LineTerminal
-
-
-class Application(LineTerminal):
-	def __init__(self):
-		super().__init__(verbose=True, debug=True, quiet=False)
-
-		LineTerminal.FATAL_EXIT_CODE = 0
-
-	def run(self):
-		self.WriteQuiet("This is a quiet message.")
-		self.WriteNormal("This is a normal message.")
-		self.WriteInfo("This is a info message.")
-		self.WriteDebug("This is a debug message.")
-		self.WriteWarning("This is a warning message.")
-		self.WriteError("This is an error message.")
-		self.WriteFatal("This is a fatal message.")
-
-# entry point
-if __name__ == "__main__":
-	Application.versionCheck((3,6,0))
-	app = Application()
-	app.run()
-	app.exit()
+:copyright: Copyright 2007-2020 Patrick Lehmann - Bötzingen, Germany
+:license: Apache License, Version 2.0
+"""
