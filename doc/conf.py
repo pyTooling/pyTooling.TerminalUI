@@ -116,7 +116,7 @@ extlinks = {
 	'issue': ('https://github.com/Paebbels/pyTerminalUI/issues/%s', 'issue #'),
 	'pull':  ('https://github.com/Paebbels/pyTerminalUI/pull/%s', 'pull request #'),
 	'src':   ('https://github.com/Paebbels/pyTerminalUI/blob/master/pyTerminalUI/%s?ts=2', None),
-#	'test':  ('https://github.com/Paebbels/pyCallBy/blob/master/test/%s?ts=2', None)
+#	'tests':  ('https://github.com/Paebbels/pyCallBy/blob/master/test/%s?ts=2', None)
 }
 
 
