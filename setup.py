@@ -16,7 +16,7 @@
 #
 # License:
 # ============================================================================
-# Copyright 2017-2019 Patrick Lehmann - Bötzingen, Germany
+# Copyright 2017-2020 Patrick Lehmann - Bötzingen, Germany
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ rtd_url =     "https://" + projectName + ".readthedocs.io/en/latest/"
 
 setuptools.setup(
 	name=projectName,
-	version="1.3.3",
+	version="1.3.4",
 
 	author="Patrick Lehmann",
 	author_email="Paebbels@gmail.com",
@@ -74,8 +74,6 @@ setuptools.setup(
 		"License :: OSI Approved :: Apache Software License",
 		"Operating System :: OS Independent",
 		"Programming Language :: Python :: 3 :: Only",
-		"Programming Language :: Python :: 3.4",
-		"Programming Language :: Python :: 3.5",
 		"Programming Language :: Python :: 3.6",
 		"Programming Language :: Python :: 3.7",
 		"Programming Language :: Python :: 3.8",
@@ -85,7 +83,7 @@ setuptools.setup(
 	],
 	keywords="Python3 Path Generic-Library",
 
-	python_requires='>=3.4',
+	python_requires='>=3.6',
 	install_requires=requirements,
 	# provides=
 	# obsoletes=

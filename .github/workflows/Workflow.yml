@@ -1,4 +1,4 @@
-name: Test, Collect Coverage and Release if tagged
+name: Test, Coverage and Release
 
 on: [push]
 

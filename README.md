@@ -1,19 +1,22 @@
-[![License](https://img.shields.io/badge/Apache%20License,%202.0-bd0000.svg?longCache=true&label=code%20license&logo=Apache&logoColor=D22128)](LICENSE.md)
+[![Sourcecode on GitHub](https://img.shields.io/badge/Paebbels-pyTerminalUI-323131.svg?logo=github&longCache=true)](https://github.com/Paebbels/pyTerminalUI)
+[![License](https://img.shields.io/badge/code%20license-Apache%20License%2C%202.0-lightgrey?logo=GitHub)](LICENSE.md)
 [![GitHub tag (latest SemVer incl. pre-release)](https://img.shields.io/github/v/tag/Paebbels/pyTerminalUI?logo=GitHub&include_prereleases)](https://github.com/Paebbels/pyTerminalUI/tags)
 [![GitHub release (latest SemVer incl. including pre-releases)](https://img.shields.io/github/v/release/Paebbels/pyTerminalUI?logo=GitHub&include_prereleases)](https://github.com/Paebbels/pyTerminalUI/releases/latest)
-[![GitHub release date](https://img.shields.io/github/release-date/Paebbels/pyTerminalUI?logo=GitHub&)](https://github.com/Paebbels/pyTerminalUI/releases)
-[![Libraries.io status for latest release](https://img.shields.io/librariesio/release/pypi/pyTerminalUI)](https://libraries.io/github/Paebbels/pyTerminalUI)
-[![Requires.io](https://img.shields.io/requires/github/Paebbels/pyTerminalUI)](https://requires.io/github/Paebbels/pyTerminalUI/requirements/?branch=master)  
-[![Travis](https://img.shields.io/travis/com/Paebbels/pyTerminalUI?logo=Travis)](https://travis-ci.com/Paebbels/pyTerminalUI)
+[![GitHub release date](https://img.shields.io/github/release-date/Paebbels/pyTerminalUI?logo=GitHub&)](https://github.com/Paebbels/pyTerminalUI/releases)  
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Paebbels/pyTerminalUI/Test,%20Coverage%20and%20Release?label=Workflow&logo=GitHub)](https://github.com/Paebbels/pyTerminalUI/actions?query=workflow%3A%22Test%2C+Coverage+and+Release%22)
 [![PyPI](https://img.shields.io/pypi/v/pyTerminalUI?logo=PyPI)](https://pypi.org/project/pyTerminalUI/)
 ![PyPI - Status](https://img.shields.io/pypi/status/pyTerminalUI?logo=PyPI)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyTerminalUI?logo=PyPI)
 [![Dependent repos (via libraries.io)](https://img.shields.io/librariesio/dependent-repos/pypi/pyTerminalUI)](https://github.com/Paebbels/pyTerminalUI/network/dependents)  
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8a1b6e33d564f82927235e17fb26e93)](https://www.codacy.com/manual/Paebbels/pyTerminalUI)
-[![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/pypi/pyTerminalUI)](https://libraries.io/github/Paebbels/pyTerminalUI/sourcerank)
+[![Libraries.io status for latest release](https://img.shields.io/librariesio/release/pypi/pyTerminalUI)](https://libraries.io/github/Paebbels/pyTerminalUI)
+[![Requires.io](https://img.shields.io/requires/github/Paebbels/pyTerminalUI)](https://requires.io/github/Paebbels/pyTerminalUI/requirements/?branch=master)  
+[![Codacy - Quality](https://img.shields.io/codacy/grade/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy)](https://www.codacy.com/manual/Paebbels/pyTerminalUI)
+[![Codacy - Coverage](https://img.shields.io/codacy/coverage/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy)](https://www.codacy.com/manual/Paebbels/pyTerminalUI)
+[![Codecov - Branch Coverage](https://img.shields.io/codecov/c/github/Paebbels/pyAttributes?logo=Codecov)](https://codecov.io/gh/Paebbels/pyTerminalUI)
+[![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/pypi/pyTerminalUI)](https://libraries.io/github/Paebbels/pyTerminalUI/sourcerank)  
 [![Read the Docs](https://img.shields.io/readthedocs/pyterminalui)](https://pyTerminalUI.readthedocs.io/en/latest/)
 
-<!-- [![Documentation License](https://img.shields.io/badge/Attribution--4.0-66b0d3.svg?longCache=true&label=Creative%20Commons&logo=creative%20commons&logoColor=fff)] (https://pyTerminalUI.readthedocs.io/en/latest/) -->
+<!-- [![Documentation License](https://img.shields.io/badge/Attribution--4.0-66b0d3.svg?longCache=true&label=Creative%20Commons&logo=creative%20commons&logoColor=fff)](https://pyTerminalUI.readthedocs.io/en/latest/) -->
 
 # pyTerminalUI
 
@@ -89,7 +92,10 @@ if __name__ == "__main__":
 
 ## License
 
-This library is licensed under [Apache License 2.0](LICENSE.md)
+This Python package (source code) is licensed under [Apache License 2.0](LICENSE.md).
+
+<!-- The accompanying documentation is licensed under Creative Commons - Attribution-4.0 (CC-BY 4.0). -->
+
 
 -------------------------
 
