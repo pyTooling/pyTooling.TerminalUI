@@ -69,7 +69,7 @@ class Terminal(TestCase):
 		self.app = Application()
 
 	def test_Version(self):
-		Application.versionCheck((3, 8, 0))
+		Application.versionCheck((3, 6, 0))
 
 	def test_Write(self):
 		self.app.WriteQuiet("This is a quiet message.")
