@@ -35,7 +35,7 @@
 # ============================================================================
 #
 """
-pyAttributes
+pyTerminalUI
 ############
 
 :copyright: Copyright 2007-2021 Patrick Lehmann - Bötzingen, Germany

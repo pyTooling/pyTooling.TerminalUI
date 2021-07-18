@@ -35,9 +35,8 @@
 # ============================================================================
 #
 """
-pyAttributes
-############
+Module containing test code written for `pyTest <https://www.pytest.org/>`__.
 
-:copyright: Copyright 2007-2020 Patrick Lehmann - Bötzingen, Germany
+:copyright: Copyright 2007-2021 Patrick Lehmann - Bötzingen, Germany
 :license: Apache License, Version 2.0
 """
