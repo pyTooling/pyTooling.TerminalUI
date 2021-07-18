@@ -8,7 +8,7 @@
 # =============================================================================
 # Authors:            Patrick Lehmann
 #
-# Python unittest:    Testing the pyTerminalUI module
+# Python unittest:    Helper functions for unittests
 #
 # Description:
 # ------------------------------------
@@ -35,44 +35,8 @@
 # ============================================================================
 #
 """
-pyTerminalUI
-############
+Module containing test code written for `pyTest <https://www.pytest.org/>`__.
 
 :copyright: Copyright 2007-2021 Patrick Lehmann - Bötzingen, Germany
 :license: Apache License, Version 2.0
 """
-from unittest     import TestCase
-
-from pyTerminalUI import LineTerminal
-
-
-if __name__ == "__main__":
-	print("ERROR: you called a testcase declaration file as an executable module.")
-	print("Use: 'python -m unitest <testcase module>'")
-	exit(1)
-
-
-class Application(LineTerminal):
-	def __init__(self):
-		super().__init__(verbose=True, debug=True, quiet=False)
-
-		LineTerminal.FATAL_EXIT_CODE = 0
-
-
-class Terminal(TestCase):
-	app : Application
-
-	def setUp(self) -> None:
-		self.app = Application()
-
-	def test_Version(self):
-		Application.versionCheck((3, 6, 0))
-
-	def test_Write(self):
-		self.app.WriteQuiet("This is a quiet message.")
-		self.app.WriteNormal("This is a normal message.")
-		self.app.WriteInfo("This is a info message.")
-		self.app.WriteDebug("This is a debug message.")
-		self.app.WriteWarning("This is a warning message.")
-		self.app.WriteError("This is an error message.")
-		self.app.WriteFatal("This is a fatal message.", immediateExit=False)

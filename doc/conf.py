@@ -22,11 +22,11 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'pyTerminalUI'
-copyright = '2007-2020, Patrick Lehmann'
+copyright = '2007-2021, Patrick Lehmann'
 author = 'Patrick Lehmann'
 
 # The full version, including alpha/beta/rc tags
-release = 'v1.3'
+release = 'v1.4'
 
 
 # -- General configuration ---------------------------------------------------
