@@ -1,4 +1,4 @@
 colorama>=0.4.3
 
-pyExceptions>=1.0.0
-pyMetaClasses>=1.2.0
+pyExceptions>=1.0.1
+pyMetaClasses>=1.2.1
