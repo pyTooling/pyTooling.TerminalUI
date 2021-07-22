@@ -2,7 +2,7 @@
 [![Sourcecode License](https://img.shields.io/pypi/l/pyTerminalUI?logo=GitHub&label=code%20license)](LICENSE.md)
 [![GitHub tag (latest SemVer incl. pre-release)](https://img.shields.io/github/v/tag/Paebbels/pyTerminalUI?logo=GitHub&include_prereleases)](https://github.com/Paebbels/pyTerminalUI/tags)
 [![GitHub release (latest SemVer incl. including pre-releases)](https://img.shields.io/github/v/release/Paebbels/pyTerminalUI?logo=GitHub&include_prereleases)](https://github.com/Paebbels/pyTerminalUI/releases/latest)
-[![GitHub release date](https://img.shields.io/github/release-date/Paebbels/pyTerminalUI?logo=GitHub&)](https://github.com/Paebbels/pyTerminalUI/releases)
+[![GitHub release date](https://img.shields.io/github/release-date/Paebbels/pyTerminalUI?logo=GitHub)](https://github.com/Paebbels/pyTerminalUI/releases)
 [![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/pypi/pyTerminalUI?logo=librariesdotio)](https://github.com/Paebbels/pyTerminalUI/network/dependents)  
 [![GitHub Workflow - Build and Test Status](https://img.shields.io/github/workflow/status/Paebbels/pyTerminalUI/Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish?label=Pipeline&logo=GitHub%20Actions&logoColor=FFFFFF)](https://github.com/Paebbels/pyTerminalUI/actions/workflows/Pipeline.yml)
 [![Codacy - Quality](https://img.shields.io/codacy/grade/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy)](https://www.codacy.com/manual/Paebbels/pyTerminalUI)
@@ -88,13 +88,13 @@ if __name__ == "__main__":
 ## Contributors
 
 * [Patrick Lehmann](https://github.com/Paebbels) (Maintainer)
+* [and more...](https://github.com/Paebbels/pyTerminalUI/graphs/contributors)
 
 
 ## License
 
-This Python package (source code) is licensed under [Apache License 2.0](LICENSE.md).
-
-<!-- The accompanying documentation is licensed under Creative Commons - Attribution-4.0 (CC-BY 4.0). -->
+This Python package (source code) licensed under [Apache License 2.0](LICENSE.md).  
+The accompanying documentation is licensed under [Creative Commons - Attribution 4.0 (CC-BY 4.0)](doc/Doc-License.rst).
 
 
 -------------------------
