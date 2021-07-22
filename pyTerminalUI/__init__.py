@@ -8,7 +8,7 @@
 # =============================================================================
 # Authors:            Patrick Lehmann
 #
-# Python module:      A set of helpers to implement a text user interface (TUI) in a terminal.
+# Python package:     A set of helpers to implement a text user interface (TUI) in a terminal.
 #
 # Description:
 # ------------------------------------
@@ -33,23 +33,19 @@
 # SPDX-License-Identifier: Apache-2.0
 # ============================================================================
 #
-from enum import Enum, unique
-
-from pyMetaClasses import Singleton
-
-
-__api__ = [
-	'Terminal',
-	'Severity',
-	'Line',
-	'ILineTerminal',
-	'LineTerminal',
-]
-__all__ = __api__
-
+from enum           import Enum, unique
+import os
+import sys
 from platform       import system as platform_system
 
+from pydecor        import export
+from pyMetaClasses  import Singleton
 
+
+# __all__ = __api__
+
+
+@export
 class Terminal:
 	FATAL_EXIT_CODE = 255
 
@@ -335,6 +331,7 @@ class Terminal:
 		return (int(cr[1]), int(cr[0]))
 
 
+@export
 @unique
 class Severity(Enum):
 	"""Logging message severity levels."""
@@ -361,6 +358,7 @@ class Severity(Enum):
 	def __ge__(self, other):    return self.value >=  other.value
 
 
+@export
 class Line:
 	"""Represents a single line message with a severity and indentation level."""
 
@@ -409,6 +407,7 @@ class Line:
 		return self._LOG_MESSAGE_FORMAT__[self._severity].format(message=self._message)
 
 
+@export
 class ILineTerminal:
 	"""A mixin class (interface) to provide class-local terminal writing methods."""
 
@@ -502,6 +501,7 @@ class ILineTerminal:
 		return False
 
 
+@export
 class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 	def __init__(self, verbose=False, debug=False, quiet=False, writeToStdOut=True):
 		"""Initializer of a line based terminal interface."""
