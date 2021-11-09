@@ -38,7 +38,7 @@ from setuptools import (
 gitHubNamespace =       "pyTooling"
 projectName =           "TerminalUI"
 projectNameWithPrefix = "pyTooling." + projectName
-version =               "1.4.2"
+version =               "1.5.0"
 
 # Read README for upload to PyPI
 readmeFile = Path("README.md")
@@ -52,8 +52,7 @@ with requirementsFile.open("r") as file:
 
 # Derive URLs
 sourceCodeURL =     f"https://github.com/{gitHubNamespace}/{projectName}"
-#documentationURL =  f"https://{gitHubNamespace}.github.io/{projectName}"
-documentationURL =  f"https://{projectName}.readthedocs.io/en/latest/"
+documentationURL =  f"https://{gitHubNamespace}.github.io/{projectName}"
 
 # Assemble all package information
 setuptools_setup(

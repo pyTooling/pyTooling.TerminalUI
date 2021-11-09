@@ -21,12 +21,12 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'pyTerminalUI'
+project = 'pyTooling.TerminalUI'
 copyright = '2007-2021, Patrick Lehmann'
 author = 'Patrick Lehmann'
 
 # The full version, including alpha/beta/rc tags
-release = 'v1.4'
+release = 'v1.5'
 
 
 # -- General configuration ---------------------------------------------------
@@ -97,8 +97,7 @@ html_static_path = ['_static']
 # ==============================================================================
 intersphinx_mapping = {
 	'python':         ('https://docs.python.org/3', None),
-	'pyExceptions':   ('http://pyExceptions.readthedocs.io/en/latest', None),
-	'pyMetaClasses':  ('http://pyMetaClasses.readthedocs.io/en/latest', None),
+	'pyTooling':      ('http://pyTooling.github.io/pyTooling', None),
 }
 
 
@@ -113,10 +112,10 @@ autodoc_member_order = "bysource"       # alphabetical, groupwise, bysource
 # Sphinx.Ext.ExtLinks
 # ==============================================================================
 extlinks = {
-	'issue': ('https://github.com/Paebbels/pyTerminalUI/issues/%s', 'issue #'),
-	'pull':  ('https://github.com/Paebbels/pyTerminalUI/pull/%s', 'pull request #'),
-	'src':   ('https://github.com/Paebbels/pyTerminalUI/blob/master/pyTerminalUI/%s?ts=2', None),
-#	'tests':  ('https://github.com/Paebbels/pyCallBy/blob/master/test/%s?ts=2', None)
+	'issue': ('https://github.com/pyTooling/pyTooling,TerminalUI/issues/%s', 'issue #'),
+	'pull':  ('https://github.com/pyTooling/pyTooling,TerminalUI/pull/%s', 'pull request #'),
+	'src':   ('https://github.com/pyTooling/pyTooling,TerminalUI/blob/master/pyTooling,TerminalUI/%s?ts=2', None),
+#	'tests':  ('https://github.com/pyTooling/pyCallBy/blob/master/test/%s?ts=2', None)
 }
 
 
