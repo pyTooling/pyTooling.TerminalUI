@@ -1,6 +1,6 @@
 ILineTerminal
 #############
 
-.. autoclass:: pyTerminalUI.ILineTerminal
+.. autoclass:: pyTooling.TerminalUI.ILineTerminal
    :members:
    :private-members:

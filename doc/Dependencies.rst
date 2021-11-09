@@ -3,25 +3,25 @@
 Dependencies
 ############
 
-.. |img-pyTerminalUI-lib-status| image:: https://img.shields.io/librariesio/release/pypi/pyTerminalUI
+.. |img-TerminalUI-lib-status| image:: https://img.shields.io/librariesio/release/pypi/pyTooling.TerminalUI
    :alt: Libraries.io status for latest release
    :height: 22
-   :target: https://libraries.io/github/Paebbels/pyTerminalUI
-.. |img-pyTerminalUI-req-status| image:: https://img.shields.io/requires/github/Paebbels/pyTerminalUI
+   :target: https://libraries.io/github/pyTooling/pyTooling.TerminalUI
+.. |img-TerminalUI-req-status| image:: https://img.shields.io/requires/github/pyTooling/pyTooling.TerminalUI
    :alt: Requires.io
    :height: 22
-   :target: https://requires.io/github/Paebbels/pyTerminalUI/requirements/?branch=master
+   :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=master
 
 +------------------------------------------+------------------------------------------+
 | `Libraries.io <https://libraries.io/>`_  | `Requires.io <https://requires.io/>`_    |
 +==========================================+==========================================+
-| |img-pyTerminalUI-lib-status|            | |img-pyTerminalUI-req-status|            |
+| |img-TerminalUI-lib-status|              | |img-TerminalUI-req-status|              |
 +------------------------------------------+------------------------------------------+
 
 .. _dependency-package:
 
-pyTerminalUI Package (Mandatory)
-********************************
+pyTooling.TerminalUI Package (Mandatory)
+****************************************
 
 .. rubric:: Manually Installing Package Requirements
 

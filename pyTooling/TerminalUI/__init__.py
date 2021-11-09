@@ -1,18 +1,14 @@
 # =============================================================================
-#              _____                   _             _ _   _ ___
-#   _ __  _   |_   _|__ _ __ _ __ ___ (_)_ __   __ _| | | | |_ _|
-#  | '_ \| | | || |/ _ \ '__| '_ ` _ \| | '_ \ / _` | | | | || |
-#  | |_) | |_| || |  __/ |  | | | | | | | | | | (_| | | |_| || |
-#  | .__/ \__, ||_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|\___/|___|
-#  |_|    |___/
+#             _____           _ _             _____                   _             _ _   _ ___
+#  _ __  _   |_   _|__   ___ | (_)_ __   __ _|_   _|__ _ __ _ __ ___ (_)_ __   __ _| | | | |_ _|
+# | '_ \| | | || |/ _ \ / _ \| | | '_ \ / _` | | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | | | | || |
+# | |_) | |_| || | (_) | (_) | | | | | | (_| |_| |  __/ |  | | | | | | | | | | (_| | | |_| || |
+# | .__/ \__, ||_|\___/ \___/|_|_|_| |_|\__, (_)_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|\___/|___|
+# |_|    |___/                          |___/
 # =============================================================================
 # Authors:            Patrick Lehmann
 #
 # Python package:     A set of helpers to implement a text user interface (TUI) in a terminal.
-#
-# Description:
-# ------------------------------------
-#		TODO
 #
 # License:
 # ============================================================================
@@ -34,15 +30,13 @@
 # ============================================================================
 #
 from enum           import Enum, unique
-import os
-import sys
 from platform       import system as platform_system
 
-from pydecor        import export
-from pyMetaClasses  import Singleton
+from pyTooling.Decorators   import export
+from pyTooling.MetaClasses  import Singleton
 
 
-# __all__ = __api__
+__version__ = "1.5.0"
 
 
 @export
@@ -191,7 +185,7 @@ class Terminal:
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 		print_tb(ex.__traceback__)
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/Paebbels/pyTerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)
@@ -214,7 +208,7 @@ class Terminal:
 		  **cls.Foreground
 		))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/Paebbels/pyTerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)
@@ -226,7 +220,7 @@ class Terminal:
 		print("{RED}FATAL: A known but unhandled exception reached the topmost exception handler!{NOCOLOR}".format(**cls.Foreground))
 		print("{RED}ERROR:{NOCOLOR} {message}".format(message=ex.message, **cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/Paebbels/pyTerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)

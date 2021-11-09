@@ -1,10 +1,10 @@
 LineTerminal
 ############
 
-.. inheritance-diagram:: pyTerminalUI.LineTerminal
+.. inheritance-diagram:: pyTooling.TerminalUI.LineTerminal
    :parts: 1
 
-.. autoclass:: pyTerminalUI.LineTerminal
+.. autoclass:: pyTooling.TerminalUI.LineTerminal
    :show-inheritance:
    :members:
    :private-members:

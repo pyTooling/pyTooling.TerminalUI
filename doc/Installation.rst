@@ -9,7 +9,7 @@ Installation using PIP
 
 .. code-block:: bash
 
-   pip3 install pyTerminalUI
+   pip3 install pyTooling.TerminalUI
 
 
 Updating using PIP
@@ -17,4 +17,4 @@ Updating using PIP
 
 .. code-block:: bash
 
-   pip3 install -U pyTerminalUI
+   pip3 install -U pyTooling.TerminalUI

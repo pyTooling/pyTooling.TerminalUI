@@ -1,6 +1,6 @@
 -r ../requirements.txt
 # Enforce latest version on ReadTheDocs
-sphinx>=4.1.1
+sphinx>=4.2.0
 
 # Sphinx Themes
 sphinx-rtd-theme>=0.5.2
