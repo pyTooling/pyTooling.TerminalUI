@@ -139,7 +139,7 @@ Contributors
 ************
 
 * `Patrick Lehmann <https://github.com/Paebbels>`_ (Maintainer)
-* `and more... <https://github.com/paebbels/pyCallBy/graphs/contributors>`__
+* `and more... <https://github.com/pyTooling/pyTooling.TerminalUI/graphs/contributors>`__
 
 
 

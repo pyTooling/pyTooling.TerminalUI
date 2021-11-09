@@ -33,7 +33,7 @@ A set of helpers to implement a text user interface (TUI) in a terminal.
 This is a minimal terminal application example which inherits from `LineTerminal`.
 
 ```python
-from pyTerminalUI import LineTerminal
+from pyTooling.TerminalUI import LineTerminal
 
 class Application(LineTerminal):
   def __init__(self):
@@ -46,7 +46,7 @@ class Application(LineTerminal):
 
 # entry point
 if __name__ == "__main__":
-  Application.versionCheck((3,6,0))
+  Application.versionCheck((3, 6, 0))
   app = Application()
   app.run()
   app.exit()
@@ -58,8 +58,8 @@ This example hands over the terminal instance to a submodule, which implements
 `ILineTerminal`, so the submodule can also use the terminal's writing methods.
 
 ```python
-from pathlib      import Path
-from pyTerminalUI import LineTerminal, ILineTerminal
+from pathlib import Path
+from pyTooling.TerminalUI import LineTerminal, ILineTerminal
 
 class SubModule(ILineTerminal):
   def __init__(self, configFile, terminal):

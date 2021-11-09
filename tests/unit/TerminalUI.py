@@ -10,10 +10,6 @@
 #
 # Python unittest:    Testing the pyTerminalUI module
 #
-# Description:
-# ------------------------------------
-#		TODO
-#
 # License:
 # ============================================================================
 # Copyright 2017-2021 Patrick Lehmann - Bötzingen, Germany
@@ -35,15 +31,15 @@
 # ============================================================================
 #
 """
-pyTerminalUI
-############
+pyTooling.TerminalUI
+####################
 
 :copyright: Copyright 2007-2021 Patrick Lehmann - Bötzingen, Germany
 :license: Apache License, Version 2.0
 """
 from unittest     import TestCase
 
-from pyTerminalUI import LineTerminal
+from pyTooling.TerminalUI import LineTerminal
 
 
 if __name__ == "__main__":
