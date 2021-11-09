@@ -30,8 +30,6 @@
 # ============================================================================
 #
 from enum           import Enum, unique
-import os
-import sys
 from platform       import system as platform_system
 
 from pyTooling.Decorators   import export
@@ -39,13 +37,6 @@ from pyTooling.MetaClasses  import Singleton
 
 
 __version__ = "1.5.0"
-
-
-from pydecor        import export
-from pyMetaClasses  import Singleton
-
-
-# __all__ = __api__
 
 
 @export
