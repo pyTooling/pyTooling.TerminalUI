@@ -8,7 +8,7 @@
 # =============================================================================
 # Authors:            Patrick Lehmann
 #
-# Python unittest:    Testing the pyTerminalUI module
+# Python unittest:    Testing the pyTooling.TerminalUI module
 #
 # License:
 # ============================================================================
