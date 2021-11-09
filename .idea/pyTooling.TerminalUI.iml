@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/doc/_build" />
       <excludeFolder url="file://$MODULE_DIR$/tests/.pytest_cache" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="pyAbstractGraph" />
     <orderEntry type="module" module-name="pyAttributes" />
