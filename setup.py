@@ -38,7 +38,7 @@ from setuptools import (
 gitHubNamespace =       "pyTooling"
 projectName =           "TerminalUI"
 projectNameWithPrefix = "pyTooling." + projectName
-version =               "1.5.1"
+version =               "1.5.2"
 
 # Read README for upload to PyPI
 readmeFile = Path("README.md")

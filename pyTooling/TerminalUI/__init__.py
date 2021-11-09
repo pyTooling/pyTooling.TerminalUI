@@ -36,7 +36,7 @@ from pyTooling.Decorators   import export
 from pyTooling.MetaClasses  import Singleton
 
 
-__version__ = "1.5.1"
+__version__ = "1.5.2"
 
 
 @export
