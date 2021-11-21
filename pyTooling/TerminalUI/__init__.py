@@ -35,8 +35,10 @@ from platform       import system as platform_system
 from pyTooling.Decorators   import export
 from pyTooling.MetaClasses  import Singleton
 
-
-__version__ = "1.5.2"
+__author__ =    "Patrick Lehmann"
+__copyright__ = "2007-2021, Patrick Lehmann"
+__license__ =   "Apache License, Version 2.0"
+__version__ =   "1.5.2"
 
 
 @export
