@@ -45,7 +45,7 @@ __email =               None
 __version =             None
 
 # Read __version__ from source file
-versionFile = Path(f"{projectName}/__init__.py")
+versionFile = Path(f"{prefix}/{projectName}/__init__.py")
 with versionFile.open("r") as file:
 	for item in iter_child_nodes(ast_parse(file.read())):
 		if isinstance(item, Assign) and len(item.targets) == 1:
