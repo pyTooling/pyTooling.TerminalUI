@@ -26,7 +26,7 @@ pyTooling.TerminalUI Package (Mandatory)
 .. rubric:: Manually Installing Package Requirements
 
 Use the :file:`requirements.txt` file to install all dependencies via ``pip3``
-or install the package directly from PyPI (see :ref:`INSTALL`).
+or install the package directly from PyPI (see :ref:`installation`).
 
 .. code-block:: shell
 
@@ -35,19 +35,13 @@ or install the package directly from PyPI (see :ref:`INSTALL`).
 
 .. rubric:: Dependency List
 
-+----------------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Package**                                                    | **Version** | **License**                                                                               | **Dependencies**                                                                                                                                                     |
-+================================================================+=============+===========================================================================================+======================================================================================================================================================================+
-| `colorama <https://github.com/tartley/colorama>`__             | ≥0.4.4      | `BSD-3-Clause  <https://github.com/tartley/colorama/blob/master/LICENSE.txt>`__           | None                                                                                                                                                                 |
-+----------------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `pydecor <https://github.com/mplanchard/pydecor>`__            | ≥2.0.1      | `MIT <https://github.com/mplanchard/pydecor/blob/master/LICENSE>`__                       | * `dill <https://github.com/uqfoundation/dill>`__ (`BSD 3-clause <https://github.com/uqfoundation/dill/blob/master/LICENSE>`__)                                      |
-|                                                                |             |                                                                                           | * `six <https://github.com/benjaminp/six>`__ (`MIT <https://github.com/benjaminp/six/blob/master/LICENSE>`__)                                                        |
-+----------------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `pyMetaClasses <https://github.com/Paebbels/pyMetaClasses>`__  | ≥1.3.1      | `Apache License 2.0 <https://github.com/Paebbels/pyMetaClasses/blob/master/LICENSE.md>`__ | * `pydecor <https://github.com/mplanchard/pydecor>`__ (`MIT <https://github.com/mplanchard/pydecor/blob/master/LICENSE>`__; see above)                               |
-+----------------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `pyExceptions <https://github.com/Paebbels/pyExceptions>`__    | ≥1.1.1      | `Apache License 2.0 <https://github.com/Paebbels/pyExceptions/blob/master/LICENSE.md>`__  | * `pydecor <https://github.com/mplanchard/pydecor>`__ (`MIT <https://github.com/mplanchard/pydecor/blob/master/LICENSE>`__; see above)                               |
-|                                                                |             |                                                                                           | * `SphinxExtensions <https://github.com/Paebbels/SphinxExtensions>`__ (`Apache License 2.0 <https://github.com/Paebbels/SphinxExtensions/blob/master/LICENSE.md>`__) |
-+----------------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| **Package**                                              | **Version** | **License**                                                                               | **Dependencies**                                                                                                                |
++==========================================================+=============+===========================================================================================+=================================================================================================================================+
+| `colorama <https://GitHub.com/tartley/colorama>`__       | ≥0.4.4      | `BSD-3-Clause  <https://GitHub.com/tartley/colorama/blob/master/LICENSE.txt>`__           | None                                                                                                                            |
++----------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| `pyTooling <https://GitHub.com/pyTooling/pyTooling>`__   | ≥1.4.4      | `Apache License, 2.0 <https://GitHub.com/pyTooling/pyTooling/blob/master/LICENSE.txt>`__  | *None*                                                                                                                          |
++----------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
 
@@ -76,11 +70,15 @@ Use the :file:`tests/requirements.txt` file to install all dependencies via
 +-----------------------------------------------------------+-------------+----------------------------------------------------------------------------------------+----------------------+
 | **Package**                                               | **Version** | **License**                                                                            | **Dependencies**     |
 +===========================================================+=============+========================================================================================+======================+
-| `pytest <https://github.com/pytest-dev/pytest>`__         | ≥6.2.4      | `MIT <https://github.com/pytest-dev/pytest/blob/master/LICENSE>`__                     | *Not yet evaluated.* |
+| `pytest <https://GitHub.com/pytest-dev/pytest>`__         | ≥6.2.5      | `MIT <https://GitHub.com/pytest-dev/pytest/blob/master/LICENSE>`__                     | *Not yet evaluated.* |
 +-----------------------------------------------------------+-------------+----------------------------------------------------------------------------------------+----------------------+
-| `pytest-cov <https://github.com/pytest-dev/pytest-cov>`__ | ≥2.12.1     | `MIT <https://github.com/pytest-dev/pytest-cov/blob/master/LICENSE>`__                 | *Not yet evaluated.* |
+| `pytest-cov <https://GitHub.com/pytest-dev/pytest-cov>`__ | ≥3.0.0      | `MIT <https://GitHub.com/pytest-dev/pytest-cov/blob/master/LICENSE>`__                 | *Not yet evaluated.* |
 +-----------------------------------------------------------+-------------+----------------------------------------------------------------------------------------+----------------------+
-| `Coverage <https://github.com/nedbat/coveragepy>`__       | ≥5.5        | `Apache License, 2.0 <https://github.com/nedbat/coveragepy/blob/master/LICENSE.txt>`__ | *Not yet evaluated.* |
+| `Coverage <https://GitHub.com/nedbat/coveragepy>`__       | ≥6.1        | `Apache License, 2.0 <https://GitHub.com/nedbat/coveragepy/blob/master/LICENSE.txt>`__ | *Not yet evaluated.* |
++-----------------------------------------------------------+-------------+----------------------------------------------------------------------------------------+----------------------+
+| `mypy <https://GitHub.com/python/mypy>`__                 | ≥0.910      | `MIT <https://GitHub.com/python/mypy/blob/master/LICENSE>`__                           | *Not yet evaluated.* |
++-----------------------------------------------------------+-------------+----------------------------------------------------------------------------------------+----------------------+
+| `lxml <https://GitHub.com/lxml/lxml>`__                   | ≥4.6.4      | `BSD 3-Clause <https://GitHub.com/lxml/lxml/blob/master/LICENSE.txt>`__                | *Not yet evaluated.* |
 +-----------------------------------------------------------+-------------+----------------------------------------------------------------------------------------+----------------------+
 
 
@@ -109,13 +107,11 @@ Use the :file:`doc/requirements.txt` file to install all dependencies via
 +-------------------------------------------------------------------------------------------------+--------------+----------------------------------------------------------------------------------------------------------+----------------------+
 | **Package**                                                                                     | **Version**  | **License**                                                                                              | **Dependencies**     |
 +=================================================================================================+==============+==========================================================================================================+======================+
-| `Sphinx <https://github.com/sphinx-doc/sphinx>`__                                               | ≥4.1.1       | `BSD 3-Clause <https://github.com/sphinx-doc/sphinx/blob/master/LICENSE>`__                              | *Not yet evaluated.* |
+| `Sphinx <https://GitHub.com/sphinx-doc/sphinx>`__                                               | ≥4.3.0       | `BSD 3-Clause <https://GitHub.com/sphinx-doc/sphinx/blob/master/LICENSE>`__                              | *Not yet evaluated.* |
 +-------------------------------------------------------------------------------------------------+--------------+----------------------------------------------------------------------------------------------------------+----------------------+
-| `sphinx_btd_theme <https://github.com/buildthedocs/sphinx.theme>`__                             | ≥0.5.2       | `MIT <https://github.com/buildthedocs/sphinx.theme/blob/master/LICENSE>`__                               | *Not yet evaluated.* |
+| `sphinx_btd_theme <https://GitHub.com/buildthedocs/sphinx.theme>`__                             | ≥0.5.2       | `MIT <https://GitHub.com/buildthedocs/sphinx.theme/blob/master/LICENSE>`__                               | *Not yet evaluated.* |
 +-------------------------------------------------------------------------------------------------+--------------+----------------------------------------------------------------------------------------------------------+----------------------+
-| !! `sphinx_fontawesome <https://github.com/fraoustin/sphinx_fontawesome>`__                     | ≥0.0.6       | `GPL 2.0 <https://github.com/fraoustin/sphinx_fontawesome/blob/master/LICENSE>`__                        | *Not yet evaluated.* |
+| !! `sphinx_fontawesome <https://GitHub.com/fraoustin/sphinx_fontawesome>`__                     | ≥0.0.6       | `GPL 2.0 <https://GitHub.com/fraoustin/sphinx_fontawesome/blob/master/LICENSE>`__                        | *Not yet evaluated.* |
 +-------------------------------------------------------------------------------------------------+--------------+----------------------------------------------------------------------------------------------------------+----------------------+
-| `sphinx_autodoc_typehints <https://github.com/agronholm/sphinx-autodoc-typehints>`__            | ≥1.12.0      | `MIT <https://github.com/agronholm/sphinx-autodoc-typehints/blob/master/LICENSE>`__                      | *Not yet evaluated.* |
-+-------------------------------------------------------------------------------------------------+--------------+----------------------------------------------------------------------------------------------------------+----------------------+
-| `Pygments <https://github.com/pygments/pygments>`__                                             | ≥2.9.0       | `BSD 2-Clause <https://github.com/pygments/pygments/blob/master/LICENSE>`__                              | *Not yet evaluated.* |
+| `sphinx_autodoc_typehints <https://GitHub.com/agronholm/sphinx-autodoc-typehints>`__            | ≥1.12.0      | `MIT <https://GitHub.com/agronholm/sphinx-autodoc-typehints/blob/master/LICENSE>`__                      | *Not yet evaluated.* |
 +-------------------------------------------------------------------------------------------------+--------------+----------------------------------------------------------------------------------------------------------+----------------------+

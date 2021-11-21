@@ -1,30 +1,30 @@
 .. |img-TerminalUI-github| image:: https://img.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131.svg?logo=github&longCache=true
    :alt: Sourcecode on GitHub
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI
 .. |img-TerminalUI-codelicense| image:: https://img.shields.io/pypi/l/pyTooling.TerminalUI?logo=GitHub&label=code%20license
    :alt: Sourcecode License
    :height: 22
 .. |img-TerminalUI-tag| image:: https://img.shields.io/github/v/tag/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases
    :alt: GitHub tag (latest SemVer incl. pre-release)
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/tags
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/tags
 .. |img-TerminalUI-release| image:: https://img.shields.io/github/v/release/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases
    :alt: GitHub release (latest SemVer incl. including pre-releases
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/releases/latest
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases/latest
 .. |img-TerminalUI-date| image:: https://img.shields.io/github/release-date/pyTooling/pyTooling.TerminalUI?logo=GitHub
    :alt: GitHub release date
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/releases
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases
 .. |img-TerminalUI-lib-dep| image:: https://img.shields.io/librariesio/dependents/pypi/pyTooling.TerminalUI?logo=librariesdotio
    :alt: Dependents (via libraries.io)
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/network/dependents
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/network/dependents
 .. |img-TerminalUI-gha-pipeline| image:: https://img.shields.io/github/workflow/status/pyTooling/pyTooling.TerminalUI/Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish?label=Pipeline&logo=GitHub%20Actions&logoColor=FFFFFF
    :alt: GitHub Workflow - Build and Test Status
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/actions/workflows/Pipeline.yml
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/actions/workflows/Pipeline.yml
 .. |img-TerminalUI-codacy-quality| image:: https://img.shields.io/codacy/grade/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy
    :alt: Codacy - Quality
    :height: 22
@@ -59,32 +59,20 @@
    :alt: Requires.io
    :height: 22
    :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=master
-.. |img-TerminalUI-rtd| image:: https://img.shields.io/readthedocs/pyTooling.terminalui?label=ReadTheDocs&logo=readthedocs
-   :alt: Read the Docs
-   :height: 22
-   :target: https://pyTerminalUI.readthedocs.io/
 .. |img-TerminalUI-doclicense| image:: https://img.shields.io/badge/doc%20license-CC--BY%204.0-green?logo=readthedocs
    :alt: Documentation License
    :height: 22
-   :target: LICENSE.md
-.. |img-TerminalUI-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%94-blueviolet?logo=readthedocs
+   :target: Doc-License.html
+.. |img-TerminalUI-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet?logo=readthedocs
    :alt: Documentation - Read Now!
    :height: 22
-   :target: https://pyTerminalUI.readthedocs.io/
+   :target: https://pyTooling.GitHub.io/pyTooling.TerminalUI
 
 |img-TerminalUI-github| |img-TerminalUI-codelicense| |img-TerminalUI-tag| |img-TerminalUI-release| |img-TerminalUI-date| |img-TerminalUI-lib-dep| |br|
 |img-TerminalUI-gha-pipeline| |img-TerminalUI-codacy-quality| |img-TerminalUI-codacy-coverage| |img-TerminalUI-codecov-coverage| |img-TerminalUI-lib-rank| |br|
 |img-TerminalUI-pypi-tag| |img-TerminalUI-pypi-python| |img-TerminalUI-pypi-status| |img-TerminalUI-lib-status| |img-TerminalUI-req-status| |br|
-|img-TerminalUI-rtd| |img-TerminalUI-doclicense| |img-TerminalUI-doc|
+|img-TerminalUI-doclicense| |img-TerminalUI-doc|
 
-.. code-block::
-
-                 _____                   _             _ _   _ ___
-      _ __  _   |_   _|__ _ __ _ __ ___ (_)_ __   __ _| | | | |_ _|
-     | '_ \| | | || |/ _ \ '__| '_ ` _ \| | '_ \ / _` | | | | || |
-     | |_) | |_| || |  __/ |  | | | | | | | | | | (_| | | |_| || |
-     | .__/ \__, ||_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|\___/|___|
-     |_|    |___/
 
 pyTooling.TerminalUI Documentation
 ##################################
@@ -138,8 +126,8 @@ Example
 Contributors
 ************
 
-* `Patrick Lehmann <https://github.com/Paebbels>`_ (Maintainer)
-* `and more... <https://github.com/pyTooling/pyTooling.TerminalUI/graphs/contributors>`__
+* `Patrick Lehmann <https://GitHub.com/Paebbels>`_ (Maintainer)
+* `and more... <https://GitHub.com/pyTooling/pyTooling.TerminalUI/graphs/contributors>`__
 
 
 

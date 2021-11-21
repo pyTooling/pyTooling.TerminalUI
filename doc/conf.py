@@ -10,16 +10,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import sys
+from json    import loads
 from os.path import abspath
 from pathlib import Path
-from json    import loads
+from sys     import path as sys_path
 
-sys.path.insert(0, abspath('.'))
-sys.path.insert(0, abspath('..'))
-sys.path.insert(0, abspath('../pyTooling.TerminalUI'))
-sys.path.insert(0, abspath('_extensions'))
-#sys.path.insert(0, os.path.abspath('_themes/sphinx_rtd_theme'))
+sys_path.insert(0, abspath('.'))
+sys_path.insert(0, abspath('..'))
+sys_path.insert(0, abspath('../pyTooling.TerminalUI'))
+sys_path.insert(0, abspath('_extensions'))
+#sys_path.insert(0, os.path.abspath('_themes/sphinx_rtd_theme'))
 
 
 # ==============================================================================
@@ -45,7 +45,7 @@ def _LatestTagName():
 
 # The full version, including alpha/beta/rc tags
 version = "1.5"     # The short X.Y version.
-release = "1.5.1"   # The full version, including alpha/beta/rc tags.
+release = "1.5.2"   # The full version, including alpha/beta/rc tags.
 try:
 	if _IsUnderGitControl:
 		latestTagName = _LatestTagName()[1:]		# remove prefix "v"
@@ -87,7 +87,7 @@ try:
 	with open(prologPath, "r") as prologFile:
 		rst_prolog = prologFile.read()
 except Exception as ex:
-	print("[ERROR:] While reading '{0!s}'.".format(prologPath))
+	print(f"[ERROR:] While reading '{prologPath}'.")
 	print(ex)
 	rst_prolog = ""
 
@@ -216,7 +216,7 @@ extensions = [
 # ==============================================================================
 intersphinx_mapping = {
 	'python':     ('https://docs.python.org/3', None),
-	'pyTooling':  ('http://pyTooling.github.io/pyTooling', None),
+	'pyTooling':  ('http://pyTooling.GitHub.io/pyTooling', None),
 }
 
 
@@ -231,10 +231,10 @@ autodoc_member_order = "bysource"       # alphabetical, groupwise, bysource
 # Sphinx.Ext.ExtLinks
 # ==============================================================================
 extlinks = {
-	'issue': ('https://github.com/pyTooling/pyTooling.TerminalUI/issues/%s', 'issue #'),
-	'pull':  ('https://github.com/pyTooling/pyTooling.TerminalUI/pull/%s', 'pull request #'),
-	'src':   ('https://github.com/pyTooling/pyTooling.TerminalUI/blob/master/pyTooling/%s?ts=2', None),
-#	'test':  ('https://github.com/pyTooling/pyTooling/blob/master/test/%s?ts=2', None)
+	'issue': ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues/%s', 'issue #'),
+	'pull':  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/pull/%s', 'pull request #'),
+	'src':   ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/master/pyTooling/%s?ts=2', None),
+#	'test':  ('https://GitHub.com/pyTooling/pyTooling/blob/master/test/%s?ts=2', None)
 }
 
 

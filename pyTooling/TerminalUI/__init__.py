@@ -35,8 +35,11 @@ from platform       import system as platform_system
 from pyTooling.Decorators   import export
 from pyTooling.MetaClasses  import Singleton
 
-
-__version__ = "1.5.1"
+__author__ =    "Patrick Lehmann"
+__email__ =     "Paebbels@gmail.com"
+__copyright__ = "2007-2021, Patrick Lehmann"
+__license__ =   "Apache License, Version 2.0"
+__version__ =   "1.5.2"
 
 
 @export
@@ -98,7 +101,7 @@ class Terminal:
 
 		If the Python package `colorama <https://pypi.org/project/colorama/>`_ [#f_colorama]_ is available, then initialize it for colored outputs.
 
-		.. [#f_colorama] Colorama on Github: https://github.com/tartley/colorama
+		.. [#f_colorama] Colorama on Github: https://GitHub.com/tartley/colorama
 		"""
 
 		self.initColors()
@@ -151,11 +154,7 @@ class Terminal:
 				level=version_info.releaselevel,
 				**cls.Foreground
 			))
-			print("  Minimal required Python version is {major}.{minor}.{micro}".format(
-				major=version[0],
-				minor=version[1],
-				micro=version[2]
-			))
+			print(f"  Minimal required Python version is {version[0]}.{version[1]}.{version[2]}")
 
 			cls.exit(1)
 
@@ -185,7 +184,7 @@ class Terminal:
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 		print_tb(ex.__traceback__)
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)
@@ -208,7 +207,7 @@ class Terminal:
 		  **cls.Foreground
 		))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)
@@ -220,7 +219,7 @@ class Terminal:
 		print("{RED}FATAL: A known but unhandled exception reached the topmost exception handler!{NOCOLOR}".format(**cls.Foreground))
 		print("{RED}ERROR:{NOCOLOR} {message}".format(message=ex.message, **cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)
