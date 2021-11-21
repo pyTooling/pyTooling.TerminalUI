@@ -7,7 +7,7 @@
 .. |SHIELD:svg:pyTooling-github| image:: https://img.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131?logo=github&longCache=true
    :alt: Sourcecode on GitHub
    :height: 22
-   :target: https://GitHub.com/pyTooling/pyTooling
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI
 .. |SHIELD:png:pyTooling-github| image:: https://raster.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131?logo=github&longCache=true
    :alt: Sourcecode on GitHub
    :height: 22
@@ -21,37 +21,37 @@
 .. |SHIELD:png:pyTooling-src-license| image:: https://img.shields.io/pypi/l/pyTooling.TerminalUI?logo=GitHub&label=code%20license
    :alt: Code license
    :height: 22
-   :target: https://GitHub.com/pyTooling/pyTooling/blob/main/LICENSE.md
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/main/LICENSE.md
 
 .. # GitHub tag
-.. |SHIELD:svg:pyTooling-tag| image:: https://img.shields.io/github/v/tag/pyTooling/pyTooling?logo=GitHub&include_prereleases
+.. |SHIELD:svg:pyTooling-tag| image:: https://img.shields.io/github/v/tag/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases
    :alt: GitHub tag (latest SemVer incl. pre-release
    :height: 22
-   :target: https://GitHub.com/pyTooling/pyTooling/tags
-.. |SHIELD:png:pyTooling-tag| image:: https://raster.shields.io/github/v/tag/pyTooling/pyTooling?logo=GitHub&include_prereleases
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/tags
+.. |SHIELD:png:pyTooling-tag| image:: https://raster.shields.io/github/v/tag/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases
    :alt: GitHub tag (latest SemVer incl. pre-release
    :height: 22
-   :target: https://GitHub.com/pyTooling/pyTooling/tags
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/tags
 
 .. # GitHub release
-.. |SHIELD:svg:pyTooling-release| image:: https://img.shields.io/github/v/release/pyTooling/pyTooling?logo=GitHub&include_prereleases
+.. |SHIELD:svg:pyTooling-release| image:: https://img.shields.io/github/v/release/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases
    :alt: GitHub release (latest SemVer incl. including pre-releases
    :height: 22
-   :target: https://GitHub.com/pyTooling/pyTooling/releases/latest
-.. |SHIELD:png:pyTooling-release| image:: https://raster.shields.io/github/v/release/pyTooling/pyTooling?logo=GitHub&include_prereleases
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases/latest
+.. |SHIELD:png:pyTooling-release| image:: https://raster.shields.io/github/v/release/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases
    :alt: GitHub release (latest SemVer incl. including pre-releases
    :height: 22
-   :target: https://GitHub.com/pyTooling/pyTooling/releases/latest
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases/latest
 
 .. # GitHub release date
-.. |SHIELD:svg:pyTooling-date| image:: https://img.shields.io/github/release-date/pyTooling/pyTooling?logo=GitHub
+.. |SHIELD:svg:pyTooling-date| image:: https://img.shields.io/github/release-date/pyTooling/pyTooling.TerminalUI?logo=GitHub
    :alt: GitHub release date
    :height: 22
-   :target: https://GitHub.com/pyTooling/pyTooling/releases
-.. |SHIELD:png:pyTooling-date| image:: https://raster.shields.io/github/release-date/pyTooling/pyTooling?logo=GitHub
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases
+.. |SHIELD:png:pyTooling-date| image:: https://raster.shields.io/github/release-date/pyTooling/pyTooling.TerminalUI?logo=GitHub
    :alt: GitHub release date
    :height: 22
-   :target: https://GitHub.com/pyTooling/pyTooling/releases
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases
 
 .. # GitHub/Libraries dependent projects
 .. |SHIELD:svg:pyTooling-lib-dep| image:: https://img.shields.io/librariesio/dependent-repos/pypi/pyTooling.TerminalUI
