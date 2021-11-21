@@ -26,7 +26,7 @@ pyTooling.TerminalUI Package (Mandatory)
 .. rubric:: Manually Installing Package Requirements
 
 Use the :file:`requirements.txt` file to install all dependencies via ``pip3``
-or install the package directly from PyPI (see :ref:`INSTALL`).
+or install the package directly from PyPI (see :ref:`installation`).
 
 .. code-block:: shell
 
