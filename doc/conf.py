@@ -216,7 +216,7 @@ extensions = [
 # ==============================================================================
 intersphinx_mapping = {
 	'python':     ('https://docs.python.org/3', None),
-	'pyTooling':  ('http://pyTooling.github.io/pyTooling', None),
+	'pyTooling':  ('http://pyTooling.GitHub.io/pyTooling', None),
 }
 
 
@@ -231,10 +231,10 @@ autodoc_member_order = "bysource"       # alphabetical, groupwise, bysource
 # Sphinx.Ext.ExtLinks
 # ==============================================================================
 extlinks = {
-	'issue': ('https://github.com/pyTooling/pyTooling.TerminalUI/issues/%s', 'issue #'),
-	'pull':  ('https://github.com/pyTooling/pyTooling.TerminalUI/pull/%s', 'pull request #'),
-	'src':   ('https://github.com/pyTooling/pyTooling.TerminalUI/blob/master/pyTooling/%s?ts=2', None),
-#	'test':  ('https://github.com/pyTooling/pyTooling/blob/master/test/%s?ts=2', None)
+	'issue': ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues/%s', 'issue #'),
+	'pull':  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/pull/%s', 'pull request #'),
+	'src':   ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/master/pyTooling/%s?ts=2', None),
+#	'test':  ('https://GitHub.com/pyTooling/pyTooling/blob/master/test/%s?ts=2', None)
 }
 
 

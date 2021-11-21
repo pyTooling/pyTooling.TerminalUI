@@ -7,11 +7,11 @@
 .. |SHIELD:svg:pyTooling-github| image:: https://img.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131?logo=github&longCache=true
    :alt: Sourcecode on GitHub
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling
+   :target: https://GitHub.com/pyTooling/pyTooling
 .. |SHIELD:png:pyTooling-github| image:: https://raster.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131?logo=github&longCache=true
    :alt: Sourcecode on GitHub
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI
 
 .. # Sourcecode license
 .. |SHIELD:svg:pyTooling-src-license| image:: https://img.shields.io/pypi/l/pyTooling.TerminalUI?logo=GitHub&label=code%20license
@@ -21,57 +21,57 @@
 .. |SHIELD:png:pyTooling-src-license| image:: https://img.shields.io/pypi/l/pyTooling.TerminalUI?logo=GitHub&label=code%20license
    :alt: Code license
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling/blob/main/LICENSE.md
+   :target: https://GitHub.com/pyTooling/pyTooling/blob/main/LICENSE.md
 
 .. # GitHub tag
 .. |SHIELD:svg:pyTooling-tag| image:: https://img.shields.io/github/v/tag/pyTooling/pyTooling?logo=GitHub&include_prereleases
    :alt: GitHub tag (latest SemVer incl. pre-release
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling/tags
+   :target: https://GitHub.com/pyTooling/pyTooling/tags
 .. |SHIELD:png:pyTooling-tag| image:: https://raster.shields.io/github/v/tag/pyTooling/pyTooling?logo=GitHub&include_prereleases
    :alt: GitHub tag (latest SemVer incl. pre-release
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling/tags
+   :target: https://GitHub.com/pyTooling/pyTooling/tags
 
 .. # GitHub release
 .. |SHIELD:svg:pyTooling-release| image:: https://img.shields.io/github/v/release/pyTooling/pyTooling?logo=GitHub&include_prereleases
    :alt: GitHub release (latest SemVer incl. including pre-releases
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling/releases/latest
+   :target: https://GitHub.com/pyTooling/pyTooling/releases/latest
 .. |SHIELD:png:pyTooling-release| image:: https://raster.shields.io/github/v/release/pyTooling/pyTooling?logo=GitHub&include_prereleases
    :alt: GitHub release (latest SemVer incl. including pre-releases
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling/releases/latest
+   :target: https://GitHub.com/pyTooling/pyTooling/releases/latest
 
 .. # GitHub release date
 .. |SHIELD:svg:pyTooling-date| image:: https://img.shields.io/github/release-date/pyTooling/pyTooling?logo=GitHub
    :alt: GitHub release date
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling/releases
+   :target: https://GitHub.com/pyTooling/pyTooling/releases
 .. |SHIELD:png:pyTooling-date| image:: https://raster.shields.io/github/release-date/pyTooling/pyTooling?logo=GitHub
    :alt: GitHub release date
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling/releases
+   :target: https://GitHub.com/pyTooling/pyTooling/releases
 
 .. # GitHub/Libraries dependent projects
 .. |SHIELD:svg:pyTooling-lib-dep| image:: https://img.shields.io/librariesio/dependent-repos/pypi/pyTooling.TerminalUI
    :alt: Dependent repos (via libraries.io)
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/network/dependents
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/network/dependents
 .. |SHIELD:png:pyTooling-lib-dep| image:: https://raster.shields.io/librariesio/dependent-repos/pypi/pyTooling.TerminalUI
    :alt: Dependent repos (via libraries.io)
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/network/dependents
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/network/dependents
 
 .. # GHA test and coverage
 .. |SHIELD:svg:pyTooling-gha-test| image:: https://img.shields.io/github/workflow/status/pyTooling/pyTooling.TerminalUI/Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish?label=Build%20and%20Test&logo=GitHub%20Actions&logoColor=FFFFFF
    :alt: GitHub Workflow - Build and Test Status
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/actions?query=workflow%3A%22Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish%22
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/actions?query=workflow%3A%22Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish%22
 .. |SHIELD:png:pyTooling-gha-test| image:: https://img.shields.io/github/workflow/status/pyTooling/pyTooling.TerminalUI/Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish?label=Build%20and%20Test&logo=GitHub%20Actions&logoColor=FFFFFF
    :alt: GitHub Workflow - Build and Test Status
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/actions?query=workflow%3A%22Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish%22
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/actions?query=workflow%3A%22Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish%22
 
 .. # Codacy - quality
 .. |SHIELD:svg:pyTooling-codacy-quality| image:: https://img.shields.io/codacy/grade/08ef744c0b70490289712b02a7a4cebe?logo=codacy
@@ -167,14 +167,14 @@
 .. |SHIELD:png:pyTooling-doc-license| image:: https://img.shields.io/badge/doc%20license-CC--BY%204.0-green
    :alt: Documentation License
    :height: 22
-   :target: https://github.com/pyTooling/pyTooling.TerminalUI/blob/main/doc/Doc-License.rst
+   :target: https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/main/doc/Doc-License.rst
 
 .. # GHPages - read now
 .. |SHIELD:svg:pyTooling-ghp-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet
    :alt: Documentation - Read Now!
    :height: 22
-   :target: https://pyTooling.github.io/pyTooling.TerminalUI/
+   :target: https://pyTooling.GitHub.io/pyTooling.TerminalUI/
 .. |SHIELD:png:pyTooling-ghp-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet
    :alt: Documentation - Read Now!
    :height: 22
-   :target: https://pyTooling.github.io/pyTooling.TerminalUI/
+   :target: https://pyTooling.GitHub.io/pyTooling.TerminalUI/

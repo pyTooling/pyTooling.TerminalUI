@@ -101,7 +101,7 @@ class Terminal:
 
 		If the Python package `colorama <https://pypi.org/project/colorama/>`_ [#f_colorama]_ is available, then initialize it for colored outputs.
 
-		.. [#f_colorama] Colorama on Github: https://github.com/tartley/colorama
+		.. [#f_colorama] Colorama on Github: https://GitHub.com/tartley/colorama
 		"""
 
 		self.initColors()
@@ -184,7 +184,7 @@ class Terminal:
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 		print_tb(ex.__traceback__)
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)
@@ -207,7 +207,7 @@ class Terminal:
 		  **cls.Foreground
 		))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)
@@ -219,7 +219,7 @@ class Terminal:
 		print("{RED}FATAL: A known but unhandled exception reached the topmost exception handler!{NOCOLOR}".format(**cls.Foreground))
 		print("{RED}ERROR:{NOCOLOR} {message}".format(message=ex.message, **cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
-		print(("{RED}Please report this bug at GitHub: https://github.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
+		print(("{RED}Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues{NOCOLOR}").format(**cls.Foreground))
 		print(("{RED}" + ("-" * 80) + "{NOCOLOR}").format(**cls.Foreground))
 
 		cls.exit(1)

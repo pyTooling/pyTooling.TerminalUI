@@ -1,10 +1,10 @@
-[![Sourcecode on GitHub](https://img.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131.svg?logo=github&longCache=true)](https://github.com/pyTooling/pyTooling.TerminalUI)
+[![Sourcecode on GitHub](https://img.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131.svg?logo=github&longCache=true)](https://GitHub.com/pyTooling/pyTooling.TerminalUI)
 [![Sourcecode License](https://img.shields.io/pypi/l/pyTooling.TerminalUI?logo=GitHub&label=code%20license)](LICENSE.md)
-[![GitHub tag (latest SemVer incl. pre-release)](https://img.shields.io/github/v/tag/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases)](https://github.com/pyTooling/pyTooling.TerminalUI/tags)
-[![GitHub release (latest SemVer incl. including pre-releases)](https://img.shields.io/github/v/release/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases)](https://github.com/pyTooling/pyTooling.TerminalUI/releases/latest)
-[![GitHub release date](https://img.shields.io/github/release-date/pyTooling/pyTooling.TerminalUI?logo=GitHub)](https://github.com/pyTooling/pyTooling.TerminalUI/releases)
-[![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/pypi/pyTooling.TerminalUI?logo=librariesdotio)](https://github.com/pyTooling/pyTooling.TerminalUI/network/dependents)  
-[![GitHub Workflow - Build and Test Status](https://img.shields.io/github/workflow/status/pyTooling/pyTooling.TerminalUI/Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish?label=Pipeline&logo=GitHub%20Actions&logoColor=FFFFFF)](https://github.com/pyTooling/pyTooling.TerminalUI/actions/workflows/Pipeline.yml)
+[![GitHub tag (latest SemVer incl. pre-release)](https://img.shields.io/github/v/tag/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases)](https://GitHub.com/pyTooling/pyTooling.TerminalUI/tags)
+[![GitHub release (latest SemVer incl. including pre-releases)](https://img.shields.io/github/v/release/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases)](https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases/latest)
+[![GitHub release date](https://img.shields.io/github/release-date/pyTooling/pyTooling.TerminalUI?logo=GitHub)](https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases)
+[![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/pypi/pyTooling.TerminalUI?logo=librariesdotio)](https://GitHub.com/pyTooling/pyTooling.TerminalUI/network/dependents)  
+[![GitHub Workflow - Build and Test Status](https://img.shields.io/github/workflow/status/pyTooling/pyTooling.TerminalUI/Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish?label=Pipeline&logo=GitHub%20Actions&logoColor=FFFFFF)](https://GitHub.com/pyTooling/pyTooling.TerminalUI/actions/workflows/Pipeline.yml)
 [![Codacy - Quality](https://img.shields.io/codacy/grade/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy)](https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI)
 [![Codacy - Coverage](https://img.shields.io/codacy/coverage/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy)](https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI)
 [![Codecov - Branch Coverage](https://img.shields.io/codecov/c/github/pyTooling/pyTooling.TerminalUI?logo=Codecov)](https://codecov.io/gh/pyTooling/pyTooling.TerminalUI)
@@ -87,8 +87,8 @@ if __name__ == "__main__":
 
 ## Contributors
 
-* [Patrick Lehmann](https://github.com/Paebbels) (Maintainer)
-* [and more...](https://github.com/pyTooling/pyTooling.TerminalUI/graphs/contributors)
+* [Patrick Lehmann](https://GitHub.com/Paebbels) (Maintainer)
+* [and more...](https://GitHub.com/pyTooling/pyTooling.TerminalUI/graphs/contributors)
 
 
 ## License
