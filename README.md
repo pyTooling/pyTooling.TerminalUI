@@ -16,7 +16,7 @@
 [![Requires.io](https://img.shields.io/requires/github/Paebbels/pyTerminalUI)](https://requires.io/github/Paebbels/pyTerminalUI/requirements/?branch=main)  
 [![Read the Docs](https://img.shields.io/readthedocs/pyterminalui?label=ReadTheDocs&logo=readthedocs)](https://pyTerminalUI.readthedocs.io/)
 [![Documentation License](https://img.shields.io/badge/doc%20license-CC--BY%204.0-green?logo=readthedocs)](LICENSE.md)
-[![Documentation - Read Now!](https://img.shields.io/badge/doc-read%20now%20%E2%9E%94-blueviolet?logo=readthedocs)](https://pyTerminalUI.readthedocs.io/)
+[![Documentation - Read Now!](https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet?logo=readthedocs)](https://pyTerminalUI.readthedocs.io/)
 
 # pyTerminalUI
 

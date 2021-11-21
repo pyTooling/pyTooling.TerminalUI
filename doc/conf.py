@@ -10,16 +10,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import sys
+from json    import loads
 from os.path import abspath
 from pathlib import Path
-from json    import loads
+from sys     import path as sys_path
 
-sys.path.insert(0, abspath('.'))
-sys.path.insert(0, abspath('..'))
-sys.path.insert(0, abspath('../pyTooling.TerminalUI'))
-sys.path.insert(0, abspath('_extensions'))
-#sys.path.insert(0, os.path.abspath('_themes/sphinx_rtd_theme'))
+sys_path.insert(0, abspath('.'))
+sys_path.insert(0, abspath('..'))
+sys_path.insert(0, abspath('../pyTooling.TerminalUI'))
+sys_path.insert(0, abspath('_extensions'))
+#sys_path.insert(0, os.path.abspath('_themes/sphinx_rtd_theme'))
 
 
 # ==============================================================================

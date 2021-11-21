@@ -67,7 +67,7 @@
    :alt: Documentation License
    :height: 22
    :target: LICENSE.md
-.. |img-TerminalUI-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%94-blueviolet?logo=readthedocs
+.. |img-TerminalUI-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet?logo=readthedocs
    :alt: Documentation - Read Now!
    :height: 22
    :target: https://pyTerminalUI.readthedocs.io/

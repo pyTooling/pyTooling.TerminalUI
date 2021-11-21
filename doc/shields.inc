@@ -170,11 +170,11 @@
    :target: https://github.com/pyTooling/pyTooling/blob/main/doc/Doc-License.rst
 
 .. # GHPages - read now
-.. |SHIELD:svg:pyTooling-ghp-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%94-blueviolet
+.. |SHIELD:svg:pyTooling-ghp-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet
    :alt: Documentation - Read Now!
    :height: 22
    :target: https://pyTooling.github.io/pyTooling/
-.. |SHIELD:png:pyTooling-ghp-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%94-blueviolet
+.. |SHIELD:png:pyTooling-ghp-doc| image:: https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet
    :alt: Documentation - Read Now!
    :height: 22
    :target: https://pyTooling.github.io/pyTooling/
