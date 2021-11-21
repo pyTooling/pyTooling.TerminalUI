@@ -1,24 +1,24 @@
-[![Sourcecode on GitHub](https://img.shields.io/badge/Paebbels-pyTerminalUI-323131.svg?logo=github&longCache=true)](https://github.com/pyTooling/pyTooling.TerminalUI)
-[![Sourcecode License](https://img.shields.io/pypi/l/pyTerminalUI?logo=GitHub&label=code%20license)](LICENSE.md)
+[![Sourcecode on GitHub](https://img.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131.svg?logo=github&longCache=true)](https://github.com/pyTooling/pyTooling.TerminalUI)
+[![Sourcecode License](https://img.shields.io/pypi/l/pyTooling.TerminalUI?logo=GitHub&label=code%20license)](LICENSE.md)
 [![GitHub tag (latest SemVer incl. pre-release)](https://img.shields.io/github/v/tag/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases)](https://github.com/pyTooling/pyTooling.TerminalUI/tags)
 [![GitHub release (latest SemVer incl. including pre-releases)](https://img.shields.io/github/v/release/pyTooling/pyTooling.TerminalUI?logo=GitHub&include_prereleases)](https://github.com/pyTooling/pyTooling.TerminalUI/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/pyTooling/pyTooling.TerminalUI?logo=GitHub)](https://github.com/pyTooling/pyTooling.TerminalUI/releases)
-[![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/pypi/pyTerminalUI?logo=librariesdotio)](https://github.com/pyTooling/pyTooling.TerminalUI/network/dependents)  
+[![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/pypi/pyTooling.TerminalUI?logo=librariesdotio)](https://github.com/pyTooling/pyTooling.TerminalUI/network/dependents)  
 [![GitHub Workflow - Build and Test Status](https://img.shields.io/github/workflow/status/pyTooling/pyTooling.TerminalUI/Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish?label=Pipeline&logo=GitHub%20Actions&logoColor=FFFFFF)](https://github.com/pyTooling/pyTooling.TerminalUI/actions/workflows/Pipeline.yml)
 [![Codacy - Quality](https://img.shields.io/codacy/grade/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy)](https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI)
 [![Codacy - Coverage](https://img.shields.io/codacy/coverage/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy)](https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI)
 [![Codecov - Branch Coverage](https://img.shields.io/codecov/c/github/pyTooling/pyTooling.TerminalUI?logo=Codecov)](https://codecov.io/gh/pyTooling/pyTooling.TerminalUI)
-[![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/pypi/pyTerminalUI?logo=librariesdotio)](https://libraries.io/github/pyTooling/pyTooling.TerminalUI/sourcerank)  
-[![PyPI](https://img.shields.io/pypi/v/pyTerminalUI?logo=PyPI&logoColor=FBE072)](https://pypi.org/project/pyTerminalUI/)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyTerminalUI?logo=PyPI&logoColor=FBE072)
-![PyPI - Status](https://img.shields.io/pypi/status/pyTerminalUI?logo=PyPI&logoColor=FBE072)
-[![Libraries.io status for latest release](https://img.shields.io/librariesio/release/pypi/pyTerminalUI?logo=librariesdotio)](https://libraries.io/github/pyTooling/pyTooling.TerminalUI)
+[![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/pypi/pyTooling.TerminalUI?logo=librariesdotio)](https://libraries.io/github/pyTooling/pyTooling.TerminalUI/sourcerank)  
+[![PyPI](https://img.shields.io/pypi/v/pyTooling.TerminalUI?logo=PyPI&logoColor=FBE072)](https://pypi.org/project/pyTooling.TerminalUI/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyTooling.TerminalUI?logo=PyPI&logoColor=FBE072)
+![PyPI - Status](https://img.shields.io/pypi/status/pyTooling.TerminalUI?logo=PyPI&logoColor=FBE072)
+[![Libraries.io status for latest release](https://img.shields.io/librariesio/release/pypi/pyTooling.TerminalUI?logo=librariesdotio)](https://libraries.io/github/pyTooling/pyTooling.TerminalUI)
 [![Requires.io](https://img.shields.io/requires/github/pyTooling/pyTooling.TerminalUI)](https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=main)  
 [![Read the Docs](https://img.shields.io/readthedocs/pyterminalui?label=ReadTheDocs&logo=readthedocs)](https://pyTerminalUI.readthedocs.io/)
 [![Documentation License](https://img.shields.io/badge/doc%20license-CC--BY%204.0-green?logo=readthedocs)](LICENSE.md)
 [![Documentation - Read Now!](https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet?logo=readthedocs)](https://pyTerminalUI.readthedocs.io/)
 
-# pyTerminalUI
+# pyTooling.TerminalUI
 
 A set of helpers to implement a text user interface (TUI) in a terminal.
 
