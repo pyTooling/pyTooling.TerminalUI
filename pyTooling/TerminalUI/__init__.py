@@ -153,11 +153,7 @@ class Terminal:
 				level=version_info.releaselevel,
 				**cls.Foreground
 			))
-			print("  Minimal required Python version is {major}.{minor}.{micro}".format(
-				major=version[0],
-				minor=version[1],
-				micro=version[2]
-			))
+			print(f"  Minimal required Python version is {version[0]}.{version[1]}.{version[2]}")
 
 			cls.exit(1)
 

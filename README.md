@@ -62,11 +62,11 @@ from pathlib import Path
 from pyTooling.TerminalUI import LineTerminal, ILineTerminal
 
 class SubModule(ILineTerminal):
-  def __init__(self, configFile, terminal):
+  def __init__(self, configFile: Path, terminal):
     super().__init__(terminal)
 
     if not configFile.exists():
-      self.WriteError("Config file '{0!s}' not found.".format(configFile))
+      self.WriteError(f"Config file '{configFile}' not found.")
 
 
 class Application(LineTerminal):
