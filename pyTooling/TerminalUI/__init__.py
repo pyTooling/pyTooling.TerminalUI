@@ -31,6 +31,7 @@
 #
 from enum           import Enum, unique
 from platform       import system as platform_system
+from typing         import NoReturn, Tuple
 
 from pyTooling.Decorators   import export
 from pyTooling.MetaClasses  import Singleton
@@ -95,7 +96,7 @@ class Terminal:
 	_width  : int = None      #: Terminal width in characters
 	_height : int = None      #: Terminal height in characters
 
-	def __init__(self):
+	def __init__(self) -> None:
 		"""
 		Initialize a terminal.
 
@@ -108,7 +109,7 @@ class Terminal:
 		(self._width, self._height) = self.GetTerminalSize()
 
 	@classmethod
-	def initColors(cls):
+	def initColors(cls) -> None:
 		"""Initialize the terminal for color support by colorama."""
 		try:
 			from colorama import init
@@ -118,7 +119,7 @@ class Terminal:
 			pass
 
 	@classmethod
-	def deinitColors(cls):
+	def deinitColors(cls) -> None:
 		"""Uninitialize the terminal for color support by colorama."""
 		try:
 			from colorama import deinit
@@ -128,18 +129,18 @@ class Terminal:
 			pass
 
 	@classmethod
-	def fatalExit(cls, returnCode:int =0):
+	def fatalExit(cls, returnCode:int =0) -> NoReturn:
 		"""Exit the terminal application by uninitializing color support and returning a fatal exit code."""
 		cls.exit(cls.FATAL_EXIT_CODE if returnCode == 0 else returnCode)
 
 	@classmethod
-	def exit(cls, returnCode:int =0):
+	def exit(cls, returnCode:int =0) -> NoReturn:
 		"""Exit the terminal application by uninitializing color support and returning an exit code."""
 		cls.deinitColors()
 		exit(returnCode)
 
 	@classmethod
-	def versionCheck(cls, version):
+	def versionCheck(cls, version) -> None:
 		"""Check if the used Python interpreter fulfills the minimum version requirements."""
 
 		from sys import version_info
@@ -159,7 +160,7 @@ class Terminal:
 			cls.exit(1)
 
 	@classmethod
-	def printException(cls, ex):
+	def printException(cls, ex) -> NoReturn:
 		"""Prints an exception of type :exc:`Exception`."""
 
 		from traceback import print_tb, walk_tb
@@ -190,7 +191,7 @@ class Terminal:
 		cls.exit(1)
 
 	@classmethod
-	def printNotImplementedError(cls, ex):
+	def printNotImplementedError(cls, ex) -> NoReturn:
 		"""Prints a not-implemented exception of type :exc:`NotImplementedError`."""
 
 		from traceback import walk_tb
@@ -213,7 +214,7 @@ class Terminal:
 		cls.exit(1)
 
 	@classmethod
-	def printExceptionBase(cls, ex):
+	def printExceptionBase(cls, ex) -> NoReturn:
 		cls.initColors()
 
 		print("{RED}FATAL: A known but unhandled exception reached the topmost exception handler!{NOCOLOR}".format(**cls.Foreground))
@@ -225,17 +226,17 @@ class Terminal:
 		cls.exit(1)
 
 	@property
-	def Width(self):
+	def Width(self) -> int:
 		"""Returns the current terminal window's width."""
 		return self._width
 
 	@property
-	def Height(self):
+	def Height(self) -> int:
 		"""Returns the current terminal window's height."""
 		return self._height
 
 	@staticmethod
-	def GetTerminalSize():
+	def GetTerminalSize() -> Tuple[int, int]:
 		"""
 		Returns the terminal size as tuple (width, height) for Windows, Mac OS
 		(Darwin), Linux, cygwin (Windows), MinGW32/64 (Windows).
@@ -257,7 +258,7 @@ class Terminal:
 		return size
 
 	@staticmethod
-	def __GetTerminalSizeOnWindows():
+	def __GetTerminalSizeOnWindows() -> Tuple[int, int]:
 		"""Returns the current terminal window's size for Windows."""
 
 		try:
@@ -278,7 +279,7 @@ class Terminal:
 		return Terminal.__GetTerminalSizeWithTPut()
 
 	@staticmethod
-	def __GetTerminalSizeWithTPut():
+	def __GetTerminalSizeWithTPut() -> Tuple[int, int]:
 		from shlex      import split as shlex_split
 		from subprocess import check_output
 
@@ -290,7 +291,7 @@ class Terminal:
 			pass
 
 	@staticmethod
-	def __GetTerminalSizeOnLinux():
+	def __GetTerminalSizeOnLinux() -> Tuple[int, int]:
 		"""Returns the current terminal window's size for Linux."""
 
 		import os
@@ -343,12 +344,23 @@ class Severity(Enum):
 	def __hash__(self):
 		return hash(self.name)
 
-	def __eq__(self, other):    return self.value ==  other.value
-	def __ne__(self, other):    return self.value !=  other.value
-	def __lt__(self, other):    return self.value <		other.value
-	def __le__(self, other):    return self.value <=  other.value
-	def __gt__(self, other):    return self.value >		other.value
-	def __ge__(self, other):    return self.value >=  other.value
+	def __eq__(self, other):
+		return self.value ==  other.value
+
+	def __ne__(self, other):
+		return self.value !=  other.value
+
+	def __lt__(self, other):
+		return self.value <		other.value
+
+	def __le__(self, other):
+		return self.value <=  other.value
+
+	def __gt__(self, other):
+		return self.value >		other.value
+
+	def __ge__(self, other):
+		return self.value >=  other.value
 
 
 @export
@@ -367,7 +379,7 @@ class Line:
 		Severity.DryRun:    "DRYRUN: {message}"
 	}                     #: Terminal messages formatting rules
 
-	def __init__(self, message, severity=Severity.Normal, indent=0, appendLinebreak=True):
+	def __init__(self, message, severity=Severity.Normal, indent=0, appendLinebreak=True) -> None:
 		"""Constructor for a new ``Line`` object."""
 
 		self._severity =        severity
@@ -377,25 +389,25 @@ class Line:
 
 
 	@property
-	def Severity(self):
+	def Severity(self) -> Severity:
 		"""Return the line's severity level."""
 		return self._severity
 
 	@property
-	def Indent(self):
+	def Indent(self) -> int:
 		"""Return the line's indentation level."""
 		return self._indent
 
 	@property
-	def Message(self):
+	def Message(self) -> str:
 		"""Return the indented line."""
 		return ("  " * self._indent) + self._message
 
-	def IndentBy(self, indent):
+	def IndentBy(self, indent) -> None:
 		"""Increase a line's indentation level."""
 		self._indent += indent
 
-	def __str__(self):
+	def __str__(self) -> str:
 		"""Returns a formatted version of a ``Line`` objects as a string."""
 		return self._LOG_MESSAGE_FORMAT__[self._severity].format(message=self._message)
 
@@ -406,7 +418,7 @@ class ILineTerminal:
 
 	_terminal = None
 
-	def __init__(self, terminal=None):
+	def __init__(self, terminal=None) -> None:
 		"""MixIn initializer."""
 
 		self._terminal = terminal
@@ -414,7 +426,7 @@ class ILineTerminal:
 		# FIXME: Alter methods if a terminal is present or set dummy methods
 
 	@property
-	def Terminal(self):
+	def Terminal(self) -> Terminal:
 		"""Return the local terminal instance."""
 		return self._terminal
 
@@ -496,7 +508,7 @@ class ILineTerminal:
 
 @export
 class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
-	def __init__(self, verbose=False, debug=False, quiet=False, writeToStdOut=True):
+	def __init__(self, verbose=False, debug=False, quiet=False, writeToStdOut=True) -> None:
 		"""Initializer of a line based terminal interface."""
 
 		Terminal.__init__(self)
@@ -523,34 +535,34 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 		self._warningCounter = 0
 
 	@property
-	def Verbose(self):
+	def Verbose(self) -> bool:
 		"""Returns true, if verbose messages are enabled."""
 		return self._verbose
 
 	@property
-	def Debug(self):
+	def Debug(self) -> bool:
 		"""Returns true, if debug messages are enabled."""
 		return self._debug
 
 	@property
-	def Quiet(self):
+	def Quiet(self) -> bool:
 		"""Returns true, if quiet mode is enabled."""
 		return self._quiet
 
 	@property
-	def LogLevel(self):
+	def LogLevel(self) -> Severity:
 		"""Return the current minimal severity level for writing."""
 		return self._WriteLevel
 	@LogLevel.setter
-	def LogLevel(self, value):
+	def LogLevel(self, value: Severity) -> None:
 		"""Set the minimal severity level for writing."""
 		self._WriteLevel = value
 
 	@property
-	def BaseIndent(self):
+	def BaseIndent(self) -> int:
 		return self._baseIndent
 	@BaseIndent.setter
-	def BaseIndent(self, value):
+	def BaseIndent(self, value: int) -> None:
 		self._baseIndent = value
 
 	_LOG_MESSAGE_FORMAT__ = {
@@ -565,14 +577,14 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 		Severity.Debug:   "{DARK_GRAY}{message}{NOCOLOR}"
 	}                   #: Message formatting rules.
 
-	def ExitOnPreviousErrors(self):
+	def ExitOnPreviousErrors(self) -> None:
 		"""Exit application if errors have been printed."""
 
 		if self._errorCounter > 0:
 			self.WriteFatal("Too many errors in previous steps.")
 			self.fatalExit()
 
-	def ExitOnPreviousWarnings(self):
+	def ExitOnPreviousWarnings(self) -> None:
 		"""Exit application if warnings have been printed."""
 
 		if self._warningCounter > 0:
@@ -590,7 +602,7 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 		else:
 			return False
 
-	def TryWriteLine(self, line):
+	def TryWriteLine(self, line) -> bool:
 		return (line.Severity >= self._WriteLevel)
 
 	def WriteFatal(self, message, indent=0, appendLinebreak=True, immediateExit=True):
