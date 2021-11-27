@@ -113,3 +113,64 @@ the mandatory dependencies too.
 +-------------------------------------------------------------------------------------------------+--------------+----------------------------------------------------------------------------------------------------------+----------------------+
 | `sphinx_autodoc_typehints <https://GitHub.com/agronholm/sphinx-autodoc-typehints>`__            | ≥1.12.0      | `MIT <https://GitHub.com/agronholm/sphinx-autodoc-typehints/blob/master/LICENSE>`__                      | *Not yet evaluated.* |
 +-------------------------------------------------------------------------------------------------+--------------+----------------------------------------------------------------------------------------------------------+----------------------+
+
+
+.. _dependency-packaging:
+
+Packaging (Optional)
+********************
+
+Additional Python packages needed for installation package generation. These packages are only needed for developers or
+on a CI server, thus sub-dependencies are not evaluated further.
+
+
+.. rubric:: Manually Installing Documentation Requirements
+
+Use the :file:`build/requirements.package.txt` file to install all dependencies via ``pip3``. The file will recursively
+install the mandatory dependencies too.
+
+.. code-block:: shell
+
+   pip3 install -U -r build/requirements.package.txt
+
+
+.. rubric:: Dependency List
+
++----------------------------------------------------------+--------------+-------------------------------------------------------------------------------------------+----------------------+
+| **Package**                                              | **Version**  | **License**                                                                               | **Dependencies**     |
++==========================================================+==============+===========================================================================================+======================+
+| `pyTooling <https://GitHub.com/pyTooling/pyTooling>`__   | ≥1.4.6       | `Apache License, 2.0 <https://GitHub.com/pyTooling/pyTooling/blob/main/LICENSE.txt>`__  | *None*               |
++----------------------------------------------------------+--------------+-------------------------------------------------------------------------------------------+----------------------+
+| `wheel <https://GitHub.com/pypa/wheel>`__                | any          | `MIT <https://github.com/pypa/wheel/blob/main/LICENSE.txt>`__                             | *Not yet evaluated.* |
++----------------------------------------------------------+--------------+-------------------------------------------------------------------------------------------+----------------------+
+
+
+.. _dependency-publishing:
+
+Publishing (CI-Server only)
+***************************
+
+Additional Python packages needed for publishing the generated installation package to e.g, PyPI or any equivalent
+services. These packages are only needed for maintainers or on a CI server, thus sub-dependencies are not evaluated
+further.
+
+
+.. rubric:: Manually Installing Documentation Requirements
+
+Use the :file:`build/requirements.publish.txt` file to install all dependencies via ``pip3``. The file will recursively
+install the mandatory dependencies too.
+
+.. code-block:: shell
+
+   pip3 install -U -r build/requirements.publish.txt
+
+
+.. rubric:: Dependency List
+
++----------------------------------------------------------+--------------+-------------------------------------------------------------------------------------------+----------------------+
+| **Package**                                              | **Version**  | **License**                                                                               | **Dependencies**     |
++==========================================================+==============+===========================================================================================+======================+
+| `wheel <https://GitHub.com/pypa/wheel>`__                | any          | `MIT <https://github.com/pypa/wheel/blob/main/LICENSE.txt>`__                             | *Not yet evaluated.* |
++----------------------------------------------------------+--------------+-------------------------------------------------------------------------------------------+----------------------+
+| `Twine <https://GitHub.com/pypa/twine/>`__               | any          | `Apache License, 2.0 <https://github.com/pypa/twine/blob/main/LICENSE>`__                 | *Not yet evaluated.* |
++----------------------------------------------------------+--------------+-------------------------------------------------------------------------------------------+----------------------+
