@@ -141,7 +141,7 @@ latex_elements = {
 		% ================================================================================
 		% Add more Unicode characters for pdfLaTeX.
 		% - Alternatively, compile with XeLaTeX or LuaLaTeX.
-		% - https://github.com/sphinx-doc/sphinx/issues/3511
+		% - https://GitHub.com/sphinx-doc/sphinx/issues/3511
 		%
 		\ifdefined\DeclareUnicodeCharacter
 			\DeclareUnicodeCharacter{2265}{$\geq$}
