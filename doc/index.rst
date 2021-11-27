@@ -176,7 +176,10 @@ License
    :caption: Appendix
    :hidden:
 
+   Coverage Report ➚ <https://pyTooling.GitHub.io/pyTooling.TerminalUI/coverage/>
+   Static Type Check Report ➚ <https://pyTooling.GitHub.io/pyTooling.TerminalUI/typing/>
    License
+   Doc-License
    genindex
 
 .. #
