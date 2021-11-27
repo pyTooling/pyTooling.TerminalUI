@@ -4,5 +4,6 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../CLIAbstraction" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../GenericPath" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Packaging" vcs="Git" />
   </component>
 </project>

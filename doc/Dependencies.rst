@@ -10,7 +10,7 @@ Dependencies
 .. |img-TerminalUI-req-status| image:: https://img.shields.io/requires/github/pyTooling/pyTooling.TerminalUI
    :alt: Requires.io
    :height: 22
-   :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=master
+   :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=main
 
 +------------------------------------------+------------------------------------------+
 | `Libraries.io <https://libraries.io/>`_  | `Requires.io <https://requires.io/>`_    |
@@ -25,8 +25,8 @@ pyTooling.TerminalUI Package (Mandatory)
 
 .. rubric:: Manually Installing Package Requirements
 
-Use the :file:`requirements.txt` file to install all dependencies via ``pip3``
-or install the package directly from PyPI (see :ref:`installation`).
+Use the :file:`requirements.txt` file to install all dependencies via ``pip3`` or install the package directly from
+PyPI (see :ref:`installation`).
 
 .. code-block:: shell
 
@@ -40,25 +40,24 @@ or install the package directly from PyPI (see :ref:`installation`).
 +==========================================================+=============+===========================================================================================+=================================================================================================================================+
 | `colorama <https://GitHub.com/tartley/colorama>`__       | ≥0.4.4      | `BSD-3-Clause  <https://GitHub.com/tartley/colorama/blob/master/LICENSE.txt>`__           | None                                                                                                                            |
 +----------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| `pyTooling <https://GitHub.com/pyTooling/pyTooling>`__   | ≥1.4.4      | `Apache License, 2.0 <https://GitHub.com/pyTooling/pyTooling/blob/master/LICENSE.txt>`__  | *None*                                                                                                                          |
+| `pyTooling <https://GitHub.com/pyTooling/pyTooling>`__   | ≥1.4.6      | `Apache License, 2.0 <https://GitHub.com/pyTooling/pyTooling/blob/main/LICENSE.txt>`__  | *None*                                                                                                                          |
 +----------------------------------------------------------+-------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
 
 .. _dependency-testing:
 
-Unit Testing / Coverage (Optional)
-**********************************
+Unit Testing / Coverage / Type Checking (Optional)
+**************************************************
 
-Additional Python packages needed for testing and code coverage collection.
-These packages are only needed for developers or on a CI server, thus
-sub-dependencies are not evaluated further.
+Additional Python packages needed for testing, code coverage collection and static type checking. These packages are
+only needed for developers or on a CI server, thus sub-dependencies are not evaluated further.
 
 
 .. rubric:: Manually Installing Test Requirements
 
-Use the :file:`tests/requirements.txt` file to install all dependencies via
-``pip3``. The file will recursively install the mandatory dependencies too.
+Use the :file:`tests/requirements.txt` file to install all dependencies via ``pip3``. The file will recursively install
+the mandatory dependencies too.
 
 .. code-block:: shell
 
@@ -87,15 +86,14 @@ Use the :file:`tests/requirements.txt` file to install all dependencies via
 Sphinx Documentation (Optional)
 *******************************
 
-Additional Python packages needed for documentation generation. These packages
-are only needed for developers or on a CI server, thus sub-dependencies are not
-evaluated further.
+Additional Python packages needed for documentation generation. These packages are only needed for developers or on a
+CI server, thus sub-dependencies are not evaluated further.
 
 
 .. rubric:: Manually Installing Documentation Requirements
 
-Use the :file:`doc/requirements.txt` file to install all dependencies via
-``pip3``. The file will recursively install the mandatory dependencies too.
+Use the :file:`doc/requirements.txt` file to install all dependencies via ``pip3``. The file will recursively install
+the mandatory dependencies too.
 
 .. code-block:: shell
 
