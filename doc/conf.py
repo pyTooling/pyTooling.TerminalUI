@@ -231,10 +231,10 @@ autodoc_member_order = "bysource"       # alphabetical, groupwise, bysource
 # Sphinx.Ext.ExtLinks
 # ==============================================================================
 extlinks = {
-	'issue': ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues/%s', 'issue #'),
-	'pull':  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/pull/%s', 'pull request #'),
-	'src':   ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/main/pyTooling/%s?ts=2', None),
-#	'test':  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/main/test/%s?ts=2', None)
+	"ghissue": ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues/%s', 'issue #'),
+	"ghpull":  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/pull/%s', 'pull request #'),
+	"ghsrc":   ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/main/pyTooling/%s?ts=2', None),
+#	"ghtest":  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/main/test/%s?ts=2', None)
 }
 
 
