@@ -124,7 +124,7 @@ Additional Python packages needed for installation package generation. These pac
 on a CI server, thus sub-dependencies are not evaluated further.
 
 
-.. rubric:: Manually Installing Documentation Requirements
+.. rubric:: Manually Installing Packaging Requirements
 
 Use the :file:`build/requirements.txt` file to install all dependencies via ``pip3``. The file will recursively
 install the mandatory dependencies too.
@@ -155,7 +155,7 @@ services. These packages are only needed for maintainers or on a CI server, thus
 further.
 
 
-.. rubric:: Manually Installing Documentation Requirements
+.. rubric:: Manually Installing Publishing Requirements
 
 Use the :file:`dist/requirements.txt` file to install all dependencies via ``pip3``. The file will recursively
 install the mandatory dependencies too.

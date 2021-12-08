@@ -13,7 +13,7 @@ coverage.xml
 /*.egg-info
 
 # Dependencies
-!requirements*.txt
+!requirements.txt
 
 # Sphinx
 doc/_build/
