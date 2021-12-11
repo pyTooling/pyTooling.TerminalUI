@@ -4,9 +4,10 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/doc/_build" />
       <excludeFolder url="file://$MODULE_DIR$/tests/.pytest_cache" />
-      <excludeFolder url="file://$MODULE_DIR$/build" />
-      <excludeFolder url="file://$MODULE_DIR$/dist" />
       <excludeFolder url="file://$MODULE_DIR$/pyTooling.TerminalUI.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/pyTooling/.mypy_cache/3.10" />
+      <excludeFolder url="file://$MODULE_DIR$/build/bdist.win-amd64" />
+      <excludeFolder url="file://$MODULE_DIR$/build/lib" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -18,5 +19,6 @@
     <orderEntry type="module" module-name="pyExceptions" />
     <orderEntry type="module" module-name="pyGenericPath" />
     <orderEntry type="module" module-name="pyMetaClasses" />
+    <orderEntry type="module" module-name="pyTooling.Packaging" />
   </component>
 </module>

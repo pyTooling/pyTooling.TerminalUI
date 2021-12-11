@@ -1,7 +1,7 @@
 -r ../requirements.txt
 
 # Coverage collection
-Coverage>=6.1
+Coverage>=6.2
 
 # Test Runner
 pytest>=6.2.5

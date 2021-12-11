@@ -58,7 +58,7 @@
 .. |img-TerminalUI-req-status| image:: https://img.shields.io/requires/github/pyTooling/pyTooling.TerminalUI
    :alt: Requires.io
    :height: 22
-   :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=master
+   :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=main
 .. |img-TerminalUI-doclicense| image:: https://img.shields.io/badge/doc%20license-CC--BY%204.0-green?logo=readthedocs
    :alt: Documentation License
    :height: 22
@@ -176,7 +176,10 @@ License
    :caption: Appendix
    :hidden:
 
+   Coverage Report ➚ <https://pyTooling.GitHub.io/pyTooling.TerminalUI/coverage/>
+   Static Type Check Report ➚ <https://pyTooling.GitHub.io/pyTooling.TerminalUI/typing/>
    License
+   Doc-License
    genindex
 
 .. #

@@ -10,17 +10,19 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-from ast     import parse as ast_parse, iter_child_nodes, Assign, Constant, Name
 from json    import loads
 from os.path import abspath
 from pathlib import Path
 from sys     import path as sys_path
+
+from pyTooling.Packaging import extractVersionInformation
 
 sys_path.insert(0, abspath('.'))
 sys_path.insert(0, abspath('..'))
 sys_path.insert(0, abspath('../pyTooling.TerminalUI'))
 sys_path.insert(0, abspath('_extensions'))
 #sys_path.insert(0, os.path.abspath('_themes/sphinx_rtd_theme'))
+
 
 # ==============================================================================
 # Project information and versioning
@@ -30,30 +32,13 @@ sys_path.insert(0, abspath('_extensions'))
 # built documents.
 project =     "pyTooling.TerminalUI"
 
-__author =    None
-__copyright = None
-__version =   None
+packageInformationFile = Path(f"../{project.replace('.', '/')}/__init__.py")
+versionInformation = extractVersionInformation(packageInformationFile)
 
-# Read __version__ from source file
-versionFile = Path(f"../{project.replace('.', '/')}/__init__.py")
-with versionFile.open("r") as file:
-	for item in iter_child_nodes(ast_parse(file.read())):
-		if isinstance(item, Assign) and len(item.targets) == 1:
-			target = item.targets[0]
-			value =  item.value
-			if isinstance(target, Name) and target.id == "__author__" and isinstance(value, Constant) and isinstance(value.value, str):
-				__author = value.value
-			if isinstance(target, Name) and target.id == "__copyright__" and isinstance(value, Constant) and isinstance(value.value, str):
-				__copyright = value.value
-			if isinstance(target, Name) and target.id == "__version__" and isinstance(value, Constant) and isinstance(value.value, str):
-				__version = value.value
-if __version is None:
-	raise AssertionError(f"Could not extract '__version__' from '{versionFile}'.")
-
-author =    __author
-copyright = __copyright
-version =   ".".join(__version.split(".")[:2])  # e.g. 2.3    The short X.Y version.
-release =   __version
+author =    versionInformation.Author
+copyright = versionInformation.Copyright
+version =   ".".join(versionInformation.Version.split(".")[:2])  # e.g. 2.3    The short X.Y version.
+release =   versionInformation.Version
 
 
 # ==============================================================================
@@ -141,7 +126,7 @@ latex_elements = {
 		% ================================================================================
 		% Add more Unicode characters for pdfLaTeX.
 		% - Alternatively, compile with XeLaTeX or LuaLaTeX.
-		% - https://github.com/sphinx-doc/sphinx/issues/3511
+		% - https://GitHub.com/sphinx-doc/sphinx/issues/3511
 		%
 		\ifdefined\DeclareUnicodeCharacter
 			\DeclareUnicodeCharacter{2265}{$\geq$}
@@ -231,10 +216,10 @@ autodoc_member_order = "bysource"       # alphabetical, groupwise, bysource
 # Sphinx.Ext.ExtLinks
 # ==============================================================================
 extlinks = {
-	'issue': ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues/%s', 'issue #'),
-	'pull':  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/pull/%s', 'pull request #'),
-	'src':   ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/master/pyTooling/%s?ts=2', None),
-#	'test':  ('https://GitHub.com/pyTooling/pyTooling/blob/master/test/%s?ts=2', None)
+	"ghissue": ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues/%s', 'issue #'),
+	"ghpull":  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/pull/%s', 'pull request #'),
+	"ghsrc":   ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/main/pyTooling/%s?ts=2', None),
+#	"ghtest":  ('https://GitHub.com/pyTooling/pyTooling.TerminalUI/blob/main/test/%s?ts=2', None)
 }
 
 

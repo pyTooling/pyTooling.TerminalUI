@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
 
 class Application(LineTerminal):
-	def __init__(self):
+	def __init__(self) -> None:
 		super().__init__(verbose=True, debug=True, quiet=False)
 
 		LineTerminal.FATAL_EXIT_CODE = 0
@@ -61,10 +61,10 @@ class Terminal(TestCase):
 	def setUp(self) -> None:
 		self.app = Application()
 
-	def test_Version(self):
+	def test_Version(self) -> None:
 		Application.versionCheck((3, 6, 0))
 
-	def test_Write(self):
+	def test_Write(self) -> None:
 		self.app.WriteQuiet("This is a quiet message.")
 		self.app.WriteNormal("This is a normal message.")
 		self.app.WriteInfo("This is a info message.")
