@@ -40,7 +40,8 @@ __author__ =    "Patrick Lehmann"
 __email__ =     "Paebbels@gmail.com"
 __copyright__ = "2007-2021, Patrick Lehmann"
 __license__ =   "Apache License, Version 2.0"
-__version__ =   "1.5.4"
+__version__ =   "1.5.5"
+__keywords__ =  ["terminal", "shell", "text user interface", "TUI", "console", "message logging"]
 
 
 @export

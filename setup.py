@@ -41,6 +41,5 @@ DescribePythonPackageHostedOnGitHub(
 	packageName=packageName,
 	description="A set of helpers to implement a text user interface (TUI) in a terminal.",
 	gitHubNamespace=gitHubNamespace,
-	keywords="Python3 Terminal Shell Text User Interface TUI",
 	sourceFileWithVersion=packageInformationFile,
 )
