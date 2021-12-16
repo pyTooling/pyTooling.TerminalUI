@@ -20,5 +20,6 @@
     <orderEntry type="module" module-name="pyGenericPath" />
     <orderEntry type="module" module-name="pyMetaClasses" />
     <orderEntry type="module" module-name="pyTooling.Packaging" />
+    <orderEntry type="module" module-name="Actions" />
   </component>
 </module>
