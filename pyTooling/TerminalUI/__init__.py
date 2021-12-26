@@ -1,47 +1,47 @@
-# =============================================================================
-#             _____           _ _             _____                   _             _ _   _ ___
-#  _ __  _   |_   _|__   ___ | (_)_ __   __ _|_   _|__ _ __ _ __ ___ (_)_ __   __ _| | | | |_ _|
-# | '_ \| | | || |/ _ \ / _ \| | | '_ \ / _` | | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | | | | || |
-# | |_) | |_| || | (_) | (_) | | | | | | (_| |_| |  __/ |  | | | | | | | | | | (_| | | |_| || |
-# | .__/ \__, ||_|\___/ \___/|_|_|_| |_|\__, (_)_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|\___/|___|
-# |_|    |___/                          |___/
-# =============================================================================
-# Authors:            Patrick Lehmann
+# ==================================================================================================================== #
+#             _____           _ _             _____                   _             _ _   _ ___                        #
+#  _ __  _   |_   _|__   ___ | (_)_ __   __ _|_   _|__ _ __ _ __ ___ (_)_ __   __ _| | | | |_ _|                       #
+# | '_ \| | | || |/ _ \ / _ \| | | '_ \ / _` | | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | | | | || |                        #
+# | |_) | |_| || | (_) | (_) | | | | | | (_| |_| |  __/ |  | | | | | | | | | | (_| | | |_| || |                        #
+# | .__/ \__, ||_|\___/ \___/|_|_|_| |_|\__, (_)_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|\___/|___|                       #
+# |_|    |___/                          |___/                                                                          #
+# ==================================================================================================================== #
+# Authors:                                                                                                             #
+#   Patrick Lehmann                                                                                                    #
+#                                                                                                                      #
+# License:                                                                                                             #
+# ==================================================================================================================== #
+# Copyright 2017-2021 Patrick Lehmann - Bötzingen, Germany                                                             #
+#                                                                                                                      #
+# Licensed under the Apache License, Version 2.0 (the "License");                                                      #
+# you may not use this file except in compliance with the License.                                                     #
+# You may obtain a copy of the License at                                                                              #
+#                                                                                                                      #
+#   http://www.apache.org/licenses/LICENSE-2.0                                                                         #
+#                                                                                                                      #
+# Unless required by applicable law or agreed to in writing, software                                                  #
+# distributed under the License is distributed on an "AS IS" BASIS,                                                    #
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                             #
+# See the License for the specific language governing permissions and                                                  #
+# limitations under the License.                                                                                       #
+#                                                                                                                      #
+# SPDX-License-Identifier: Apache-2.0                                                                                  #
+# ==================================================================================================================== #
 #
-# Python package:     A set of helpers to implement a text user interface (TUI) in a terminal.
-#
-# License:
-# ============================================================================
-# Copyright 2017-2021 Patrick Lehmann - Bötzingen, Germany
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-# SPDX-License-Identifier: Apache-2.0
-# ============================================================================
-#
-from enum           import Enum, unique
-from platform       import system as platform_system
-from typing         import NoReturn, Tuple
-
-from pyTooling.Decorators   import export
-from pyTooling.MetaClasses  import Singleton
-
+"""A set of helpers to implement a text user interface (TUI) in a terminal."""
 __author__ =    "Patrick Lehmann"
 __email__ =     "Paebbels@gmail.com"
 __copyright__ = "2007-2021, Patrick Lehmann"
 __license__ =   "Apache License, Version 2.0"
 __version__ =   "1.5.6"
 __keywords__ =  ["terminal", "shell", "text user interface", "TUI", "console", "message logging"]
+
+from enum                   import Enum, unique
+from platform               import system as platform_system
+from typing                 import NoReturn, Tuple, Any
+
+from pyTooling.Decorators   import export
+from pyTooling.MetaClasses  import Singleton
 
 
 @export
@@ -163,7 +163,6 @@ class Terminal:
 	@classmethod
 	def printException(cls, ex) -> NoReturn:
 		"""Prints an exception of type :exc:`Exception`."""
-
 		from traceback import print_tb, walk_tb
 
 		cls.initColors()
@@ -194,7 +193,6 @@ class Terminal:
 	@classmethod
 	def printNotImplementedError(cls, ex) -> NoReturn:
 		"""Prints a not-implemented exception of type :exc:`NotImplementedError`."""
-
 		from traceback import walk_tb
 
 		cls.initColors()
@@ -238,11 +236,7 @@ class Terminal:
 
 	@staticmethod
 	def GetTerminalSize() -> Tuple[int, int]:
-		"""
-		Returns the terminal size as tuple (width, height) for Windows, Mac OS
-		(Darwin), Linux, cygwin (Windows), MinGW32/64 (Windows).
-		"""
-
+		"""Returns the terminal size as tuple (width, height) for Windows, Mac OS (Darwin), Linux, cygwin (Windows), MinGW32/64 (Windows)."""
 		size = None
 
 		platform = platform_system()
@@ -261,7 +255,6 @@ class Terminal:
 	@staticmethod
 	def __GetTerminalSizeOnWindows() -> Tuple[int, int]:
 		"""Returns the current terminal window's size for Windows."""
-
 		try:
 			from ctypes import windll, create_string_buffer
 			from struct import unpack as struct_unpack
@@ -294,7 +287,6 @@ class Terminal:
 	@staticmethod
 	def __GetTerminalSizeOnLinux() -> Tuple[int, int]:
 		"""Returns the current terminal window's size for Linux."""
-
 		import os
 
 		def ioctl_GWINSZ(fd):
@@ -345,23 +337,41 @@ class Severity(Enum):
 	def __hash__(self):
 		return hash(self.name)
 
-	def __eq__(self, other):
-		return self.value ==  other.value
+	def __eq__(self, other: Any):
+		if isinstance(other, Severity):
+			return self.value == other.value
+		else:
+			raise TypeError(f"Second operand of type '{other.__class__.__name__}' is not supported by == operator.")
 
-	def __ne__(self, other):
-		return self.value !=  other.value
+	def __ne__(self, other: Any):
+		if isinstance(other, Severity):
+			return self.value != other.value
+		else:
+			raise TypeError(f"Second operand of type '{other.__class__.__name__}' is not supported by != operator.")
 
-	def __lt__(self, other):
-		return self.value <		other.value
+	def __lt__(self, other: Any):
+		if isinstance(other, Severity):
+			return self.value <	other.value
+		else:
+			raise TypeError(f"Second operand of type '{other.__class__.__name__}' is not supported by < operator.")
 
-	def __le__(self, other):
-		return self.value <=  other.value
+	def __le__(self, other: Any):
+		if isinstance(other, Severity):
+			return self.value <= other.value
+		else:
+			raise TypeError(f"Second operand of type '{other.__class__.__name__}' is not supported by <= operator.")
 
-	def __gt__(self, other):
-		return self.value >		other.value
+	def __gt__(self, other: Any):
+		if isinstance(other, Severity):
+			return self.value >	other.value
+		else:
+			raise TypeError(f"Second operand of type '{other.__class__.__name__}' is not supported by > operator.")
 
-	def __ge__(self, other):
-		return self.value >=  other.value
+	def __ge__(self, other: Any):
+		if isinstance(other, Severity):
+			return self.value >= other.value
+		else:
+			raise TypeError(f"Second operand of type '{other.__class__.__name__}' is not supported by >= operator.")
 
 
 @export
@@ -382,7 +392,6 @@ class Line:
 
 	def __init__(self, message, severity=Severity.Normal, indent=0, appendLinebreak=True) -> None:
 		"""Constructor for a new ``Line`` object."""
-
 		self._severity =        severity
 		self._message =         message
 		self._indent =          indent
@@ -421,7 +430,6 @@ class ILineTerminal:
 
 	def __init__(self, terminal=None) -> None:
 		"""MixIn initializer."""
-
 		self._terminal = terminal
 
 		# FIXME: Alter methods if a terminal is present or set dummy methods
@@ -433,7 +441,6 @@ class ILineTerminal:
 
 	def WriteLine(self, line : Line, condition=True):
 		"""Write an entry to the local terminal."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteLine(line)
 		return False
@@ -445,63 +452,54 @@ class ILineTerminal:
 
 	def WriteFatal(self, *args, condition=True, **kwargs):
 		"""Write a fatal message if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteFatal(*args, **kwargs)
 		return False
 
 	def WriteError(self, *args, condition=True, **kwargs):
 		"""Write an error message if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteError(*args, **kwargs)
 		return False
 
 	def WriteWarning(self, *args, condition=True, **kwargs):
 		"""Write a warning message if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteWarning(*args, **kwargs)
 		return False
 
 	def WriteInfo(self, *args, condition=True, **kwargs):
 		"""Write a info message if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteInfo(*args, **kwargs)
 		return False
 
 	def WriteQuiet(self, *args, condition=True, **kwargs):
 		"""Write a message even in quiet mode if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteQuiet(*args, **kwargs)
 		return False
 
 	def WriteNormal(self, *args, condition=True, **kwargs):
 		"""Write a *normal* message if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteNormal(*args, **kwargs)
 		return False
 
 	def WriteVerbose(self, *args, condition=True, **kwargs):
 		"""Write a verbose message if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteVerbose(*args, **kwargs)
 		return False
 
 	def WriteDebug(self, *args, condition=True, **kwargs):
 		"""Write a debug message if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteDebug(*args, **kwargs)
 		return False
 
 	def WriteDryRun(self, *args, condition=True, **kwargs):
 		"""Write a dry-run message if ``condition`` is true."""
-
 		if ((self._terminal is not None) and condition):
 			return self._terminal.WriteDryRun(*args, **kwargs)
 		return False
@@ -511,7 +509,6 @@ class ILineTerminal:
 class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 	def __init__(self, verbose=False, debug=False, quiet=False, writeToStdOut=True) -> None:
 		"""Initializer of a line based terminal interface."""
-
 		Terminal.__init__(self)
 		ILineTerminal.__init__(self, self)
 
@@ -580,21 +577,18 @@ class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
 
 	def ExitOnPreviousErrors(self) -> None:
 		"""Exit application if errors have been printed."""
-
 		if self._errorCounter > 0:
 			self.WriteFatal("Too many errors in previous steps.")
 			self.fatalExit()
 
 	def ExitOnPreviousWarnings(self) -> None:
 		"""Exit application if warnings have been printed."""
-
 		if self._warningCounter > 0:
 			self.WriteError("Too many warnings in previous steps.")
 			self.exit()
 
 	def WriteLine(self, line : Line):
 		"""Print a formatted line to the underlying terminal/console offered by the operating system."""
-
 		if (line.Severity >= self._WriteLevel):
 			self._lines.append(line)
 			if self._writeToStdOut:
