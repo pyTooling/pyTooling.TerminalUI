@@ -28,11 +28,11 @@
 .. |img-TerminalUI-codacy-quality| image:: https://img.shields.io/codacy/grade/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy
    :alt: Codacy - Quality
    :height: 22
-   :target: https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI
+   :target: https://www.codacy.com/gh/pyTooling/pyTooling.TerminalUI
 .. |img-TerminalUI-codacy-coverage| image:: https://img.shields.io/codacy/coverage/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy
    :alt: Codacy - Line Coverage
    :height: 22
-   :target: https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI
+   :target: https://www.codacy.com/gh/pyTooling/pyTooling.TerminalUI
 .. |img-TerminalUI-codecov-coverage| image:: https://img.shields.io/codecov/c/github/pyTooling/pyTooling.TerminalUI?logo=Codecov
    :alt: Codecov - Branch Coverage
    :height: 22

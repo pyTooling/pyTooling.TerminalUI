@@ -3,8 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Actions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../CLIAbstraction" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../GenericPath" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../Packaging" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../pyAttributes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../pyTooling" vcs="Git" />
   </component>
 </project>

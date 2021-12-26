@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/../AbstractGraph/.idea/pyTooling.AbstractGraph.iml" filepath="$PROJECT_DIR$/../AbstractGraph/.idea/pyTooling.AbstractGraph.iml" />
       <module fileurl="file://$PROJECT_DIR$/../pyTooling/.idea/pyTooling.Common.iml" filepath="$PROJECT_DIR$/../pyTooling/.idea/pyTooling.Common.iml" />
       <module fileurl="file://$PROJECT_DIR$/../GenericPath/.idea/pyTooling.GenericPath.iml" filepath="$PROJECT_DIR$/../GenericPath/.idea/pyTooling.GenericPath.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Packaging/.idea/pyTooling.Packaging.iml" filepath="$PROJECT_DIR$/../Packaging/.idea/pyTooling.Packaging.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pyTooling.TerminalUI.iml" filepath="$PROJECT_DIR$/.idea/pyTooling.TerminalUI.iml" />
     </modules>
   </component>

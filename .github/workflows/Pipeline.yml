@@ -4,10 +4,6 @@ on:
   push:
   workflow_dispatch:
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
 
   Params:
@@ -119,6 +115,7 @@ jobs:
       - StaticTypeCheck
       - BuildTheDocs
       - PublishToGitHubPages
+      - PublishTestResults
     with:
       package: ${{ fromJson(needs.Params.outputs.params).artifacts.package }}
       remaining: |

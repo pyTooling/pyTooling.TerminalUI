@@ -77,21 +77,21 @@
 .. |SHIELD:svg:pyTooling-codacy-quality| image:: https://img.shields.io/codacy/grade/08ef744c0b70490289712b02a7a4cebe?logo=codacy
    :alt: Codacy - Quality
    :height: 22
-   :target: https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI
+   :target: https://www.codacy.com/gh/pyTooling/pyTooling.TerminalUI
 .. |SHIELD:png:pyTooling-codacy-quality| image:: https://raster.shields.io/codacy/grade/08ef744c0b70490289712b02a7a4cebe?logo=codacy
    :alt: Codacy - Quality
    :height: 22
-   :target: https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI
+   :target: https://www.codacy.com/gh/pyTooling/pyTooling.TerminalUI
 
 .. # Codacy - coverage
 .. |SHIELD:svg:pyTooling-codacy-coverage| image:: https://img.shields.io/codacy/coverage/08ef744c0b70490289712b02a7a4cebe?logo=codacy
    :alt: Codacy - Line Coverage
    :height: 22
-   :target: https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI
+   :target: https://www.codacy.com/gh/pyTooling/pyTooling.TerminalUI
 .. |SHIELD:png:pyTooling-codacy-coverage| image:: https://raster.shields.io/codacy/coverage/08ef744c0b70490289712b02a7a4cebe?logo=codacy
    :alt: Codacy - Line Coverage
    :height: 22
-   :target: https://www.codacy.com/manual/pyTooling/pyTooling.TerminalUI
+   :target: https://www.codacy.com/gh/pyTooling/pyTooling.TerminalUI
 
 .. # Codecov - coverage
 .. |SHIELD:svg:pyTooling-codecov-coverage| image:: https://img.shields.io/codecov/c/github/pyTooling/pyTooling.TerminalUI
