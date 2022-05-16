@@ -41,7 +41,7 @@ from platform               import system as platform_system
 from typing                 import NoReturn, Tuple, Any
 
 from pyTooling.Decorators   import export
-from pyTooling.MetaClasses  import Singleton
+from pyTooling.MetaClasses  import ExtendedType
 
 
 @export
@@ -97,7 +97,7 @@ class Terminal:
 	_width  : int = None      #: Terminal width in characters
 	_height : int = None      #: Terminal height in characters
 
-	def __init__(self) -> None:
+	def __init__(self):
 		"""
 		Initialize a terminal.
 
@@ -390,7 +390,7 @@ class Line:
 		Severity.DryRun:    "DRYRUN: {message}"
 	}                     #: Terminal messages formatting rules
 
-	def __init__(self, message, severity=Severity.Normal, indent=0, appendLinebreak=True) -> None:
+	def __init__(self, message, severity=Severity.Normal, indent=0, appendLinebreak=True):
 		"""Constructor for a new ``Line`` object."""
 		self._severity =        severity
 		self._message =         message
@@ -428,7 +428,7 @@ class ILineTerminal:
 
 	_terminal = None
 
-	def __init__(self, terminal=None) -> None:
+	def __init__(self, terminal=None):
 		"""MixIn initializer."""
 		self._terminal = terminal
 
@@ -506,8 +506,8 @@ class ILineTerminal:
 
 
 @export
-class LineTerminal(Terminal, ILineTerminal, metaclass=Singleton):
-	def __init__(self, verbose=False, debug=False, quiet=False, writeToStdOut=True) -> None:
+class LineTerminal(Terminal, ILineTerminal, metaclass=ExtendedType, singleton=True):
+	def __init__(self, verbose=False, debug=False, quiet=False, writeToStdOut=True):
 		"""Initializer of a line based terminal interface."""
 		Terminal.__init__(self)
 		ILineTerminal.__init__(self, self)
