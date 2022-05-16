@@ -126,7 +126,7 @@ Example
 Contributors
 ************
 
-* `Patrick Lehmann <https://GitHub.com/Paebbels>`_ (Maintainer)
+* `Patrick Lehmann <https://GitHub.com/Paebbels>`__ (Maintainer)
 * `and more... <https://GitHub.com/pyTooling/pyTooling.TerminalUI/graphs/contributors>`__
 
 

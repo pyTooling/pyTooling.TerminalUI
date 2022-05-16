@@ -49,7 +49,7 @@ if __name__ == "__main__": # pragma: no cover
 
 
 class Application(LineTerminal):
-	def __init__(self) -> None:
+	def __init__(self):
 		super().__init__(verbose=True, debug=True, quiet=False)
 
 		LineTerminal.FATAL_EXIT_CODE = 0
