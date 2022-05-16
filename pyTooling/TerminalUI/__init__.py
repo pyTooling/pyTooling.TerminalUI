@@ -33,7 +33,7 @@ __author__ =    "Patrick Lehmann"
 __email__ =     "Paebbels@gmail.com"
 __copyright__ = "2007-2022, Patrick Lehmann"
 __license__ =   "Apache License, Version 2.0"
-__version__ =   "1.5.8"
+__version__ =   "1.5.9"
 __keywords__ =  ["terminal", "shell", "text user interface", "TUI", "console", "message logging"]
 
 from enum                   import Enum, unique
