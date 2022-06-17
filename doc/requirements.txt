@@ -1,9 +1,9 @@
 -r ../requirements.txt
 
-pyTooling>=1.9.5
+pyTooling>=2.1.0
 
 # Enforce latest version on ReadTheDocs
-sphinx>=4.5.0
+sphinx>=5.0.2
 
 # Sphinx Extenstions
 #sphinx.ext.coverage
