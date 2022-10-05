@@ -149,16 +149,6 @@
    :height: 22
    :target: https://libraries.io/github/pyTooling/pyTooling.TerminalUI
 
-.. # Requires - status
-.. |SHIELD:svg:pyTooling-req-status| image:: https://img.shields.io/requires/github/pyTooling/pyTooling.TerminalUI
-   :alt: Requires.io
-   :height: 22
-   :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=main
-.. |SHIELD:png:pyTooling-req-status| image:: https://raster.shields.io/requires/github/pyTooling/pyTooling.TerminalUI
-   :alt: Requires.io
-   :height: 22
-   :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=main
-
 .. # Documentation license
 .. |SHIELD:svg:pyTooling-doc-license| image:: https://img.shields.io/badge/doc%20license-CC--BY%204.0-green
    :alt: Documentation License

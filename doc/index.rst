@@ -55,10 +55,6 @@
    :alt: Libraries.io status for latest release
    :height: 22
    :target: https://libraries.io/github/pyTooling/pyTooling.TerminalUI
-.. |img-TerminalUI-req-status| image:: https://img.shields.io/requires/github/pyTooling/pyTooling.TerminalUI
-   :alt: Requires.io
-   :height: 22
-   :target: https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=main
 .. |img-TerminalUI-doclicense| image:: https://img.shields.io/badge/doc%20license-CC--BY%204.0-green?logo=readthedocs
    :alt: Documentation License
    :height: 22
@@ -70,7 +66,7 @@
 
 |img-TerminalUI-github| |img-TerminalUI-codelicense| |img-TerminalUI-tag| |img-TerminalUI-release| |img-TerminalUI-date| |img-TerminalUI-lib-dep| |br|
 |img-TerminalUI-gha-pipeline| |img-TerminalUI-codacy-quality| |img-TerminalUI-codacy-coverage| |img-TerminalUI-codecov-coverage| |img-TerminalUI-lib-rank| |br|
-|img-TerminalUI-pypi-tag| |img-TerminalUI-pypi-python| |img-TerminalUI-pypi-status| |img-TerminalUI-lib-status| |img-TerminalUI-req-status| |br|
+|img-TerminalUI-pypi-tag| |img-TerminalUI-pypi-python| |img-TerminalUI-pypi-status| |img-TerminalUI-lib-status| |br|
 |img-TerminalUI-doclicense| |img-TerminalUI-doc|
 
 

@@ -13,7 +13,6 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyTooling.TerminalUI?logo=PyPI&logoColor=FBE072)
 ![PyPI - Status](https://img.shields.io/pypi/status/pyTooling.TerminalUI?logo=PyPI&logoColor=FBE072)
 [![Libraries.io status for latest release](https://img.shields.io/librariesio/release/pypi/pyTooling.TerminalUI?logo=librariesdotio)](https://libraries.io/github/pyTooling/pyTooling.TerminalUI)
-[![Requires.io](https://img.shields.io/requires/github/pyTooling/pyTooling.TerminalUI)](https://requires.io/github/pyTooling/pyTooling.TerminalUI/requirements/?branch=main)  
 [![Documentation License](https://img.shields.io/badge/doc%20license-CC--BY%204.0-green?logo=readthedocs)](doc/Doc-License.rst)
 [![Documentation - Read Now!](https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet?logo=readthedocs)](https://pyTooling.GitHub.io/pyTooling.TerminalUI)
 
