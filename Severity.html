@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Severity &mdash; pyTooling.TerminalUI 1.5.9 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Line" href="Line.html" />
+    <link rel="prev" title="Terminal" href="Terminal.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pyTooling.TerminalUI
+          </a>
+              <div class="version">
+                1.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation/Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dependencies.html">Dependencies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">pyTooling.TerminalUI Classes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Terminal.html">Terminal</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Severity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pyTooling.TerminalUI.Severity"><code class="docutils literal notranslate"><span class="pre">Severity</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.Fatal"><code class="docutils literal notranslate"><span class="pre">Severity.Fatal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.Error"><code class="docutils literal notranslate"><span class="pre">Severity.Error</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.Quiet"><code class="docutils literal notranslate"><span class="pre">Severity.Quiet</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.Warning"><code class="docutils literal notranslate"><span class="pre">Severity.Warning</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.Info"><code class="docutils literal notranslate"><span class="pre">Severity.Info</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.DryRun"><code class="docutils literal notranslate"><span class="pre">Severity.DryRun</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.Normal"><code class="docutils literal notranslate"><span class="pre">Severity.Normal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.Verbose"><code class="docutils literal notranslate"><span class="pre">Severity.Verbose</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.Debug"><code class="docutils literal notranslate"><span class="pre">Severity.Debug</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyTooling.TerminalUI.Severity.All"><code class="docutils literal notranslate"><span class="pre">Severity.All</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Line.html">Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILineTerminal.html">ILineTerminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LineTerminal.html">LineTerminal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyTooling.GitHub.io/pyTooling.TerminalUI/coverage/">Coverage Report ➚</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pyTooling.GitHub.io/pyTooling.TerminalUI/typing/">Static Type Check Report ➚</a></li>
+<li class="toctree-l1"><a class="reference internal" href="License.html">Apache License 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Doc-License.html">Creative Commons Attribution 4.0 International</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py-modindex.html">Python Module Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyTooling.TerminalUI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+        
+          
+            <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Severity</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/pyTooling/pyTooling.TerminalUI/blob/dev/doc/Severity.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <style type="text/css">
+  span.bolditalic {font-weight: bold; font-style: italic; }
+  span.underline {text-decoration: underline; }
+  span.xlarge {font-size: x-large; }
+</style><section id="severity">
+<h1>Severity<a class="headerlink" href="#severity" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyTooling.TerminalUI.</span></span><span class="sig-name descname"><span class="pre">Severity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyTooling/TerminalUI.html#Severity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyTooling.TerminalUI.Severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
+<p>Logging message severity levels.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.Fatal">
+<span class="sig-name descname"><span class="pre">Fatal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.Fatal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fatal messages</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.Error">
+<span class="sig-name descname"><span class="pre">Error</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">25</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.Error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error messages</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.Quiet">
+<span class="sig-name descname"><span class="pre">Quiet</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.Quiet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Always visible messages, even in quiet mode.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.Warning">
+<span class="sig-name descname"><span class="pre">Warning</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.Warning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning messages</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.Info">
+<span class="sig-name descname"><span class="pre">Info</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Informative messages</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.DryRun">
+<span class="sig-name descname"><span class="pre">DryRun</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.DryRun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Messages visible in a dry-run</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.Normal">
+<span class="sig-name descname"><span class="pre">Normal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.Normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal messages</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.Verbose">
+<span class="sig-name descname"><span class="pre">Verbose</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.Verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verbose messages</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.Debug">
+<span class="sig-name descname"><span class="pre">Debug</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.Debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Debug messages</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyTooling.TerminalUI.Severity.All">
+<span class="sig-name descname"><span class="pre">All</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pyTooling.TerminalUI.Severity.All" title="Permalink to this definition">¶</a></dt>
+<dd><p>All messages</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Terminal.html" class="btn btn-neutral float-left" title="Terminal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Line.html" class="btn btn-neutral float-right" title="Line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2007-2022, Patrick Lehmann.
+      <span class="lastupdated">Last updated on 05.10.2022.
+      </span></p>
+  </div>Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

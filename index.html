@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyTooling.TerminalUI Documentation &mdash; pyTooling.TerminalUI 1.5.9 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation/Updates" href="Installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> pyTooling.TerminalUI
+          </a>
+              <div class="version">
+                1.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation/Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dependencies.html">Dependencies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">pyTooling.TerminalUI Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Terminal.html">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Severity.html">Severity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Line.html">Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ILineTerminal.html">ILineTerminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LineTerminal.html">LineTerminal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyTooling.GitHub.io/pyTooling.TerminalUI/coverage/">Coverage Report ➚</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pyTooling.GitHub.io/pyTooling.TerminalUI/typing/">Static Type Check Report ➚</a></li>
+<li class="toctree-l1"><a class="reference internal" href="License.html">Apache License 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Doc-License.html">Creative Commons Attribution 4.0 International</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py-modindex.html">Python Module Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pyTooling.TerminalUI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+        
+          
+            <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>pyTooling.TerminalUI Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/pyTooling/pyTooling.TerminalUI/blob/dev/doc/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <style type="text/css">
+  span.bolditalic {font-weight: bold; font-style: italic; }
+  span.underline {text-decoration: underline; }
+  span.xlarge {font-size: x-large; }
+</style><p><a class="reference external" href="https://GitHub.com/pyTooling/pyTooling.TerminalUI"><img alt="Sourcecode on GitHub" src="https://img.shields.io/badge/pyTooling-pyTooling.TerminalUI-323131.svg?logo=github&amp;longCache=true" style="height: 22px;" /></a> <a class="reference internal" href="https://img.shields.io/pypi/l/pyTooling.TerminalUI?logo=GitHub&amp;label=code%20license"><img alt="Sourcecode License" src="https://img.shields.io/pypi/l/pyTooling.TerminalUI?logo=GitHub&amp;label=code%20license" style="height: 22px;" /></a> <a class="reference external" href="https://GitHub.com/pyTooling/pyTooling.TerminalUI/tags"><img alt="GitHub tag (latest SemVer incl. pre-release)" src="https://img.shields.io/github/v/tag/pyTooling/pyTooling.TerminalUI?logo=GitHub&amp;include_prereleases" style="height: 22px;" /></a> <a class="reference external" href="https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases/latest"><img alt="GitHub release (latest SemVer incl. including pre-releases" src="https://img.shields.io/github/v/release/pyTooling/pyTooling.TerminalUI?logo=GitHub&amp;include_prereleases" style="height: 22px;" /></a> <a class="reference external" href="https://GitHub.com/pyTooling/pyTooling.TerminalUI/releases"><img alt="GitHub release date" src="https://img.shields.io/github/release-date/pyTooling/pyTooling.TerminalUI?logo=GitHub" style="height: 22px;" /></a> <a class="reference external" href="https://GitHub.com/pyTooling/pyTooling.TerminalUI/network/dependents"><img alt="Dependents (via libraries.io)" src="https://img.shields.io/librariesio/dependents/pypi/pyTooling.TerminalUI?logo=librariesdotio" style="height: 22px;" /></a> <br />
+<a class="reference external" href="https://GitHub.com/pyTooling/pyTooling.TerminalUI/actions/workflows/Pipeline.yml"><img alt="GitHub Workflow - Build and Test Status" src="https://img.shields.io/github/workflow/status/pyTooling/pyTooling.TerminalUI/Unit%20Testing,%20Coverage%20Collection,%20Package,%20Release,%20Documentation%20and%20Publish?label=Pipeline&amp;logo=GitHub%20Actions&amp;logoColor=FFFFFF" style="height: 22px;" /></a> <a class="reference external" href="https://www.codacy.com/gh/pyTooling/pyTooling.TerminalUI"><img alt="Codacy - Quality" src="https://img.shields.io/codacy/grade/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy" style="height: 22px;" /></a> <a class="reference external" href="https://www.codacy.com/gh/pyTooling/pyTooling.TerminalUI"><img alt="Codacy - Line Coverage" src="https://img.shields.io/codacy/coverage/e8a1b6e33d564f82927235e17fb26e93?logo=Codacy" style="height: 22px;" /></a> <a class="reference external" href="https://codecov.io/gh/pyTooling/pyTooling.TerminalUI"><img alt="Codecov - Branch Coverage" src="https://img.shields.io/codecov/c/github/pyTooling/pyTooling.TerminalUI?logo=Codecov" style="height: 22px;" /></a> <a class="reference external" href="https://libraries.io/github/pyTooling/pyTooling.TerminalUI/sourcerank"><img alt="Libraries.io SourceRank" src="https://img.shields.io/librariesio/sourcerank/pypi/pyTooling.TerminalUI?logo=librariesdotio" style="height: 22px;" /></a> <br />
+<a class="reference external" href="https://pypi.org/project/pyTooling.TerminalUI/"><img alt="PyPI - Tag" src="https://img.shields.io/pypi/v/pyTooling.TerminalUI?logo=PyPI&amp;logoColor=FBE072" style="height: 22px;" /></a> <a class="reference internal" href="https://img.shields.io/pypi/pyversions/pyTooling.TerminalUI?logo=PyPI&amp;logoColor=FBE072"><img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/pyTooling.TerminalUI?logo=PyPI&amp;logoColor=FBE072" style="height: 22px;" /></a> <a class="reference internal" href="https://img.shields.io/pypi/status/pyTooling.TerminalUI?logo=PyPI&amp;logoColor=FBE072"><img alt="PyPI - Status" src="https://img.shields.io/pypi/status/pyTooling.TerminalUI?logo=PyPI&amp;logoColor=FBE072" style="height: 22px;" /></a> <a class="reference external" href="https://libraries.io/github/pyTooling/pyTooling.TerminalUI"><img alt="Libraries.io status for latest release" src="https://img.shields.io/librariesio/release/pypi/pyTooling.TerminalUI?logo=librariesdotio" style="height: 22px;" /></a> <br />
+<a class="reference external" href="Doc-License.html"><img alt="Documentation License" src="https://img.shields.io/badge/doc%20license-CC--BY%204.0-green?logo=readthedocs" style="height: 22px;" /></a> <a class="reference external" href="https://pyTooling.GitHub.io/pyTooling.TerminalUI"><img alt="Documentation - Read Now!" src="https://img.shields.io/badge/doc-read%20now%20%E2%9E%9A-blueviolet?logo=readthedocs" style="height: 22px;" /></a></p>
+<section id="pytooling-terminalui-documentation">
+<h1>pyTooling.TerminalUI Documentation<a class="headerlink" href="#pytooling-terminalui-documentation" title="Permalink to this heading">¶</a></h1>
+<p>A set of helpers to implement a text user interface (TUI) in a terminal.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<p>This package offers a <a class="reference internal" href="LineTerminal.html#pyTooling.TerminalUI.LineTerminal" title="pyTooling.TerminalUI.LineTerminal"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyTooling.TerminalUI.LineTerminal</span></code></a> implementation,
+derived from a basic <a class="reference internal" href="Terminal.html#pyTooling.TerminalUI.Terminal" title="pyTooling.TerminalUI.Terminal"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyTooling.TerminalUI.Terminal</span></code></a> class. It eases the
+creation of simple terminal/console applications. It includes colored outputs
+based on</p>
+</section>
+<section id="list-of-meta-classes">
+<h2>List of meta classes<a class="headerlink" href="#list-of-meta-classes" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="Terminal.html#pyTooling.TerminalUI.Terminal" title="pyTooling.TerminalUI.Terminal"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyTooling.TerminalUI.Terminal</span></code></a></p></li>
+<li><p><a class="reference internal" href="LineTerminal.html#pyTooling.TerminalUI.LineTerminal" title="pyTooling.TerminalUI.LineTerminal"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyTooling.TerminalUI.LineTerminal</span></code></a></p></li>
+</ul>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyTooling.TerminalUI</span> <span class="kn">import</span> <span class="n">LineTerminal</span>
+
+<span class="k">class</span> <span class="nc">Application</span><span class="p">(</span><span class="n">LineTerminal</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">WriteQuiet</span><span class="p">(</span><span class="s2">&quot;This is a quiet message.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">WriteNormal</span><span class="p">(</span><span class="s2">&quot;This is a normal message.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">WriteInfo</span><span class="p">(</span><span class="s2">&quot;This is a info message.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">WriteDebug</span><span class="p">(</span><span class="s2">&quot;This is a debug message.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">WriteWarning</span><span class="p">(</span><span class="s2">&quot;This is a warning message.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">WriteError</span><span class="p">(</span><span class="s2">&quot;This is an error message.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">WriteFatal</span><span class="p">(</span><span class="s2">&quot;This is a fatal message.&quot;</span><span class="p">)</span>
+
+<span class="c1"># entry point</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">Application</span><span class="o">.</span><span class="n">versionCheck</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+  <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">()</span>
+  <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+  <span class="n">app</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://GitHub.com/Paebbels">Patrick Lehmann</a> (Maintainer)</p></li>
+<li><p><a class="reference external" href="https://GitHub.com/pyTooling/pyTooling.TerminalUI/graphs/contributors">and more…</a></p></li>
+</ul>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading">¶</a></h2>
+<p>This Python package (source code) is licensed under <a class="reference external" href="Code-License.html">Apache License 2.0</a>. <br />
+The accompanying documentation is licensed under <a class="reference external" href="Doc-License.html">Creative Commons - Attribution 4.0 (CC-BY 4.0)</a>.</p>
+<hr class="docutils" />
+<p>This document was generated on Oct 05, 2022 - 22:20.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Installation.html" class="btn btn-neutral float-right" title="Installation/Updates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2007-2022, Patrick Lehmann.
+      <span class="lastupdated">Last updated on 05.10.2022.
+      </span></p>
+  </div>Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

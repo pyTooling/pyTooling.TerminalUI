@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyTooling.TerminalUI &mdash; pyTooling.TerminalUI 1.5.9 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> pyTooling.TerminalUI
+          </a>
+              <div class="version">
+                1.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation/Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Dependencies.html">Dependencies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">pyTooling.TerminalUI Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Terminal.html">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Severity.html">Severity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Line.html">Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ILineTerminal.html">ILineTerminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../LineTerminal.html">LineTerminal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyTooling.GitHub.io/pyTooling.TerminalUI/coverage/">Coverage Report ➚</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pyTooling.GitHub.io/pyTooling.TerminalUI/typing/">Static Type Check Report ➚</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../License.html">Apache License 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Doc-License.html">Creative Commons Attribution 4.0 International</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../py-modindex.html">Python Module Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyTooling.TerminalUI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+        
+          
+            <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>pyTooling.TerminalUI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyTooling.TerminalUI</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==================================================================================================================== #</span>
+<span class="c1">#             _____           _ _             _____                   _             _ _   _ ___                        #</span>
+<span class="c1">#  _ __  _   |_   _|__   ___ | (_)_ __   __ _|_   _|__ _ __ _ __ ___ (_)_ __   __ _| | | | |_ _|                       #</span>
+<span class="c1"># | &#39;_ \| | | || |/ _ \ / _ \| | | &#39;_ \ / _` | | |/ _ \ &#39;__| &#39;_ ` _ \| | &#39;_ \ / _` | | | | || |                        #</span>
+<span class="c1"># | |_) | |_| || | (_) | (_) | | | | | | (_| |_| |  __/ |  | | | | | | | | | | (_| | | |_| || |                        #</span>
+<span class="c1"># | .__/ \__, ||_|\___/ \___/|_|_|_| |_|\__, (_)_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|\___/|___|                       #</span>
+<span class="c1"># |_|    |___/                          |___/                                                                          #</span>
+<span class="c1"># ==================================================================================================================== #</span>
+<span class="c1"># Authors:                                                                                                             #</span>
+<span class="c1">#   Patrick Lehmann                                                                                                    #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1"># License:                                                                                                             #</span>
+<span class="c1"># ==================================================================================================================== #</span>
+<span class="c1"># Copyright 2017-2022 Patrick Lehmann - Bötzingen, Germany                                                             #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);                                                      #</span>
+<span class="c1"># you may not use this file except in compliance with the License.                                                     #</span>
+<span class="c1"># You may obtain a copy of the License at                                                                              #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0                                                                         #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software                                                  #</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,                                                    #</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                             #</span>
+<span class="c1"># See the License for the specific language governing permissions and                                                  #</span>
+<span class="c1"># limitations under the License.                                                                                       #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0                                                                                  #</span>
+<span class="c1"># ==================================================================================================================== #</span>
+<span class="c1">#</span>
+<span class="sd">&quot;&quot;&quot;A set of helpers to implement a text user interface (TUI) in a terminal.&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span>    <span class="s2">&quot;Patrick Lehmann&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span>     <span class="s2">&quot;Paebbels@gmail.com&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;2007-2022, Patrick Lehmann&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span>   <span class="s2">&quot;Apache License, Version 2.0&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span>   <span class="s2">&quot;1.5.9&quot;</span>
+<span class="n">__keywords__</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">&quot;terminal&quot;</span><span class="p">,</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="s2">&quot;text user interface&quot;</span><span class="p">,</span> <span class="s2">&quot;TUI&quot;</span><span class="p">,</span> <span class="s2">&quot;console&quot;</span><span class="p">,</span> <span class="s2">&quot;message logging&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">enum</span>                   <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">unique</span>
+<span class="kn">from</span> <span class="nn">platform</span>               <span class="kn">import</span> <span class="n">system</span> <span class="k">as</span> <span class="n">platform_system</span>
+<span class="kn">from</span> <span class="nn">typing</span>                 <span class="kn">import</span> <span class="n">NoReturn</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span>
+
+<span class="kn">from</span> <span class="nn">pyTooling.Decorators</span>   <span class="kn">import</span> <span class="n">export</span>
+<span class="kn">from</span> <span class="nn">pyTooling.MetaClasses</span>  <span class="kn">import</span> <span class="n">ExtendedType</span>
+
+
+<div class="viewcode-block" id="Terminal"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">Terminal</span><span class="p">:</span>
+	<span class="n">FATAL_EXIT_CODE</span> <span class="o">=</span> <span class="mi">255</span>
+
+	<span class="k">try</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">colorama</span> <span class="kn">import</span> <span class="n">Fore</span> <span class="k">as</span> <span class="n">Foreground</span>
+		<span class="n">Foreground</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s2">&quot;RED&quot;</span><span class="p">:</span>          <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTRED_EX</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_RED&quot;</span><span class="p">:</span>		  <span class="n">Foreground</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span>
+			<span class="s2">&quot;GREEN&quot;</span><span class="p">:</span>        <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTGREEN_EX</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_GREEN&quot;</span><span class="p">:</span>   <span class="n">Foreground</span><span class="o">.</span><span class="n">GREEN</span><span class="p">,</span>
+			<span class="s2">&quot;YELLOW&quot;</span><span class="p">:</span>       <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTYELLOW_EX</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_YELLOW&quot;</span><span class="p">:</span>  <span class="n">Foreground</span><span class="o">.</span><span class="n">YELLOW</span><span class="p">,</span>
+			<span class="s2">&quot;MAGENTA&quot;</span><span class="p">:</span>      <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTMAGENTA_EX</span><span class="p">,</span>
+			<span class="s2">&quot;BLUE&quot;</span><span class="p">:</span>         <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTBLUE_EX</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_BLUE&quot;</span><span class="p">:</span>    <span class="n">Foreground</span><span class="o">.</span><span class="n">BLUE</span><span class="p">,</span>
+			<span class="s2">&quot;CYAN&quot;</span><span class="p">:</span>         <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTCYAN_EX</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_CYAN&quot;</span><span class="p">:</span>    <span class="n">Foreground</span><span class="o">.</span><span class="n">CYAN</span><span class="p">,</span>
+			<span class="s2">&quot;GRAY&quot;</span><span class="p">:</span>         <span class="n">Foreground</span><span class="o">.</span><span class="n">WHITE</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_GRAY&quot;</span><span class="p">:</span>    <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTBLACK_EX</span><span class="p">,</span>
+			<span class="s2">&quot;WHITE&quot;</span><span class="p">:</span>        <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTWHITE_EX</span><span class="p">,</span>
+			<span class="s2">&quot;NOCOLOR&quot;</span><span class="p">:</span>      <span class="n">Foreground</span><span class="o">.</span><span class="n">RESET</span><span class="p">,</span>
+
+			<span class="s2">&quot;HEADLINE&quot;</span><span class="p">:</span>     <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTMAGENTA_EX</span><span class="p">,</span>
+			<span class="s2">&quot;ERROR&quot;</span><span class="p">:</span>        <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTRED_EX</span><span class="p">,</span>
+			<span class="s2">&quot;WARNING&quot;</span><span class="p">:</span>      <span class="n">Foreground</span><span class="o">.</span><span class="n">LIGHTYELLOW_EX</span>
+		<span class="p">}</span>                 <span class="c1">#: Terminal colors</span>
+	<span class="k">except</span><span class="p">:</span>
+		<span class="n">Foreground</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s2">&quot;RED&quot;</span><span class="p">:</span>         <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_RED&quot;</span><span class="p">:</span>    <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;GREEN&quot;</span><span class="p">:</span>       <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_GREEN&quot;</span><span class="p">:</span>  <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;YELLOW&quot;</span><span class="p">:</span>      <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_YELLOW&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;MAGENTA&quot;</span><span class="p">:</span>     <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;BLUE&quot;</span><span class="p">:</span>        <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_BLUE&quot;</span><span class="p">:</span>   <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;CYAN&quot;</span><span class="p">:</span>        <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_CYAN&quot;</span><span class="p">:</span>   <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;GRAY&quot;</span><span class="p">:</span>        <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;DARK_GRAY&quot;</span><span class="p">:</span>   <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;WHITE&quot;</span><span class="p">:</span>       <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;NOCOLOR&quot;</span><span class="p">:</span>     <span class="s2">&quot;&quot;</span><span class="p">,</span>
+
+			<span class="s2">&quot;HEADLINE&quot;</span><span class="p">:</span>    <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;ERROR&quot;</span><span class="p">:</span>       <span class="s2">&quot;&quot;</span><span class="p">,</span>
+			<span class="s2">&quot;WARNING&quot;</span><span class="p">:</span>     <span class="s2">&quot;&quot;</span>
+		<span class="p">}</span>                 <span class="c1">#: Terminal colors</span>
+
+	<span class="n">_width</span>  <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>      <span class="c1">#: Terminal width in characters</span>
+	<span class="n">_height</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>      <span class="c1">#: Terminal height in characters</span>
+
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initialize a terminal.</span>
+
+<span class="sd">		If the Python package `colorama &lt;https://pypi.org/project/colorama/&gt;`_ [#f_colorama]_ is available, then initialize it for colored outputs.</span>
+
+<span class="sd">		.. [#f_colorama] Colorama on Github: https://GitHub.com/tartley/colorama</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">initColors</span><span class="p">()</span>
+		<span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_height</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetTerminalSize</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Terminal.initColors"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal.initColors">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">initColors</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Initialize the terminal for color support by colorama.&quot;&quot;&quot;</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="kn">from</span> <span class="nn">colorama</span> <span class="kn">import</span> <span class="n">init</span>
+
+			<span class="n">init</span><span class="p">()</span><span class="c1">#strip=False)</span>
+		<span class="k">except</span><span class="p">:</span>
+			<span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Terminal.deinitColors"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal.deinitColors">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">deinitColors</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Uninitialize the terminal for color support by colorama.&quot;&quot;&quot;</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="kn">from</span> <span class="nn">colorama</span> <span class="kn">import</span> <span class="n">deinit</span>
+
+			<span class="n">deinit</span><span class="p">()</span>
+		<span class="k">except</span><span class="p">:</span>
+			<span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Terminal.fatalExit"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal.fatalExit">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">fatalExit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">returnCode</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Exit the terminal application by uninitializing color support and returning a fatal exit code.&quot;&quot;&quot;</span>
+		<span class="bp">cls</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">FATAL_EXIT_CODE</span> <span class="k">if</span> <span class="n">returnCode</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">returnCode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Terminal.exit"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal.exit">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">returnCode</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Exit the terminal application by uninitializing color support and returning an exit code.&quot;&quot;&quot;</span>
+		<span class="bp">cls</span><span class="o">.</span><span class="n">deinitColors</span><span class="p">()</span>
+		<span class="n">exit</span><span class="p">(</span><span class="n">returnCode</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Terminal.versionCheck"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal.versionCheck">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">versionCheck</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Check if the used Python interpreter fulfills the minimum version requirements.&quot;&quot;&quot;</span>
+
+		<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">version_info</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="n">version</span><span class="p">):</span>
+			<span class="bp">cls</span><span class="o">.</span><span class="n">initColors</span><span class="p">()</span>
+
+			<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">ERROR:</span><span class="si">{NOCOLOR}</span><span class="s2"> Used Python interpreter (</span><span class="si">{major}</span><span class="s2">.</span><span class="si">{minor}</span><span class="s2">.</span><span class="si">{micro}</span><span class="s2">-</span><span class="si">{level}</span><span class="s2">) is to old.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+				<span class="n">major</span><span class="o">=</span><span class="n">version_info</span><span class="o">.</span><span class="n">major</span><span class="p">,</span>
+				<span class="n">minor</span><span class="o">=</span><span class="n">version_info</span><span class="o">.</span><span class="n">minor</span><span class="p">,</span>
+				<span class="n">micro</span><span class="o">=</span><span class="n">version_info</span><span class="o">.</span><span class="n">micro</span><span class="p">,</span>
+				<span class="n">level</span><span class="o">=</span><span class="n">version_info</span><span class="o">.</span><span class="n">releaselevel</span><span class="p">,</span>
+				<span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span>
+			<span class="p">))</span>
+			<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Minimal required Python version is </span><span class="si">{</span><span class="n">version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">version</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">version</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+			<span class="bp">cls</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Terminal.printException"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal.printException">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">printException</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Prints an exception of type :exc:`Exception`.&quot;&quot;&quot;</span>
+		<span class="kn">from</span> <span class="nn">traceback</span> <span class="kn">import</span> <span class="n">print_tb</span><span class="p">,</span> <span class="n">walk_tb</span>
+
+		<span class="bp">cls</span><span class="o">.</span><span class="n">initColors</span><span class="p">()</span>
+
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">FATAL: An unknown or unhandled exception reached the topmost exception handler!</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  </span><span class="si">{YELLOW}</span><span class="s2">Exception type:</span><span class="si">{NOCOLOR}</span><span class="s2">      </span><span class="si">{typename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">typename</span><span class="o">=</span><span class="n">ex</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  </span><span class="si">{YELLOW}</span><span class="s2">Exception message:</span><span class="si">{NOCOLOR}</span><span class="s2">   </span><span class="si">{message!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">ex</span><span class="p">,</span> <span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="n">frame</span><span class="p">,</span> <span class="n">sourceLine</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">walk_tb</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+		<span class="n">filename</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span>
+		<span class="n">funcName</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  </span><span class="si">{YELLOW}</span><span class="s2">Caused in:</span><span class="si">{NOCOLOR}</span><span class="s2">           </span><span class="si">{function}</span><span class="s2"> in file &#39;</span><span class="si">{filename}</span><span class="s2">&#39; at line </span><span class="si">{line}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+			<span class="n">function</span><span class="o">=</span><span class="n">funcName</span><span class="p">,</span>
+			<span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
+			<span class="n">line</span><span class="o">=</span><span class="n">sourceLine</span><span class="p">,</span>
+			<span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span>
+		<span class="p">))</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">__cause__</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+			<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    </span><span class="si">{DARK_YELLOW}</span><span class="s2">Caused by type:</span><span class="si">{NOCOLOR}</span><span class="s2">    </span><span class="si">{typename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">typename</span><span class="o">=</span><span class="n">ex</span><span class="o">.</span><span class="n">__cause__</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+			<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    </span><span class="si">{DARK_YELLOW}</span><span class="s2">Caused by message:</span><span class="si">{NOCOLOR}</span><span class="s2"> </span><span class="si">{message!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">ex</span><span class="o">.</span><span class="n">__cause__</span><span class="p">,</span> <span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="n">print_tb</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+
+		<span class="bp">cls</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Terminal.printNotImplementedError"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal.printNotImplementedError">[docs]</a>	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">printNotImplementedError</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Prints a not-implemented exception of type :exc:`NotImplementedError`.&quot;&quot;&quot;</span>
+		<span class="kn">from</span> <span class="nn">traceback</span> <span class="kn">import</span> <span class="n">walk_tb</span>
+
+		<span class="bp">cls</span><span class="o">.</span><span class="n">initColors</span><span class="p">()</span>
+
+		<span class="n">frame</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">walk_tb</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+		<span class="n">filename</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span>
+		<span class="n">funcName</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">NOT IMPLEMENTED:</span><span class="si">{NOCOLOR}</span><span class="s2"> </span><span class="si">{function}</span><span class="s2"> in file &#39;</span><span class="si">{filename}</span><span class="s2">&#39;: </span><span class="si">{message!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+			<span class="n">function</span><span class="o">=</span><span class="n">funcName</span><span class="p">,</span>
+		  <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
+		  <span class="n">message</span><span class="o">=</span><span class="n">ex</span><span class="p">,</span>
+		  <span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span>
+		<span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+
+		<span class="bp">cls</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+
+	<span class="nd">@classmethod</span>
+	<span class="k">def</span> <span class="nf">printExceptionBase</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+		<span class="bp">cls</span><span class="o">.</span><span class="n">initColors</span><span class="p">()</span>
+
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">FATAL: A known but unhandled exception reached the topmost exception handler!</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">ERROR:</span><span class="si">{NOCOLOR}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">ex</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">Please report this bug at GitHub: https://GitHub.com/pyTooling/pyTooling.TerminalUI/issues</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">cls</span><span class="o">.</span><span class="n">Foreground</span><span class="p">))</span>
+
+		<span class="bp">cls</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Width</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Returns the current terminal window&#39;s width.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_width</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Returns the current terminal window&#39;s height.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_height</span>
+
+<div class="viewcode-block" id="Terminal.GetTerminalSize"><a class="viewcode-back" href="../../Terminal.html#pyTooling.TerminalUI.Terminal.GetTerminalSize">[docs]</a>	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">GetTerminalSize</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+		<span class="sd">&quot;&quot;&quot;Returns the terminal size as tuple (width, height) for Windows, Mac OS (Darwin), Linux, cygwin (Windows), MinGW32/64 (Windows).&quot;&quot;&quot;</span>
+		<span class="n">size</span> <span class="o">=</span> <span class="kc">None</span>
+
+		<span class="n">platform</span> <span class="o">=</span> <span class="n">platform_system</span><span class="p">()</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">):</span>
+			<span class="n">size</span> <span class="o">=</span> <span class="n">Terminal</span><span class="o">.</span><span class="n">__GetTerminalSizeOnWindows</span><span class="p">()</span>
+		<span class="k">elif</span> <span class="p">((</span><span class="n">platform</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Linux&quot;</span><span class="p">,</span> <span class="s2">&quot;Darwin&quot;</span><span class="p">])</span> <span class="ow">or</span>
+		      <span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;CYGWIN&quot;</span><span class="p">)</span> <span class="ow">or</span>
+		      <span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;MINGW32&quot;</span><span class="p">)</span> <span class="ow">or</span>
+		      <span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;MINGW64&quot;</span><span class="p">)):</span>
+			<span class="n">size</span> <span class="o">=</span> <span class="n">Terminal</span><span class="o">.</span><span class="n">__GetTerminalSizeOnLinux</span><span class="p">()</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+			<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span> <span class="c1"># default size</span>
+		<span class="k">return</span> <span class="n">size</span></div>
+
+	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">__GetTerminalSizeOnWindows</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+		<span class="sd">&quot;&quot;&quot;Returns the current terminal window&#39;s size for Windows.&quot;&quot;&quot;</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">windll</span><span class="p">,</span> <span class="n">create_string_buffer</span>
+			<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span> <span class="k">as</span> <span class="n">struct_unpack</span>
+
+			<span class="n">hStdError</span> <span class="o">=</span>     <span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">GetStdHandle</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span>                  <span class="c1"># stderr handle = -12</span>
+			<span class="n">stringBuffer</span> <span class="o">=</span>  <span class="n">create_string_buffer</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+			<span class="n">result</span> <span class="o">=</span>        <span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">GetConsoleScreenBufferInfo</span><span class="p">(</span><span class="n">hStdError</span><span class="p">,</span> <span class="n">stringBuffer</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+				<span class="p">(</span><span class="n">bufx</span><span class="p">,</span> <span class="n">bufy</span><span class="p">,</span> <span class="n">curx</span><span class="p">,</span> <span class="n">cury</span><span class="p">,</span> <span class="n">wattr</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">maxx</span><span class="p">,</span> <span class="n">maxy</span><span class="p">)</span> <span class="o">=</span> <span class="n">struct_unpack</span><span class="p">(</span><span class="s2">&quot;hhhhHhhhhhh&quot;</span><span class="p">,</span> <span class="n">stringBuffer</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
+				<span class="n">width</span> <span class="o">=</span>   <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span>
+				<span class="n">height</span> <span class="o">=</span>  <span class="n">bottom</span> <span class="o">-</span> <span class="n">top</span> <span class="o">+</span> <span class="mi">1</span>
+				<span class="k">return</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+		<span class="k">except</span><span class="p">:</span>
+			<span class="k">pass</span>
+
+		<span class="k">return</span> <span class="n">Terminal</span><span class="o">.</span><span class="n">__GetTerminalSizeWithTPut</span><span class="p">()</span>
+
+	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">__GetTerminalSizeWithTPut</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+		<span class="kn">from</span> <span class="nn">shlex</span>      <span class="kn">import</span> <span class="n">split</span> <span class="k">as</span> <span class="n">shlex_split</span>
+		<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">check_output</span>
+
+		<span class="k">try</span><span class="p">:</span>
+			<span class="n">width</span> <span class="o">=</span>   <span class="nb">int</span><span class="p">(</span><span class="n">check_output</span><span class="p">(</span><span class="n">shlex_split</span><span class="p">(</span><span class="s1">&#39;tput cols&#39;</span><span class="p">)))</span>
+			<span class="n">height</span> <span class="o">=</span>  <span class="nb">int</span><span class="p">(</span><span class="n">check_output</span><span class="p">(</span><span class="n">shlex_split</span><span class="p">(</span><span class="s1">&#39;tput lines&#39;</span><span class="p">)))</span>
+			<span class="k">return</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+		<span class="k">except</span><span class="p">:</span>
+			<span class="k">pass</span>
+
+	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">__GetTerminalSizeOnLinux</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+		<span class="sd">&quot;&quot;&quot;Returns the current terminal window&#39;s size for Linux.&quot;&quot;&quot;</span>
+		<span class="kn">import</span> <span class="nn">os</span>
+
+		<span class="k">def</span> <span class="nf">ioctl_GWINSZ</span><span class="p">(</span><span class="n">fd</span><span class="p">):</span>
+			<span class="sd">&quot;&quot;&quot;GetWindowSize of file descriptor.&quot;&quot;&quot;</span>
+			<span class="k">try</span><span class="p">:</span>
+				<span class="kn">from</span> <span class="nn">fcntl</span>    <span class="kn">import</span> <span class="n">ioctl</span>      <span class="k">as</span> <span class="n">fcntl_ioctl</span>
+				<span class="kn">from</span> <span class="nn">struct</span>   <span class="kn">import</span> <span class="n">unpack</span>     <span class="k">as</span> <span class="n">struct_unpack</span>
+				<span class="kn">from</span> <span class="nn">termios</span>  <span class="kn">import</span> <span class="n">TIOCGWINSZ</span>
+
+				<span class="k">return</span> <span class="n">struct_unpack</span><span class="p">(</span><span class="s1">&#39;hh&#39;</span><span class="p">,</span> <span class="n">fcntl_ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">TIOCGWINSZ</span><span class="p">,</span> <span class="s1">&#39;1234&#39;</span><span class="p">))</span>
+			<span class="k">except</span><span class="p">:</span>
+				<span class="k">pass</span>
+
+		<span class="c1">#               STDIN              STDOUT             STDERR</span>
+		<span class="n">cr</span> <span class="o">=</span> <span class="n">ioctl_GWINSZ</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">ioctl_GWINSZ</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">ioctl_GWINSZ</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+		<span class="k">if</span> <span class="ow">not</span> <span class="n">cr</span><span class="p">:</span>
+			<span class="k">try</span><span class="p">:</span>
+
+				<span class="n">fd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">ctermid</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">O_RDONLY</span><span class="p">)</span>
+				<span class="n">cr</span> <span class="o">=</span> <span class="n">ioctl_GWINSZ</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+				<span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+			<span class="k">except</span><span class="p">:</span>
+				<span class="k">pass</span>
+		<span class="k">if</span> <span class="ow">not</span> <span class="n">cr</span><span class="p">:</span>
+			<span class="k">try</span><span class="p">:</span>
+				<span class="n">cr</span> <span class="o">=</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;LINES&#39;</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;COLUMNS&#39;</span><span class="p">])</span>
+			<span class="k">except</span><span class="p">:</span>
+				<span class="k">return</span> <span class="kc">None</span>
+		<span class="k">return</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cr</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">cr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="Severity"><a class="viewcode-back" href="../../Severity.html#pyTooling.TerminalUI.Severity">[docs]</a><span class="nd">@export</span>
+<span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">Severity</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;Logging message severity levels.&quot;&quot;&quot;</span>
+
+	<span class="n">Fatal</span> <span class="o">=</span>     <span class="mi">30</span>    <span class="c1">#: Fatal messages</span>
+	<span class="n">Error</span> <span class="o">=</span>     <span class="mi">25</span>    <span class="c1">#: Error messages</span>
+	<span class="n">Quiet</span> <span class="o">=</span>     <span class="mi">20</span>    <span class="c1">#: Always visible messages, even in quiet mode.</span>
+	<span class="ne">Warning</span> <span class="o">=</span>   <span class="mi">15</span>    <span class="c1">#: Warning messages</span>
+	<span class="n">Info</span> <span class="o">=</span>      <span class="mi">10</span>    <span class="c1">#: Informative messages</span>
+	<span class="n">DryRun</span> <span class="o">=</span>     <span class="mi">5</span>    <span class="c1">#: Messages visible in a dry-run</span>
+	<span class="n">Normal</span> <span class="o">=</span>     <span class="mi">4</span>    <span class="c1">#: Normal messages</span>
+	<span class="n">Verbose</span> <span class="o">=</span>    <span class="mi">2</span>    <span class="c1">#: Verbose messages</span>
+	<span class="n">Debug</span> <span class="o">=</span>      <span class="mi">1</span>    <span class="c1">#: Debug messages</span>
+	<span class="n">All</span> <span class="o">=</span>        <span class="mi">0</span>    <span class="c1">#: All messages</span>
+
+	<span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+		<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Severity</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Second operand of type &#39;</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; is not supported by == operator.&quot;</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+		<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Severity</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Second operand of type &#39;</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; is not supported by != operator.&quot;</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+		<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Severity</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span>	<span class="n">other</span><span class="o">.</span><span class="n">value</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Second operand of type &#39;</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; is not supported by &lt; operator.&quot;</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+		<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Severity</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Second operand of type &#39;</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; is not supported by &lt;= operator.&quot;</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+		<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Severity</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span>	<span class="n">other</span><span class="o">.</span><span class="n">value</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Second operand of type &#39;</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; is not supported by &gt; operator.&quot;</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+		<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Severity</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Second operand of type &#39;</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; is not supported by &gt;= operator.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../Line.html#pyTooling.TerminalUI.Line">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">Line</span><span class="p">:</span>
+	<span class="sd">&quot;&quot;&quot;Represents a single line message with a severity and indentation level.&quot;&quot;&quot;</span>
+
+	<span class="n">_LOG_MESSAGE_FORMAT__</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Fatal</span><span class="p">:</span>     <span class="s2">&quot;FATAL: </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>     <span class="s2">&quot;ERROR: </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Warning</span><span class="p">:</span>   <span class="s2">&quot;WARNING: </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Info</span><span class="p">:</span>      <span class="s2">&quot;INFO: </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Quiet</span><span class="p">:</span>     <span class="s2">&quot;</span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Normal</span><span class="p">:</span>    <span class="s2">&quot;</span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Verbose</span><span class="p">:</span>   <span class="s2">&quot;VERBOSE: </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Debug</span><span class="p">:</span>     <span class="s2">&quot;DEBUG: </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">DryRun</span><span class="p">:</span>    <span class="s2">&quot;DRYRUN: </span><span class="si">{message}</span><span class="s2">&quot;</span>
+	<span class="p">}</span>                     <span class="c1">#: Terminal messages formatting rules</span>
+
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="n">Severity</span><span class="o">.</span><span class="n">Normal</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Constructor for a new ``Line`` object.&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_severity</span> <span class="o">=</span>        <span class="n">severity</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_message</span> <span class="o">=</span>         <span class="n">message</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_indent</span> <span class="o">=</span>          <span class="n">indent</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">AppendLinebreak</span> <span class="o">=</span>  <span class="n">appendLinebreak</span>
+
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Severity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Severity</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Return the line&#39;s severity level.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_severity</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Indent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Return the line&#39;s indentation level.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_indent</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Message</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Return the indented line.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="p">(</span><span class="s2">&quot;  &quot;</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_indent</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_message</span>
+
+<div class="viewcode-block" id="Line.IndentBy"><a class="viewcode-back" href="../../Line.html#pyTooling.TerminalUI.Line.IndentBy">[docs]</a>	<span class="k">def</span> <span class="nf">IndentBy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Increase a line&#39;s indentation level.&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_indent</span> <span class="o">+=</span> <span class="n">indent</span></div>
+
+	<span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Returns a formatted version of a ``Line`` objects as a string.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LOG_MESSAGE_FORMAT__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_severity</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_message</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ILineTerminal"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ILineTerminal</span><span class="p">:</span>
+	<span class="sd">&quot;&quot;&quot;A mixin class (interface) to provide class-local terminal writing methods.&quot;&quot;&quot;</span>
+
+	<span class="n">_terminal</span> <span class="o">=</span> <span class="kc">None</span>
+
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terminal</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;MixIn initializer.&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="o">=</span> <span class="n">terminal</span>
+
+		<span class="c1"># FIXME: Alter methods if a terminal is present or set dummy methods</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Terminal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Terminal</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Return the local terminal instance.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span>
+
+<div class="viewcode-block" id="ILineTerminal.WriteLine"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteLine">[docs]</a>	<span class="k">def</span> <span class="nf">WriteLine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span> <span class="p">:</span> <span class="n">Line</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write an entry to the local terminal.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+	<span class="c1"># def _TryWriteLine(self, *args, condition=True, **kwargs):</span>
+	<span class="c1"># 	if ((self._terminal is not None) and condition):</span>
+	<span class="c1"># 		return self._terminal.TryWrite(*args, **kwargs)</span>
+	<span class="c1"># 	return False</span>
+
+<div class="viewcode-block" id="ILineTerminal.WriteFatal"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteFatal">[docs]</a>	<span class="k">def</span> <span class="nf">WriteFatal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write a fatal message if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteFatal</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ILineTerminal.WriteError"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteError">[docs]</a>	<span class="k">def</span> <span class="nf">WriteError</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write an error message if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteError</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ILineTerminal.WriteWarning"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteWarning">[docs]</a>	<span class="k">def</span> <span class="nf">WriteWarning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write a warning message if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteWarning</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ILineTerminal.WriteInfo"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteInfo">[docs]</a>	<span class="k">def</span> <span class="nf">WriteInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write a info message if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteInfo</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ILineTerminal.WriteQuiet"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteQuiet">[docs]</a>	<span class="k">def</span> <span class="nf">WriteQuiet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write a message even in quiet mode if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteQuiet</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ILineTerminal.WriteNormal"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteNormal">[docs]</a>	<span class="k">def</span> <span class="nf">WriteNormal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write a *normal* message if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteNormal</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ILineTerminal.WriteVerbose"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteVerbose">[docs]</a>	<span class="k">def</span> <span class="nf">WriteVerbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write a verbose message if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteVerbose</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ILineTerminal.WriteDebug"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteDebug">[docs]</a>	<span class="k">def</span> <span class="nf">WriteDebug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write a debug message if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteDebug</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ILineTerminal.WriteDryRun"><a class="viewcode-back" href="../../ILineTerminal.html#pyTooling.TerminalUI.ILineTerminal.WriteDryRun">[docs]</a>	<span class="k">def</span> <span class="nf">WriteDryRun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Write a dry-run message if ``condition`` is true.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="n">condition</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_terminal</span><span class="o">.</span><span class="n">WriteDryRun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">False</span></div></div>
+
+
+<div class="viewcode-block" id="LineTerminal"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">LineTerminal</span><span class="p">(</span><span class="n">Terminal</span><span class="p">,</span> <span class="n">ILineTerminal</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">ExtendedType</span><span class="p">,</span> <span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">writeToStdOut</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Initializer of a line based terminal interface.&quot;&quot;&quot;</span>
+		<span class="n">Terminal</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+		<span class="n">ILineTerminal</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span> <span class="o">=</span>       <span class="kc">True</span> <span class="k">if</span> <span class="n">debug</span> <span class="k">else</span> <span class="n">verbose</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_debug</span> <span class="o">=</span>         <span class="n">debug</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_quiet</span> <span class="o">=</span>         <span class="n">quiet</span>
+
+		<span class="k">if</span> <span class="n">quiet</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_WriteLevel</span> <span class="o">=</span>  <span class="n">Severity</span><span class="o">.</span><span class="n">Quiet</span>
+		<span class="k">elif</span> <span class="n">debug</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_WriteLevel</span> <span class="o">=</span>  <span class="n">Severity</span><span class="o">.</span><span class="n">Debug</span>
+		<span class="k">elif</span> <span class="n">verbose</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_WriteLevel</span> <span class="o">=</span>  <span class="n">Severity</span><span class="o">.</span><span class="n">Verbose</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_WriteLevel</span> <span class="o">=</span>  <span class="n">Severity</span><span class="o">.</span><span class="n">Normal</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">_writeToStdOut</span> <span class="o">=</span> <span class="n">writeToStdOut</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_lines</span> <span class="o">=</span>         <span class="p">[]</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">=</span>    <span class="mi">0</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">_errorCounter</span> <span class="o">=</span>   <span class="mi">0</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_warningCounter</span> <span class="o">=</span> <span class="mi">0</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Returns true, if verbose messages are enabled.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Debug</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Returns true, if debug messages are enabled.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_debug</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Quiet</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Returns true, if quiet mode is enabled.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_quiet</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">LogLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Severity</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Return the current minimal severity level for writing.&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_WriteLevel</span>
+	<span class="nd">@LogLevel</span><span class="o">.</span><span class="n">setter</span>
+	<span class="k">def</span> <span class="nf">LogLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Severity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Set the minimal severity level for writing.&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_WriteLevel</span> <span class="o">=</span> <span class="n">value</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">BaseIndent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span>
+	<span class="nd">@BaseIndent</span><span class="o">.</span><span class="n">setter</span>
+	<span class="k">def</span> <span class="nf">BaseIndent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">=</span> <span class="n">value</span>
+
+	<span class="n">_LOG_MESSAGE_FORMAT__</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Fatal</span><span class="p">:</span>   <span class="s2">&quot;</span><span class="si">{DARK_RED}</span><span class="s2">[FATAL] </span><span class="si">{message}{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>   <span class="s2">&quot;</span><span class="si">{RED}</span><span class="s2">[ERROR] </span><span class="si">{message}{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Quiet</span><span class="p">:</span>   <span class="s2">&quot;</span><span class="si">{WHITE}{message}{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Warning</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{YELLOW}</span><span class="s2">[WARNING]</span><span class="si">{message}{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Info</span><span class="p">:</span>    <span class="s2">&quot;</span><span class="si">{WHITE}{message}{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">DryRun</span><span class="p">:</span>  <span class="s2">&quot;</span><span class="si">{DARK_CYAN}</span><span class="s2">[DRY] </span><span class="si">{message}{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Normal</span><span class="p">:</span>  <span class="s2">&quot;</span><span class="si">{WHITE}{message}{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Verbose</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{GRAY}{message}{NOCOLOR}</span><span class="s2">&quot;</span><span class="p">,</span>
+		<span class="n">Severity</span><span class="o">.</span><span class="n">Debug</span><span class="p">:</span>   <span class="s2">&quot;</span><span class="si">{DARK_GRAY}{message}{NOCOLOR}</span><span class="s2">&quot;</span>
+	<span class="p">}</span>                   <span class="c1">#: Message formatting rules.</span>
+
+<div class="viewcode-block" id="LineTerminal.ExitOnPreviousErrors"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.ExitOnPreviousErrors">[docs]</a>	<span class="k">def</span> <span class="nf">ExitOnPreviousErrors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Exit application if errors have been printed.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_errorCounter</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">WriteFatal</span><span class="p">(</span><span class="s2">&quot;Too many errors in previous steps.&quot;</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">fatalExit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="LineTerminal.ExitOnPreviousWarnings"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.ExitOnPreviousWarnings">[docs]</a>	<span class="k">def</span> <span class="nf">ExitOnPreviousWarnings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="sd">&quot;&quot;&quot;Exit application if warnings have been printed.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warningCounter</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">WriteError</span><span class="p">(</span><span class="s2">&quot;Too many warnings in previous steps.&quot;</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteLine"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteLine">[docs]</a>	<span class="k">def</span> <span class="nf">WriteLine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span> <span class="p">:</span> <span class="n">Line</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot;Print a formatted line to the underlying terminal/console offered by the operating system.&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">Severity</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_WriteLevel</span><span class="p">):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_writeToStdOut</span><span class="p">:</span>
+				<span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_LOG_MESSAGE_FORMAT__</span><span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">Severity</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">Message</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">Foreground</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">AppendLinebreak</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+			<span class="k">return</span> <span class="kc">True</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">return</span> <span class="kc">False</span></div>
+
+	<span class="k">def</span> <span class="nf">TryWriteLine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+		<span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">Severity</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_WriteLevel</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LineTerminal.WriteFatal"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteFatal">[docs]</a>	<span class="k">def</span> <span class="nf">WriteFatal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">immediateExit</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">Fatal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span>
+		<span class="k">if</span> <span class="n">immediateExit</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">fatalExit</span><span class="p">()</span>
+		<span class="k">return</span> <span class="n">ret</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteError"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteError">[docs]</a>	<span class="k">def</span> <span class="nf">WriteError</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_errorCounter</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">Error</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteWarning"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteWarning">[docs]</a>	<span class="k">def</span> <span class="nf">WriteWarning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_warningCounter</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">Warning</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteInfo"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteInfo">[docs]</a>	<span class="k">def</span> <span class="nf">WriteInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">Info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteQuiet"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteQuiet">[docs]</a>	<span class="k">def</span> <span class="nf">WriteQuiet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">Quiet</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteNormal"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteNormal">[docs]</a>	<span class="k">def</span> <span class="nf">WriteNormal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">Normal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteVerbose"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteVerbose">[docs]</a>	<span class="k">def</span> <span class="nf">WriteVerbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">Verbose</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteDebug"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteDebug">[docs]</a>	<span class="k">def</span> <span class="nf">WriteDebug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">Debug</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LineTerminal.WriteDryRun"><a class="viewcode-back" href="../../LineTerminal.html#pyTooling.TerminalUI.LineTerminal.WriteDryRun">[docs]</a>	<span class="k">def</span> <span class="nf">WriteDryRun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Line</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">Severity</span><span class="o">.</span><span class="n">DryRun</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_baseIndent</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">appendLinebreak</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2007-2022, Patrick Lehmann.
+      <span class="lastupdated">Last updated on 05.10.2022.
+      </span></p>
+  </div>Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
